@@ -3,6 +3,9 @@ using UnityEngine.UIElements;
 
 namespace BulletForge.Windows
 {
+    /// <summary>
+    /// Contains the graph view and other elements that make up the pattern graph window
+    /// </summary>
     public class BFEditorWindow : EditorWindow
     {
         [MenuItem("BulletForge/Pattern Graph")]
@@ -12,7 +15,9 @@ namespace BulletForge.Windows
             GetWindow<BFEditorWindow>("Pattern Graph"); 
         }
         
-        // This method is called when the window is opened.
+        /// <summary>
+        /// Called when the window is opened.
+        /// </summary>
         private void CreateGUI()
         {
             AddGraphView();
@@ -20,6 +25,9 @@ namespace BulletForge.Windows
             AddStyles();
         }
         
+        /// <summary>
+        /// Adds a GraphView to the window
+        /// </summary>
         private void AddGraphView()
         {
             // Create a new GraphView
@@ -28,6 +36,9 @@ namespace BulletForge.Windows
             rootVisualElement.Add(graphView);
         }
         
+        /// <summary>
+        /// Applies the visual parameters within the stylesheet to the window
+        /// </summary>
         private void AddStyles()
         {
             StyleSheet styleSheet = EditorGUIUtility.Load("BulletForge/BFVariables.uss") as StyleSheet;
