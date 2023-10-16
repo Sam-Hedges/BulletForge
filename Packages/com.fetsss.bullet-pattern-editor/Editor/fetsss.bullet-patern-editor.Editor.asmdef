@@ -1,0 +1,18 @@
+{
+    "name": "fetsss.bulletpaterneditor.Editor",
+    "rootNamespace": "BB",
+    "references": [
+        "GUID:fa7efb9956f751448b40d3e58ab35f05"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

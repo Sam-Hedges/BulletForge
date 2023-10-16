@@ -1,0 +1,16 @@
+{
+    "name": "fetsss.bullet-pattern-editor.Sample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fa7efb9956f751448b40d3e58ab35f05"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
