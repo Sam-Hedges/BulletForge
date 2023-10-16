@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <repeat>
+    <times>99999</times>
+    <action>
+    
+      <actionRef label="p">
+        <param>245</param>
+        <param>-1</param>
+      </actionRef>
+      <actionRef label="p">
+        <param>295</param>
+        <param>1</param>
+      </actionRef>
+      
+      <actionRef label="p_mirror">
+        <param>65</param>
+        <param>-1</param>
+      </actionRef>
+      <actionRef label="p_mirror">
+        <param>115</param>
+        <param>1</param>
+      </actionRef>
+      
+      <wait>15</wait>
+
+    </action>
+    </repeat>
+  </action>
+  
+  <action label="p">
+
+   <trigger>attack2</trigger>
+    
+   <repeat>
+      <times>4</times>
+      <action>
+        <fire>
+          <setDirection type="absolute">$1</setDirection>
+          <direction type="sequence">20 * $2</direction>
+
+          <bullet label="bullet_homing">
+            <speed>0.075</speed>
+            <action>
+              <changeDirection>
+                <direction type="absolute">270</direction>
+                <term>100</term>
+              </changeDirection>
+            </action>
+          </bullet>
+
+        </fire>
+      </action>
+    </repeat>
+  
+  </action>
+  
+  <action label="p_mirror">
+  
+   <repeat>
+      <times>4</times>
+      <action>
+        <fire>
+          <setDirection type="absolute">$1</setDirection>
+          <direction type="sequence">20 * $2</direction>
+
+          <bullet label="bullet_homing">
+            <speed>0.075</speed>
+            <action>
+              <changeDirection>
+                <direction type="absolute">90</direction>
+                <term>100</term>
+              </changeDirection>
+            </action>
+          </bullet>
+
+        </fire>
+      </action>
+    </repeat>
+  
+  </action>
+</bulletml>

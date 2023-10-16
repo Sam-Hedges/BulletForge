@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <repeat>
+    <times>99999</times>
+    <action>
+    
+      <actionRef label="p">
+        <param>45</param>
+      </actionRef>
+      <actionRef label="p">
+        <param>135</param>
+      </actionRef>
+      <actionRef label="p">
+        <param>225</param>
+      </actionRef>
+      <actionRef label="p">
+        <param>315</param>
+      </actionRef>
+      
+      <wait>180</wait>
+      
+      <actionRef label="p">
+        <param>0</param>
+      </actionRef>
+      <actionRef label="p">
+        <param>180</param>
+      </actionRef>
+      <actionRef label="p">
+        <param>270</param>
+      </actionRef>
+      <actionRef label="p">
+        <param>90</param>
+      </actionRef>
+      
+      <wait>180</wait>
+
+    </action>
+    </repeat>
+  </action>
+  
+  <action label="p">
+    <trigger>attack1</trigger>
+    <fire>
+      <direction type="absolute">$1</direction>
+      <bullet label="bullet_frag">
+        <speed>0.15</speed>
+        <action>
+          <wait>20</wait>
+          <changeSpeed>
+            <speed>0.05</speed>
+            <term>5</term>
+          </changeSpeed>
+          
+          <repeat>
+          <times>5</times>
+          <action>
+
+            <trigger>sound=fregateMKI_A2</trigger>            
+
+            <repeat>
+            <times>6</times>
+            <action>
+              <fire>
+                <setDirection type="absolute">$1</setDirection>
+                <direction type="sequence">60</direction>
+                <speed>0.075</speed>
+                <bullet label="blast_normal">
+                </bullet>
+              </fire>
+            </action>
+            </repeat>
+            <wait>45</wait>
+            
+          </action>
+          </repeat>
+          <vanish />
+        </action>
+        
+      </bullet>
+    </fire>
+  
+  </action>
+</bulletml>

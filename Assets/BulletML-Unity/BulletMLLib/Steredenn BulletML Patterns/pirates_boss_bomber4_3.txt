@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    
+    <repeat>
+    <times>99999</times>
+    <action>
+    
+      <actionRef label="p">
+        <param>270</param>
+      </actionRef>
+      
+      <wait>10</wait>
+            
+      <actionRef label="p2">
+      </actionRef>
+       
+      <wait>90</wait>
+      
+    
+    </action>
+    </repeat>
+  </action>
+  
+  <action label="p">
+      
+      <repeat>
+      <times>4</times>
+      <action>
+         <wait>10</wait>
+         <trigger>attack3</trigger>
+         <fire>
+          <setDirection type="absolute">$1</setDirection>
+          <direction type="sequence">15</direction>
+          <bulletRef label="bullet_normal" />
+         </fire>
+         <fire>
+          <setDirection type="absolute">$1</setDirection>
+          <direction type="sequence">-15</direction>
+          <bulletRef label="bullet_normal" />
+         </fire>
+      </action>
+      </repeat>
+      <wait>10</wait>
+  </action>
+  
+  <action label="p2">
+    <trigger>attack3_2</trigger>
+	<repeat>
+	<times>9</times>
+	<action>
+	 <fire>
+	  <setDirection type="absolute">135</setDirection>
+	  <direction type="sequence">-10</direction>
+	  <speed>0.42</speed>
+	  <bullet label="blast_homing" />
+	 </fire>
+	</action>
+	</repeat>
+  </action>
+  
+  <bullet label="bullet_normal">
+    <speed>0.3</speed>
+    <action>
+      <repeat>
+        <times>99</times>
+        <action>
+          <fire>
+            <direction type="relative">0</direction>
+            
+            <bullet label="blast_normal" >
+              <speed>0.2</speed>
+              <action>
+              <changeSpeed>
+                <speed>0</speed>
+                <term>20</term>
+              </changeSpeed>
+              <wait>20</wait>
+              <!---<wait>120</wait>-->
+              <vanish />
+              </action>
+            </bullet>
+          </fire>
+          <wait>7</wait>
+        </action>
+      </repeat>
+    </action>
+  </bullet>
+  
+</bulletml>

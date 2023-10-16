@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Loop -->
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <actionRef label="pattern1" >
+          <param>200</param>
+        </actionRef>
+        <wait>50</wait>
+        <actionRef label="pattern1" >
+          <param>245</param>
+        </actionRef>
+        <wait>25</wait>
+        <actionRef label="pattern2" >
+        </actionRef>
+        <wait>25</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <action label="pattern1">
+    <trigger>attack_blue</trigger>
+    <trigger>sound=motherShip_K</trigger>
+    <repeat>
+      <times>36</times>
+      <action>
+        <fire>
+          <setDirection type="absolute">$1</setDirection>
+          <direction type="sequence">10</direction>
+          <bullet label="bullet_normal">
+            <speed>0.05</speed>
+          </bullet>
+        </fire>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="pattern2">
+    <trigger>attack_pink</trigger>
+    <trigger>sound=motherShip_L</trigger>
+    <fire>
+      <bulletRef label="bullet_homing" />
+    </fire>
+  </action>
+
+  <bullet label="bullet_homing">
+    <speed>0.15 + $rank * 0.2</speed>
+    <action>
+      <changeDirection>
+        <direction type="aim">0</direction>
+        <term>0</term>
+      </changeDirection>
+      <changeSpeed>
+        <speed>0.3</speed>
+        <term>120</term>
+      </changeSpeed>
+    </action>
+  </bullet>
+
+</bulletml>

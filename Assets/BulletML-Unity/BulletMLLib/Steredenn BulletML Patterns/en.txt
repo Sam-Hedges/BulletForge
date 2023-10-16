@@ -1,0 +1,639 @@
+English
+English
+#######
+
+# @@@@@@@@@@@@@
+# Version: 1.00
+# @@@@@@@@@@@@@
+
+# -------------------------------------------------------
+# Global.
+# -------------------------------------------------------
+
+Game = Steredenn
+
+Common_Play       = Play
+Common_Exit       = Exit
+Common_Start      = Start
+Common_Back       = Back
+Common_Restart    = Restart
+Common_Pause      = Pause
+Common_Coop       = Coop
+
+Common_Previous   = Prev.
+Common_Next       = Next
+
+Common_Menu       = Menu
+Common_Settings   = Settings
+Common_Scores     = Scores
+Common_Challenges = Challenges
+Common_Arena      = Arena
+Common_Daily      = Daily Run
+Common_Credits    = Credits
+
+Common_Yes        = Yes
+Common_No         = No
+Common_None       = None
+
+Common_Completed  = Completed
+
+Common_End        = The End
+
+# -------------------------------------------------------
+# Main menu.
+# -------------------------------------------------------
+
+Main_Overlay_Production = a PIXELNEST STUDIO production
+Main_Overlay_Present    = PIXELNEST STUDIO and PLUS present
+Main_Overlay_Start      = Press any button to start
+
+Main_Button_Play        = $Common_Play
+Main_Button_Superplay   = Superplay
+Main_Button_Coop        = $Common_Coop
+Main_Button_Arena       = $Common_Arena
+Main_Button_Challenges  = $Common_Challenges
+Main_Button_Daily       = $Common_Daily
+Main_Button_Scores      = $Common_Scores
+Main_Button_Settings    = $Common_Settings
+Main_Button_Credits     = $Common_Credits
+Main_Button_Exit        = $Common_Exit
+
+Main_Unlock_Offline     = Connection Required
+Main_Unlock_Superplay   = Finish the game once
+Main_Unlock_Arena       = Beat one boss
+
+Main_Profile_Nickname   = Guest
+Main_Profile_Change     = Change Profile
+
+# -------------------------------------------------------
+# Controls.
+# -------------------------------------------------------
+
+Controls_Panel_Title       = Controls
+Controls_Panel_Gamepad     = For maximum greatness, use a gamepad
+
+Controls_Movement_Title    = Move
+Controls_Movement_Subtitle = (Unlimited fuel)
+Controls_Action1_Title     = Shoot
+Controls_Action1_Subtitle  = (Unlimited ammo)
+Controls_Action2_Title     = Pick bonus
+Controls_Action2_Subtitle  = (Weapon or Upgrade)
+Controls_Action3_Title     = Swap weapons
+Controls_Action3_Subtitle  = (Two weapons max)
+
+Controls_Button_Tutorial   = Tutorial
+Controls_Button_Start      = $Common_Start
+Controls_Button_Back       = $Common_Back
+
+# -------------------------------------------------------
+# Superplay.
+# -------------------------------------------------------
+
+Superplay_Panel_Title       = Superplay
+Superplay_Panel_Description = The [ED9301]Superplay[-] mode has [ED9301]no random[-] for [ED9301]waves[-], [ED9301]upgrades[-] and [ED9301]weapons[-].
+Superplay_Panel_Explanation = Superplay is a special mode that removes some random parameters from the game (waves selection, upgrades and weapons).\n\nThis way, you can confront your friends on a fixed variant of the game and see who is the best. It's also great for speedruns, trainings and videos.\n\n\n[ED9301]Warning:[-] your score is not saved on the leaderboards in this mode.
+Superplay_Panel_Variant     = Choose a variant of the game below:
+
+Superplay_Button_Previous   = $Common_Previous
+Superplay_Button_Next       = $Common_Next
+Superplay_Button_Reset      = Reset
+Superplay_Button_Random     = Random
+Superplay_Button_Start      = $Common_Start
+Superplay_Button_Back       = $Common_Back
+
+# -------------------------------------------------------
+# Daily Run.
+# -------------------------------------------------------
+
+Daily_Panel_Title       = $Common_Daily
+
+Daily_Panel_Loading     = Loading...
+Daily_Panel_Unplayed    = You have not played today
+Daily_Panel_Normal      = Today is a normal run
+Daily_Panel_Today       = Today is
+Daily_Panel_Weapons     = Weapons
+Daily_Panel_Cargos      = Without Cargos
+Daily_Panel_Result      = Rank [ED9301]{0}[-] & Score [ED9301]{1}[-]
+
+Daily_Panel_Explanation = Try yourself in the Daily Runs - and [ED9301]face the whole world[-]. You got [ED9301]only one chance per day[-] to be the best. All players share the same levels, upgrades and weapons. Every day is a new fearsome fight!
+
+Daily_Button_Play       = Play today's run
+Daily_Button_Tomorrow   = Next daily run in {0}
+
+# -------------------------------------------------------
+# Settings.
+# -------------------------------------------------------
+
+Settings_Panel_Title          = $Common_Settings
+
+Settings_Panel_Sound          = Sound
+Settings_Panel_Music          = Music
+
+Settings_Panel_CinemaLabel    = Cinema
+Settings_Panel_CinemaInfo     = [no in-game HUD]
+
+Settings_Panel_FlashLabel     = Flash
+Settings_Panel_FlashInfo      = [flash when hit]
+
+Settings_Panel_VibrationLabel = Vibration
+Settings_Panel_VibrationInfo  = [gamepad only]
+
+Settings_Panel_LangLabel      = Default
+Settings_Panel_LangInfo       = [language]
+
+# -
+
+Settings_Mappings_Title = Mappings
+
+Settings_Panel_Swap     = Swap
+Settings_Panel_Pick     = Pick
+
+Settings_Keyboard_Up     = Move Up
+Settings_Keyboard_Down   = Move Down
+Settings_Keyboard_Left   = Move Left
+Settings_Keyboard_Right  = Move Right
+Settings_Keyboard_Shoot  = Shoot
+Settings_Keyboard_Pick   = Pick Bonus
+Settings_Keyboard_Swap   = Swap Weapons
+Settings_Keyboard_Pause  = $Common_Pause
+
+Settings_Keyboard_Reset  = Reset to defaults
+Settings_Keyboard_Error  = This key is already used
+
+# -
+
+Settings_Graphics_Title           = Graphics
+
+Settings_Graphics_DisplayLabel    = Full Screen
+Settings_Graphics_DisplayInfo     = [display]
+
+Settings_Graphics_ResolutionLabel = 1920*1080
+Settings_Graphics_ResolutionInfo  = [resolution]
+
+Settings_Graphics_Warning         = Modifying the resolution will restart the game.
+
+# -
+
+Settings_Header_Gamepad      = Gamepad
+Settings_Header_Keyboard     = Keyboard
+
+Settings_Button_More         = Increase
+Settings_Button_Less         = Decrease
+Settings_Button_Toggle       = Toggle
+Settings_Button_Ok           = Ok
+Settings_Button_Back         = $Common_Back
+
+Settings_Button_ShowMappings = Mappings
+Settings_Button_ShowGraphics = Graphics
+
+# -------------------------------------------------------
+# Scores.
+# -------------------------------------------------------
+
+Scores_Panel_Title         = $Common_Scores
+
+Scores_Button_Previous     = $Common_Previous
+Scores_Button_Next         = $Common_Next
+Scores_Button_Detail       = Detail
+Scores_Button_Achievements = Achievements
+Scores_Button_ShowFriends  = Friends
+Scores_Button_ShowAll      = All
+Scores_Button_FocusMe      = Focus on me
+Scores_Button_FocusFirst   = Focus on first
+Scores_Button_Back         = $Common_Back
+
+Scores_Profile_Nickname    = Guest
+
+# -------------------------------------------------------
+# Credits.
+# -------------------------------------------------------
+
+Credits_Panel_Title = $Common_Credits
+
+Credits_Section_Collaborators = Collaborators
+Credits_Section_Engines       = Engines
+Credits_Section_Libraries     = Libraries
+Credits_Section_Special       = Special Thanks
+
+# -------------------------------------------------------
+# Game Over.
+# -------------------------------------------------------
+
+Over_Button_Restart = Try Again
+Over_Button_Scores  = $Common_Scores
+Over_Button_Menu    = $Common_Menu
+
+Over_Label_Combo    = [Combo]
+Over_Label_Loop     = [Loop]
+
+# -------------------------------------------------------
+# Arena.
+# -------------------------------------------------------
+
+Arena_Boss_Title          = Arena - Boss
+
+Arena_Boss_StatTitle      = $Common_Completed
+Arena_Boss_StatOne        = 1 weapon
+Arena_Boss_StatTwo        = 2 weapons
+Arena_Boss_StatYes        = $Common_Yes
+Arena_Boss_StatNo         = $Common_No
+
+Arena_Boss_Locked         = Locked
+Arena_Boss_Unlocked       = Unlocked
+Arena_Boss_NonIdentified  = Non-identified
+Arena_Boss_NotAvailable   = Not available yet
+
+Arena_Weapons_Title       = Arena - Weapons
+Arena_Weapons_FirstEmpty  = No primary weapon
+Arena_Weapons_SecondEmpty = Secondary slot empty
+Arena_Weapons_Primary     = Primary Weapon
+Arena_Weapons_Secondary   = Secondary Weapon
+
+Arena_Button_Start        = $Common_Start
+Arena_Button_Select       = Select
+Arena_Button_First        = First Weapon
+Arena_Button_Second       = Second Weapon
+Arena_Button_Previous     = $Common_Previous
+Arena_Button_Next         = $Common_Next
+Arena_Button_Back         = $Common_Back
+
+# -------------------------------------------------------
+# Challenges.
+# -------------------------------------------------------
+
+Challenges_Panel_Title     = $Common_Challenges
+Challenges_Panel_Completed = $Common_Completed
+
+Challenges_Button_Start    = $Common_Start
+Challenges_Button_Back     = $Common_Back
+Challenges_Button_Previous = $Common_Previous
+Challenges_Button_Next     = $Common_Next
+
+# -------------------------------------------------------
+# Challenge Over.
+# -------------------------------------------------------
+
+ChallengeOver_Button_Retry     = Retry
+ChallengeOver_Button_Menu      = $Common_Menu
+
+ChallengeOver_Result_Success   = Success
+ChallengeOver_Result_Failure   = Failure
+
+ChallengeOver_Label_Time       = [Time]
+ChallengeOver_Label_HP         = [HP]
+
+ChallengeOver_Label_Weapon1    = [Weapon 1]
+ChallengeOver_Label_Weapon2    = [Weapon 2]
+ChallengeOver_Label_WeaponNone = $Common_None
+
+# -------------------------------------------------------
+# Pause.
+# -------------------------------------------------------
+
+Pause_Panel_Title     = #Pause
+Pause_Panel_Restart   = Go!
+
+Pause_Button_Resume   = Resume
+Pause_Button_Restart  = $Common_Restart
+Pause_Button_Settings = $Common_Settings
+Pause_Button_Menu     = $Common_Menu
+
+# -------------------------------------------------------
+# Coop.
+# -------------------------------------------------------
+
+Coop_Panel_Title = $Common_Coop
+
+Coop_P1_Title    = Player 1
+Coop_P2_Title    = Player 2
+
+# -------------------------------------------------------
+# Game UI.
+# -------------------------------------------------------
+
+HUD_Indicator_Time = Time
+HUD_Empty_Weapon   = Empty
+
+HUD_Wave_Destroy   = Destroy
+HUD_Wave_Dodge     = Dodge
+HUD_Wave_Boss      = Boss
+
+# -------------------------------------------------------
+# Events.
+# -------------------------------------------------------
+
+Event_Background_Sunburn   = Sunburn
+Event_Background_Ruins     = Ruins
+
+Event_Random_AsteroidField = Asteroid Field
+Event_Random_MeteorShower  = Meteor Shower
+Event_Random_Battlefield   = Battlefield
+Event_Random_Minefield     = Minefield
+Event_Random_LaserRain     = Laser Rain
+Event_Random_Nemesis       = Nemesis
+
+# -------------------------------------------------------
+# Bosses.
+# -------------------------------------------------------
+
+Boss_Name_Bomber     = Bomber
+Boss_Name_Frigate    = Frigate
+Boss_Name_Destroyer  = Destroyer
+Boss_Name_Cruiser    = Cruiser
+Boss_Name_Carrier    = Carrier
+Boss_Name_Battleship = Battleship
+Boss_Name_Mothership = Mothership
+Boss_Name_Nemesis    = Nemesis
+
+Boss_Achievement_Bomber     = One Small Step
+Boss_Achievement_Frigate    = Giant Leap
+Boss_Achievement_Destroyer  = LASER!
+Boss_Achievement_Cruiser    = A bit closer to Heaven
+Boss_Achievement_Carrier    = They're everywhere
+Boss_Achievement_Battleship = The Bullets before the Storm
+Boss_Achievement_Mothership = The Beginning and The End
+Boss_Achievement_Nemesis    = Rebel
+
+# -------------------------------------------------------
+# Classes.
+# -------------------------------------------------------
+
+Weapon_Class_None    = $Common_None
+
+Weapon_Class_Bullet  = Bullet
+Weapon_Class_Energy  = Energy
+Weapon_Class_Heavy   = Heavy
+Weapon_Class_Contact = Contact
+Weapon_Class_Bot     = Bots
+Weapon_Class_Shield  = Shield
+
+# -------------------------------------------------------
+# Upgrades.
+# -------------------------------------------------------
+
+Upgrade_Class_Offense = Offense
+Upgrade_Class_Defense = Defense
+Upgrade_Class_Tech    = Tech
+Upgrade_Class_Score   = Score
+
+### Details
+
+Upgrade_None                    = $Common_None
+
+### General
+
+# Offense
+Upgrade_Offense_Damage          = Weapons deal {0} damages
+Upgrade_Offense_Reload          = Weapons reload faster
+Upgrade_Offense_ShieldBreaker   = Weapons break enemy shields
+Upgrade_Offense_ContactShock    = Unleash a shockwave on collision
+
+# Defense
+Upgrade_Defense_Health          = {0} health points
+Upgrade_Defense_Backfire        = Reflect damages when hit
+Upgrade_Defense_Collision       = Collisions deal less damages
+Upgrade_Defense_Laser           = Absorb lasers temporarily
+
+# Tech
+Upgrade_Tech_Swap               = Keep on shooting after swap
+Upgrade_Tech_Cargo              = {0} cargo per level
+Upgrade_Tech_OneShotPerPress    = Semi-automatic weapons are fully automatic
+Upgrade_Tech_Shield             = Build a shield when not firing
+
+# Score
+Upgrade_Score_Bonus             = {0} score
+Upgrade_Score_ComboBonus        = More combo per wave
+Upgrade_Score_ComboLoss         = Reduce combo loss
+Upgrade_Score_AllowOneMiss      = One more chance to complete a wave
+
+### Specific
+
+# Weapon - All
+Upgrade_WeaponAll_Damage        = {0} damages
+Upgrade_WeaponAll_Drop          = {0} drop & {1} damages
+
+# Weapon - Bullet
+Upgrade_WeaponBullet_Cannon     = Autocannon
+
+# Weapon - Energy
+Upgrade_WeaponEnergy_Instant    = Raygun & Vaporize rocks and junks
+
+# Weapon - Heavy
+Upgrade_WeaponHeavy_Area        = Minirockets & Bigger radius
+
+# Weapon - Contact
+Upgrade_WeaponContact_Damage    = {0} damages
+
+# Weapon - Bot
+Upgrade_WeaponBot               = Harder, Better, Faster, Stronger
+
+# Weapon - Shield
+Upgrade_WeaponShield            = Last longer & Reload faster
+
+# -------------------------------------------------------
+# Tutorial.
+# -------------------------------------------------------
+
+Tutorial_Virtual   = Hi, Captain.\n\n[7F7D7D]Activating virtual mode and arming. Turning on music.[-]
+
+Tutorial_Move      = Ok! [ED9301]Let's move this ship around.[-]
+
+Tutorial_Shoot     = You see the button above? Press it to shoot.\n\nAnd... [ED9301]destroy everything![-]
+
+Tutorial_UI_1      = We are a bit blind for the moment. Let's enable the [ED9301]Combat Interface[-].
+Tutorial_UI_Better = Better, right?
+Tutorial_UI_2      = [ED9301]This is our armor.[-] If the bar is empty, we die.\n\n[FFE3B4]Killing a Boss is the only way to repair our ship.[-]
+Tutorial_UI_3      = [ED9301]This is our weapons.[-] We can carry two of them at the same time.\n\n[FFE3B4]Choosing a good combination of weapons is critical.[-]
+Tutorial_UI_4      = [ED9301]This is our score.[-]\n\nThere's a global score, along with the wave score and our [ED9301]combo[-] multiplier.
+
+Tutorial_Damages_1 = Weapons have [ED9301]strengths[-] and [ED9301]weaknesses[-].
+Tutorial_Damages_2 = Shoot the first unprotected rock.\n\nThe [FF1C00]red color[-] indicates [ED9301]normal damages[-].
+Tutorial_Damages_3 = Now, shoot the second armored one.\n\nThe [FF8A04]orange color[-] means that the enemy is [ED9301]resistant[-] to your gun.
+Tutorial_Damages_4 = Finally, destroy the last remnant of junk.\n\nThe [FF1F8C]purple color[-] signifies that you are dealing [ED9301]extra damages[-].
+Tutorial_Damages_5 = Understand how each weapon works against an enemy.\n\n[FFE3B4]Find their weaknesses and smash them![-]
+
+Tutorial_Score_1         = Each level is divided in waves.\n\n[FFE3B4]A wave is completed after destroying or dodging all enemies.[-]
+Tutorial_Score_How       = We earn points when we blow up things - we can earn more with our [ED9301]combo[-] multiplier.\n\nHow to increase the [ED9301]combo[-]?
+Tutorial_Score_Dodge     = [ED9301]Dodge everything[-] and get one automagically.
+Tutorial_Score_Objective = You saw the indicator at the bottom right? [ED9301]This is the wave objective.[-]\n\nComplete it and get another [ED9301]combo[-].
+Tutorial_Score_Goal      = [ED9301]Kill those enemies[-] to get some points and end the wave.
+Tutorial_Score_Done      = Nice!\n\n[FFE3B4]Note that the[-] [ED9301]combo[-] [FFE3B4]multiplier is applied as soon as an enemy dies.[-]
+Tutorial_Score_Event     = Finally, some [ED9301]events[-] will give you an extra bonus while active.
+
+Tutorial_Pick   = This capsule holds a new gun. [ED9301]Pick it.[-]
+
+Tutorial_Swap_1 = We should use our brand new [FFE3B4]Homing Missiles[-] to [ED9301]destroy this generator[-].\n\n[FFE3B4]It powers up the two other repeaters and blocks our path.[-]
+Tutorial_Swap_2 = Now, [ED9301]swap back[-] to the [FFE3B4]Blaster[-] to destroy the remaining fighter.
+
+Tutorial_Ready_1 = Awesome job. We are now ready.\n\n[7F7D7D]Exiting virtual mode and disarming.[-]
+Tutorial_Ready_2 = What the... ???
+Tutorial_Ready_3 = [ED9301]We are under attack! ENGAGE![-]
+
+# -------------------------------------------------------
+# Start cinematic texts.
+# -------------------------------------------------------
+
+Start_Cinematic_Title    = Ready?
+
+Start_Cinematic_Subtitle = Shoot them all!
+Start_Cinematic_Subtitle = Let's go!
+Start_Cinematic_Subtitle = Good luck!
+Start_Cinematic_Subtitle = Go faster than light!
+Start_Cinematic_Subtitle = The Great Space Adventure
+Start_Cinematic_Subtitle = Let's get it right this time!
+Start_Cinematic_Subtitle = Shoot. Dodge. Survive.
+Start_Cinematic_Subtitle = It's showtime!
+Start_Cinematic_Subtitle = Race for the galaxy
+Start_Cinematic_Subtitle = Search and destroy.
+Start_Cinematic_Subtitle = Ready to rock?
+Start_Cinematic_Subtitle = Straight into the light
+Start_Cinematic_Subtitle = Last exit for the lost
+Start_Cinematic_Subtitle = Enjoy the silence
+Start_Cinematic_Subtitle = Somewhere out in space
+Start_Cinematic_Subtitle = Bulletstorm incoming
+Start_Cinematic_Subtitle = Fury Road
+Start_Cinematic_Subtitle = Chaos is coming.
+Start_Cinematic_Subtitle = One more time!
+Start_Cinematic_Subtitle = Time for serious business.
+Start_Cinematic_Subtitle = Let there be bullets
+Start_Cinematic_Subtitle = It's raining bullets
+
+# -------------------------------------------------------
+# Boss cinematic texts.
+# -------------------------------------------------------
+
+Boss_Cinematic_Title       = Warning
+
+Boss_Cinematic_Catchphrase = Also featured in The Game
+Boss_Cinematic_Catchphrase = Knew Steredenn before it was cool
+Boss_Cinematic_Catchphrase = Worlds destroyer since 4598
+Boss_Cinematic_Catchphrase = Civilization eater
+Boss_Cinematic_Catchphrase = The terrible vanquisher
+Boss_Cinematic_Catchphrase = Galaxy vigilante
+Boss_Cinematic_Catchphrase = Solar system renegade
+Boss_Cinematic_Catchphrase = Never lost a fight
+Boss_Cinematic_Catchphrase = Tyrannic pirate chief
+Boss_Cinematic_Catchphrase = Weapon fury
+Boss_Cinematic_Catchphrase = Metal devil
+Boss_Cinematic_Catchphrase = Cold steel war machine
+Boss_Cinematic_Catchphrase = Won all the hot-dog eat contest
+Boss_Cinematic_Catchphrase = Piloted by cats
+Boss_Cinematic_Catchphrase = Has the last Twinkie of the universe
+Boss_Cinematic_Catchphrase = Another Pr. Farnsworth's invention
+Boss_Cinematic_Catchphrase = It'll be back
+Boss_Cinematic_Catchphrase = Lost
+Boss_Cinematic_Catchphrase = SURRENDER, HUMAN
+Boss_Cinematic_Catchphrase = Space Migrator
+Boss_Cinematic_Catchphrase = Metalbender
+Boss_Cinematic_Catchphrase = Bigger Than You
+Boss_Cinematic_Catchphrase = Out there in the cold
+Boss_Cinematic_Catchphrase = He can hear your scream
+Boss_Cinematic_Catchphrase = Weaker than the next
+Boss_Cinematic_Catchphrase = Don't panic!
+Boss_Cinematic_Catchphrase = Exterminate
+Boss_Cinematic_Catchphrase = Hug maker
+Boss_Cinematic_Catchphrase = He has the power
+Boss_Cinematic_Catchphrase = Space cowboy
+Boss_Cinematic_Catchphrase = It wants to believe
+Boss_Cinematic_Catchphrase = It's showtime
+Boss_Cinematic_Catchphrase = Who's the boss?
+Boss_Cinematic_Catchphrase = Making a mess
+Boss_Cinematic_Catchphrase = Jedi Wannabe
+Boss_Cinematic_Catchphrase = Living the dream
+Boss_Cinematic_Catchphrase = Too late to go back
+Boss_Cinematic_Catchphrase = Say my name
+Boss_Cinematic_Catchphrase = It's your lucky day!
+Boss_Cinematic_Catchphrase = Last of its kind
+Boss_Cinematic_Catchphrase = LVL 99 Paladin
+Boss_Cinematic_Catchphrase = Syntax Error
+Boss_Cinematic_Catchphrase = /dev/null
+Boss_Cinematic_Catchphrase = Pyramid Designer
+Boss_Cinematic_Catchphrase = Carbon-based
+Boss_Cinematic_Catchphrase = DO A BARREL ROLL
+Boss_Cinematic_Catchphrase = THOU SHALL NOT PASS
+Boss_Cinematic_Catchphrase = Just shy
+Boss_Cinematic_Catchphrase = SERGEANT UNFRIENDLY
+Boss_Cinematic_Catchphrase = Avoids dialog at all costs
+Boss_Cinematic_Catchphrase = Science Magic
+Boss_Cinematic_Catchphrase = Fan of Doom
+Boss_Cinematic_Catchphrase = In Love.
+Boss_Cinematic_Catchphrase = Mankind Destroyer
+Boss_Cinematic_Catchphrase = Friendly encounter
+Boss_Cinematic_Catchphrase = Sleeping
+Boss_Cinematic_Catchphrase = This may be the end?
+Boss_Cinematic_Catchphrase = With brand new weapons.
+Boss_Cinematic_Catchphrase = The veteran
+Boss_Cinematic_Catchphrase = Forged in Stars
+Boss_Cinematic_Catchphrase = Damned
+Boss_Cinematic_Catchphrase = Space Unicorn
+Boss_Cinematic_Catchphrase = Welcome to Bullet Hell
+Boss_Cinematic_Catchphrase = Beat it.
+Boss_Cinematic_Catchphrase = Dancing to the music.
+Boss_Cinematic_Catchphrase = The second passenger
+Boss_Cinematic_Catchphrase = Black Light Machine
+Boss_Cinematic_Catchphrase = Devourer of Stars
+Boss_Cinematic_Catchphrase = Heavily Armored Death Machine
+Boss_Cinematic_Catchphrase = Too many cannons
+Boss_Cinematic_Catchphrase = Killed off the Dinosaurs
+Boss_Cinematic_Catchphrase = Insert coin to start fight
+Boss_Cinematic_Catchphrase = Commencing countdown, engines on
+Boss_Cinematic_Catchphrase = Floating in a most peculiar way
+Boss_Cinematic_Catchphrase = Welcome To The Machine
+Boss_Cinematic_Catchphrase = Amazing Flight
+Boss_Cinematic_Catchphrase = Newborn Race
+Boss_Cinematic_Catchphrase = Deathmaze
+Boss_Cinematic_Catchphrase = Nice to Meet You
+Boss_Cinematic_Catchphrase = Dev in Disguise
+Boss_Cinematic_Catchphrase = Made of Love
+Boss_Cinematic_Catchphrase = Born to be Brutal
+Boss_Cinematic_Catchphrase = Wants your wallet
+Boss_Cinematic_Catchphrase = Bullet Heaven
+Boss_Cinematic_Catchphrase = Elected Boss of the Year 3845
+Boss_Cinematic_Catchphrase = Eater of Souls
+Boss_Cinematic_Catchphrase = Bad For Your Health
+Boss_Cinematic_Catchphrase = Loves Your Ship
+Boss_Cinematic_Catchphrase = The Dev's Favorite
+Boss_Cinematic_Catchphrase = Extremely Allergic To Chocolate
+Boss_Cinematic_Catchphrase = Needs your password
+Boss_Cinematic_Catchphrase = Laser Lover
+
+# -------------------------------------------------------
+# Tips.
+# -------------------------------------------------------
+
+Game_Tips = Game Over
+Game_Tips = Try to use two completely different weapons
+Game_Tips = Destroying all the enemies of a wave increases your combo gauge
+Game_Tips = Your health gauge is fully restored after beating a boss
+Game_Tips = Each weapon has a unique ability
+Game_Tips = Some weapons can destroy a shield
+Game_Tips = A lightsaber is not solely a combat weapon
+Game_Tips = When a bot is not firing, it looks for new enemies and loses life
+Game_Tips = Close-combat weapons are dangerous but extremely powerful
+Game_Tips = You can train yourself in the arena
+Game_Tips = You unlock a boss in the arena when you defeat it or see it a lot
+Game_Tips = You unlock new challenges after vanquishing a new boss
+Game_Tips = Fear the mothership
+Game_Tips = Events make the game harder but give you a score bonus
+Game_Tips = Not being hit during a wave increases your combo gauge
+Game_Tips = When you are hit, your combo gauge decreases
+Game_Tips = Ultralasers are dangerous but deplete themselves quickly
+Game_Tips = The BayGun is a deadly experimental weapon: it's also really hard to use correctly
+Game_Tips = Some weapons slow your opponents
+Game_Tips = Be careful to not overload your shield or plasma gun
+Game_Tips = Homing missiles are easy to use but super weak
+Game_Tips = Rockets have a small auto-aim
+Game_Tips = Torpedoes trigger two explosions
+Game_Tips = In space, flames burn, yes
+Game_Tips = Charge your shockwave
+Game_Tips = Blowing up all the enemies of a wave triggers the next one
+Game_Tips = Energy weapons are very efficient against asteroids
+Game_Tips = Bots can take a bullet for you
+Game_Tips = You can beat the whole game with only your trusty blaster
+Game_Tips = The lightsaber can cancel bullets
+Game_Tips = You can call back your boomerang by pressing the shoot button
+Game_Tips = If you grab your boomerang, you can throw it again instantly
+Game_Tips = Find the best upgrade for your current combination
+Game_Tips = You can go all-in on score with your upgrades
+Game_Tips = Upgrades can change the game radically
+Game_Tips = If you have troubles, try to pick some defense upgrades

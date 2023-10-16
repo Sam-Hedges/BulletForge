@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate boss MK2 -->
+<!-- ===================== -->
+<!-- Pattern 2 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <!-- The main loop, until the boss is destroyed -->
+      <times>99999</times>
+      <action>
+
+        <repeat>
+          <times>8</times>
+          <action>
+            <actionRef label="p2">
+              <param>0.9</param>
+            </actionRef>
+            <wait>4</wait>
+          </action>
+        </repeat>
+        <repeat>
+          <times>8</times>
+          <action>
+            <actionRef label="p2" >
+              <param>1.75</param>
+            </actionRef>
+            <wait>4</wait>
+          </action>
+        </repeat>
+        
+        <wait>240</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <action label="p2">
+    <trigger>attack2</trigger>
+
+    <fire>
+      <direction type="sequence">50 - $rand*10</direction>
+      <speed>0.15 * $1</speed>
+
+      <bullet label="bullet_frag" >
+        <action>
+
+          <wait>50 - $rand*20</wait>
+
+          <changeSpeed>
+            <speed>0</speed>
+            <term>10</term>
+          </changeSpeed>
+
+          <wait>10</wait>
+
+          <trigger>sound=bouletBlue</trigger>
+          <repeat>
+            <times>8</times>
+            <action>
+              <fire>
+                <direction type="sequence">45</direction>
+                <speed>0.1</speed>
+                <bullet label="bullet_normal">
+                  <action>
+                    <wait>2</wait>
+                    <changeSpeed>
+                      <speed>0.0005</speed>
+                      <term>10</term>
+                    </changeSpeed>
+                    <wait>240</wait>
+                    <vanish />
+                  </action>
+                </bullet>
+              </fire>
+            </action>
+          </repeat>
+
+          <repeat>
+            <times>16</times>
+            <action>
+              <fire>
+                <direction type="sequence">22.5</direction>
+                <speed>0.2</speed>
+                <bullet label="bullet_normal">
+                  <action>
+                    <wait>2</wait>
+                    <changeSpeed>
+                      <speed>0.001</speed>
+                      <term>10</term>
+                    </changeSpeed>
+                    <wait>240</wait>
+                    <vanish />
+                  </action>
+                </bullet>
+              </fire>
+            </action>
+          </repeat>
+
+          <vanish />
+
+        </action>
+      </bullet>
+    </fire>
+  </action>
+
+
+</bulletml>

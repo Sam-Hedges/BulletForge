@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Heavy Fighter -->
+<!-- ======================= -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <!-- Small wait-->
+    <wait>20 + ($rand * 30)</wait>
+
+    <action>
+
+      <!-- Loop -->
+      <repeat>
+        <times>9999</times>
+
+        <!-- Shoot -->
+        <action>
+          <actionRef label="shoot" />
+          <wait>50 - ($rank * 30)</wait>
+        </action>
+
+      </repeat>
+      <!-- End Loop -->
+
+    </action>
+  </action>
+
+  <!-- Shoot the player-->
+  <action label="shoot">
+    <trigger>attack</trigger>
+    <fire>
+      <!-- left oriented: note the minus sign -->
+      <direction type="absolute">-90</direction>
+      <speed>0</speed>
+      <bulletRef label="missile" />
+    </fire>
+  </action>
+
+  <bullet label="missile">
+    <accel>
+      <vertical>-0.01</vertical>
+      <term>5</term>
+    </accel>
+    <accel>
+      <!-- to the left: note the minus sign -->
+      <horizontal>-0.5 + ($rank * -0.1)</horizontal>
+      <term>100 - ($rank * 20)</term>
+    </accel>
+  </bullet>
+
+</bulletml>

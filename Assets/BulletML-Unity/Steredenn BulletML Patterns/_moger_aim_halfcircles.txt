@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate Boss MK3 -->
+<!-- ========================== -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Loop -->
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <!-- Pattern 1 -->
+        <actionRef label="pattern1" />
+        <wait>30</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <action label="pattern1">
+    <repeat>
+      <times>25</times>
+      <action>
+        <fire>
+          <direction type="sequence">15</direction>
+
+          <bullet label="bullet_homing">
+            <speed>0.05</speed>
+            <action>
+              <changeDirection>
+                <direction type="aim">0</direction>
+                <term>100</term>
+              </changeDirection>
+            </action>
+          </bullet>
+
+        </fire>
+      </action>
+    </repeat>
+  </action>
+
+</bulletml>

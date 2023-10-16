@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Heavy Bomber -->
+<!-- ================= -->
+<!-- Drop frag bomb -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Loop -->
+    <action>
+      <repeat>
+        <times>9999</times>
+        <action>
+          <wait>110 - ($rank * 30)</wait>
+          <actionRef                     label="easy" />
+          <actionRef minDifficulty="0.5" label="hard" />
+          <actionRef minDifficulty="1"   label="hell" />
+         </action>
+      </repeat>
+
+    </action>
+  </action>
+
+  <action label="easy">
+    <trigger>attack</trigger>
+    <fire>
+      <bulletRef label="bullet_frag">
+        <param>0.05</param>
+      </bulletRef>
+    </fire>
+  </action>
+
+  <action label="hard">
+    <wait>20</wait>
+    <trigger>attack</trigger>
+    <fire>
+      <bulletRef label="bullet_frag">
+        <param>0.02</param>
+      </bulletRef>
+    </fire>
+  </action>
+
+  <action label="hell">
+    <wait>15</wait>
+    <trigger>attack</trigger>
+    <fire>
+      <bulletRef label="bullet_frag">
+        <param>0.01</param>
+      </bulletRef>
+    </fire>
+  </action>
+
+  <bullet label="bullet_frag">
+    <direction type="absolute">0</direction>
+    <speed>$1</speed>
+    <action>
+      <changeSpeed>
+        <speed>0.15</speed>
+        <term>30</term>
+      </changeSpeed>
+      <wait>30</wait>
+
+      <trigger>sound=bomberHeavy_A_Explose</trigger>
+      
+      <repeat>
+        <times>8</times>
+        <action>
+          <fire>
+            <direction type="sequence">45</direction>
+            <speed>0.15 + ($rank * 0.1)</speed>
+            <bullet label="bullet_normal" />
+          </fire>
+        </action>
+      </repeat>
+
+      <vanish />
+
+    </action>
+  </bullet>
+</bulletml>

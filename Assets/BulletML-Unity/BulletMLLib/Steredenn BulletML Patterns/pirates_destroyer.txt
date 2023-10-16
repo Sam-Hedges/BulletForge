@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Destroyer  -->
+<!-- ==================== -->
+<!-- IMA CHARGIN MAH LAZER-->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+
+    <repeat>
+      <times>99999</times>
+      <action>
+        <!-- LOAD ANIMATION -->
+        <trigger>load</trigger>
+        <wait>90</wait>
+
+        <!-- CHARGE ANIMATION -->
+        <trigger>attackstart</trigger>
+        <wait>45</wait>
+
+        <!--Laser -->
+        <!-- ATTACK ANIMATION -->
+        <trigger>attack</trigger>
+
+        <!-- HACK: it's a laser, laser are not bullets but this XML file is useful for scriping-->
+        <!-- Laser duration -->
+        <wait>120</wait>
+
+        <!-- ATTACK ANIMATION -->
+        <trigger>attackend</trigger>
+        <wait>60</wait>
+
+        <!-- UNLOAD ANIMATION -->
+        <trigger>unload</trigger>
+
+        <wait>180</wait>
+      </action>
+    </repeat>
+  </action>
+</bulletml>

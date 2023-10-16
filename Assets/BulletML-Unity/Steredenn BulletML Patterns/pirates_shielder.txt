@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Shielder -->
+<!-- ================ -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Tell the script the shield is on -->
+    <trigger>shield</trigger>
+
+    <!-- Infinite loop-->
+    <repeat>
+      <times>99999</times>
+      <action>
+        <wait>5</wait>
+      </action>
+    </repeat>
+
+  </action>
+</bulletml>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate -->
+<!-- ================= -->
+<!-- -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Loop -->
+    <action>
+      <repeat>
+        <times>9999</times>
+        <action>
+
+          <actionRef label="shoot_arc">
+            <param>1</param>
+          </actionRef>
+
+          <wait>50 - 10 * $rank</wait>
+
+        </action>
+      </repeat>
+    </action>
+  </action>
+
+  <!-- Shoot an arc of bullets-->
+  <action label="shoot_arc">
+    <trigger>attack</trigger>
+
+    <!-- Other bullets follow-->
+    <action>
+      <fire>
+        <direction type="aim">0</direction>
+        <bullet label="bullet_normal">
+          <speed>0.6 + $rank * 0.2</speed>
+         </bullet>
+      </fire>
+    </action>
+  </action>
+</bulletml>

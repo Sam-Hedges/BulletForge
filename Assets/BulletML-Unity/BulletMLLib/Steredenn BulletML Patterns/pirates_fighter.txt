@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Fighter -->
+<!-- ================= -->
+<!-- Fighters are pop-corn enemies, they are not supposed to be dangerous and they will die in one shot. -->
+<!-- But they will be LEGIONS -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Small wait-->
+    <wait>(120 - $rank*60 - $rand*60)</wait>
+
+    <!-- Loop -->
+    <action>
+      <repeat>
+        <times>9999</times>
+        <action>
+
+          <!-- Shoot -->
+          <actionRef label="shoot" />
+
+        </action>
+      </repeat>
+
+    </action>
+  </action>
+
+  <!-- Shoot the player-->
+  <action label="shoot">
+
+    <action maxDifficulty="0.25">
+      <trigger>attack</trigger>
+      <fire>
+        <direction type="aim">0</direction>
+        <speed>0.2</speed>
+        <bulletRef label="bullet_homing" />
+      </fire>
+      <wait>240</wait>
+    </action>
+    
+    <action minDifficulty="0.25" maxDifficulty="0.5">
+      <trigger>attack</trigger>
+      <fire>
+        <direction type="aim">0</direction>
+        <speed>0.2</speed>
+        <bulletRef label="bullet_homing" />
+      </fire>
+      <wait>180</wait>
+    </action>
+
+    <action minDifficulty="0.5" maxDifficulty="0.75">
+
+      <repeat>
+        <times>2</times>
+        <action>
+          <trigger>attack</trigger>
+          <fire>
+            <direction type="aim">0</direction>
+            <speed>0.2</speed>
+            <bulletRef label="bullet_homing" />
+          </fire>
+          <wait>5</wait>
+        </action>
+      </repeat>
+
+      <wait>180</wait>
+    </action>
+
+    <action minDifficulty="0.75">
+      <repeat>
+        <times>3</times>
+        <action>
+          <trigger>attack</trigger>
+          <fire>
+            <direction type="aim">0</direction>
+            <speed>0.2</speed>
+            <bulletRef label="bullet_homing" />
+          </fire>
+          <wait>5</wait>
+        </action>
+      </repeat>
+
+      <wait>120</wait>
+    </action>
+  </action>
+
+  <!-- Normal bullet -->
+  <bullet label="bullet_homing">
+  </bullet>
+</bulletml>

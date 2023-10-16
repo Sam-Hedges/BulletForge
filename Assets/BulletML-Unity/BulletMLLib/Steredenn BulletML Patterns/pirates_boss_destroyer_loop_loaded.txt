@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Destroyer boss -->
+<!-- ===================== -->
+<!-- Pattern 2-->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <repeat>
+      <times>999999999</times>
+      <action>
+
+        <repeat>
+          <times>10 + $rank*10</times>
+
+          <action>
+            <trigger>attackloaded2</trigger>
+
+            <fire>
+              <direction type="sequence">45 - $rand*20</direction>
+              <speed>0.125 + $rank*0.125</speed>
+
+              <bullet label="bullet_normal">
+                <action>
+                  <wait>50 - $rand*30</wait>
+                  <changeSpeed>
+                    <speed>0</speed>
+                    <term>10</term>
+                  </changeSpeed>
+                  <wait>10</wait>
+                  <trigger>effect=BossDestroyer-Fire</trigger>
+                  <vanish />
+                </action>
+              </bullet>
+
+            </fire>
+
+            <!-- Shot by shot-->
+            <wait>8</wait>
+
+          </action>
+        </repeat>
+
+        <wait>30</wait>
+
+        <wait>180</wait>
+      </action>
+    </repeat>
+
+  </action>
+
+</bulletml>

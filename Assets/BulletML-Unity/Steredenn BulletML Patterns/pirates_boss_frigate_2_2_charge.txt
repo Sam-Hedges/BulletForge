@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate boss MK2 -->
+<!-- ===================== -->
+<!-- Pattern 2 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <trigger>charge</trigger>   
+  </action>
+  
+</bulletml>

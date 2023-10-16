@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - boss cruiser -->
+<!-- ================= -->
+<!-- Double Turret -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <trigger>attack</trigger>
+
+    <actionRef label="cannon">
+      <param>105</param>
+      <param>0.13</param>
+    </actionRef>
+
+    <wait>5</wait>
+
+    <trigger>attack</trigger>
+
+    <actionRef label="cannon">
+      <param>120</param>
+      <param>0.14</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="cannon">
+      <param>135</param>
+      <param>0.15</param>
+    </actionRef>
+
+    <wait>5</wait>
+
+    <trigger>attack</trigger>
+
+    <actionRef label="cannon">
+      <param>150</param>
+      <param>0.16</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="cannon">
+      <param>165</param>
+      <param>0.17</param>
+    </actionRef>
+
+    <wait>5</wait>
+
+    <trigger>attack</trigger>
+
+    <actionRef label="cannon">
+      <param>180</param>
+      <param>0.18</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="cannon">
+      <param>195</param>
+      <param>0.19</param>
+    </actionRef>
+
+    <wait>5</wait>
+
+    <trigger>attack</trigger>
+
+    <actionRef label="cannon">
+      <param>210</param>
+      <param>0.20</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="cannon">
+      <param>225</param>
+      <param>0.21</param>
+    </actionRef>
+
+    <wait>5</wait>
+
+    <trigger>attack</trigger>
+
+    <actionRef label="cannon">
+      <param>240</param>
+      <param>0.22</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="cannon">
+      <param>255</param>
+      <param>0.23</param>
+    </actionRef>
+
+    <wait>5</wait>
+
+    <trigger>attack</trigger>
+
+    <actionRef label="cannon">
+      <param>270</param>
+      <param>0.24</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="cannon">
+      <param>285</param>
+      <param>0.25</param>
+    </actionRef>
+
+    <wait>5</wait>
+
+    <trigger>attack</trigger>
+
+    <actionRef label="cannon">
+      <param>300</param>
+      <param>0.26</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="cannon">
+      <param>315</param>
+      <param>0.27</param>
+    </actionRef>
+
+  </action>
+
+  <action label="cannon">
+    <fire>
+      <direction type="absolute">$1</direction>
+      <speed>$2</speed>
+
+      <bullet label="bullet_frag" >
+        <action>
+          <changeDirection>
+            <direction type="relative">120</direction>
+            <term>170</term>
+          </changeDirection>
+          <changeSpeed>
+            <speed>$2 / 1.5</speed>
+            <term>300</term>
+          </changeSpeed>
+
+          <wait>30</wait>
+
+          <repeat>
+            <times>999</times>
+            <action>
+              <fire>
+                <direction type="absolute">0</direction>
+                <speed>0.01</speed>
+                <bullet label="bullet_frag" >
+                  <action>
+
+                    <repeat>
+                      <times>20</times>
+                      <action>
+                        <changeDirection>
+                          <direction type="relative">180</direction>
+                          <term>60</term>
+                        </changeDirection>
+                        <changeSpeed>
+                          <speed>0.0025</speed>
+                          <term>1</term>
+                        </changeSpeed>
+                        <wait>60</wait>
+                      </action>
+                    </repeat>
+
+                    <!--<wait>1200</wait>-->
+                    <vanish />
+                  </action>
+                </bullet>
+              </fire>
+              <wait>20</wait>
+            </action>
+          </repeat>
+
+        </action>
+      </bullet>
+
+    </fire>
+  </action>
+
+</bulletml>

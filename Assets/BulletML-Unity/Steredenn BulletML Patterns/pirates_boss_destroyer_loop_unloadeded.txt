@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Destroyer boss -->
+<!-- ===================== -->
+<!-- Pattern 1 - Defensive -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <!-- The main loop, until the boss is destroyed -->
+      <times>99999</times>
+      <action>
+        <repeat>
+          <times>10 + $rank*5 + $rand*5</times>
+          <action>
+            <actionRef label="shoot_homing">
+            </actionRef>
+            <wait>30 - $rank * 15 -$rand*10</wait>
+          </action>
+        </repeat>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="shoot_homing">
+    <trigger>missile</trigger>
+    <fire>
+      <direction type="absolute">$rand*360</direction>
+      <speed>0.13</speed>
+      
+      <bullet label="missile-boss">
+        <action>
+          <wait>15</wait>
+          <repeat>
+            <times>270</times>
+            <action>
+              <changeDirection>
+                <direction type="aim">0</direction>
+                <term>0</term>
+              </changeDirection>
+              <wait>1</wait>
+            </action>
+          </repeat>
+        </action>
+      </bullet>
+    </fire>
+  </action>
+
+
+</bulletml>

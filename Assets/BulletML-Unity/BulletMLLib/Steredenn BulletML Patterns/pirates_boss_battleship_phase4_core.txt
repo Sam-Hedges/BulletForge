@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "../bulletml.dtd"[]>
+<!-- Pirates - BATTLESHIP boss -->
+<!-- ===================== -->
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <trigger>attack</trigger>
+        <fire>
+          <direction type="absolute">0</direction>
+          <speed>0.15 + $rank*0.25</speed>
+          <bullet label="blast_normal"></bullet>
+        </fire>
+        <fire>
+          <direction type="absolute">90</direction>
+          <speed>0.15 + $rank*0.25</speed>
+          <bullet label="blast_normal"></bullet>
+        </fire>
+        <fire>
+          <direction type="absolute">180</direction>
+          <speed>0.15 + $rank*0.25</speed>
+          <bullet label="blast_normal"></bullet>
+        </fire>
+        <fire>
+          <direction type="absolute">270</direction>
+          <speed>0.15 + $rank*0.25</speed>
+          <bullet label="blast_normal"></bullet>
+        </fire>
+
+        <wait>25</wait>
+
+        <trigger>attack</trigger>
+        <fire>
+          <direction type="absolute">45</direction>
+          <speed>0.15 + $rank*0.25</speed>
+          <bullet label="blast_normal"></bullet>
+        </fire>
+        <fire>
+          <direction type="absolute">135</direction>
+          <speed>0.15 + $rank*0.25</speed>
+          <bullet label="blast_normal"></bullet>
+        </fire>
+        <fire>
+          <direction type="absolute">225</direction>
+          <speed>0.15 + $rank*0.25</speed>
+          <bullet label="blast_normal"></bullet>
+        </fire>
+        <fire>
+          <direction type="absolute">315</direction>
+          <speed>0.15 + $rank*0.25</speed>
+          <bullet label="blast_normal"></bullet>
+        </fire>
+
+        <wait>25</wait>
+        
+      </action>
+    </repeat>
+
+
+  </action>
+
+</bulletml>

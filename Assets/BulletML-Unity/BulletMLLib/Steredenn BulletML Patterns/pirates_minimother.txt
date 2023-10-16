@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <action>
+
+      <wait>120</wait>
+      <repeat>
+        <times>9999</times>
+        <action>
+
+          <wait>$rand*60</wait>
+
+          <repeat>
+            <times>3</times>
+            <action>
+              <trigger>attack</trigger>
+              <fire>
+                <direction type="aim">0</direction>
+                <speed>0.3</speed>
+                <bullet label="blast_homing" />
+              </fire>
+              <wait>5</wait>
+            </action>
+          </repeat>
+
+          <wait>60</wait>
+
+          <trigger>taunt</trigger>
+
+          <wait>60 + $rand*60</wait>
+
+        </action>
+      </repeat>
+
+    </action>
+  </action>
+</bulletml>

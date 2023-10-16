@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Destroyer boss -->
+<!-- ===================== -->
+<!-- Unload instruction -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <wait>50</wait>
+    <trigger>unload_trigger</trigger>
+    <wait>30</wait>
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <repeat>
+          <times>3 + $rank*3</times>
+          <action>
+
+            <trigger>unload_sound_loop_start</trigger>
+            <repeat>
+              <times>20 + $rank*20</times>
+              <action>
+                <trigger>attackunloaded</trigger>
+                <fire>
+                  <direction type="absolute">360*$rand</direction>
+                  <speed>0.3</speed>
+                  <bulletRef label="blast_normal" />
+                </fire>
+                <wait>3</wait>
+              </action>
+            </repeat>
+            <wait>20</wait>
+            <trigger>unload_sound_loop_stop</trigger>
+          </action>
+        </repeat>
+
+        <wait>120</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="blast_normal">
+    <action>
+      <wait>5</wait>
+      <fire>
+        <bullet label="blast_homing">
+          <speed>0.25 + $rank*0.25</speed>
+          <action>
+            <wait>10</wait>
+            <changeDirection>
+              <direction type="aim">0</direction>
+              <term>20</term>
+            </changeDirection>
+          </action>
+        </bullet>
+      </fire>
+      <vanish />
+    </action>
+
+  </bullet>
+
+</bulletml>

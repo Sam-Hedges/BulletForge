@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Cruiser -->
+<!-- ================= -->
+<!-- Turret 1 : Blue -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <wait>50</wait>
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <actionRef label="cruiser">
+          <param>10</param>
+          <param>-1</param>
+        </actionRef>
+
+        <wait>100 - ($rank * 50)</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <action label="cruiser">
+
+
+    <trigger>attack22</trigger>
+    <actionRef label="shoot_bullet">
+      <param>$1</param>
+    </actionRef>
+
+    <trigger>attack22</trigger>
+    <actionRef label="shoot_bullet">
+      <param>$1+(10 * $2)</param>
+    </actionRef>
+
+    <trigger>attack22</trigger>
+    <actionRef label="shoot_bullet">
+      <param>$1+(20 * $2)</param>
+    </actionRef>
+
+    <trigger>attack22</trigger>
+    <actionRef label="shoot_bullet">
+      <param>$1+(30 * $2)</param>
+    </actionRef>
+
+    <trigger>attack67</trigger>
+    <actionRef label="shoot_bullet">
+      <param>$1+(40 * $2)</param>
+    </actionRef>
+
+    <trigger>attack67</trigger>
+    <actionRef label="shoot_bullet">
+      <param>$1+(30 * $2)</param>
+    </actionRef>
+
+    <trigger>attack67</trigger>
+    <actionRef label="shoot_bullet">
+      <param>$1+(20 * $2)</param>
+    </actionRef>
+
+    <trigger>attack67</trigger>
+    <actionRef label="shoot_bullet">
+      <param>$1+(10 * $2)</param>
+    </actionRef>
+
+    <trigger>attack22</trigger>
+    <actionRef label="shoot_bullet">
+      <param>$1</param>
+    </actionRef>
+  </action>
+
+  <action label="shoot_bullet">
+    <fire>
+      <direction type="aim">$1</direction>
+      <bulletRef label="blast_normal" />
+    </fire>
+    <wait>25 - ($rank * 10)</wait>
+  </action>
+
+  <bullet label="blast_normal">
+    <speed>0.09 + ($rank * 0.15)</speed>
+  </bullet>
+
+</bulletml>

@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Carrier boss -->
+<!-- ===================== -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <times>99999</times>
+      <action>
+
+        <repeat>
+          <times>(3 + 5 * $rank)</times>
+          <action>
+            <trigger>shockwave_anim</trigger>
+            <actionRef label="source_behind">
+              <param>0.35</param>
+            </actionRef>
+    		<actionRef label="source_behind">
+              <param>0.15</param>
+            </actionRef>
+            <actionRef label="source">
+              <param>0.05</param>
+            </actionRef>
+            <actionRef label="source">
+              <param>0.25</param>
+            </actionRef>
+            <actionRef label="source">
+              <param>0.45</param>
+            </actionRef>
+            <actionRef label="source">
+              <param>0.65</param>
+            </actionRef>
+            <actionRef label="source">
+              <param>0.85</param>
+            </actionRef>
+            <actionRef label="source">
+              <param>1.05</param>
+            </actionRef>
+            <wait>60</wait>
+            <trigger>spawnfighters</trigger>
+            <wait>120</wait>
+            <trigger>stopspawn</trigger>
+
+          </action>
+        </repeat>
+
+      </action>
+    </repeat>
+  </action>
+
+  <action label="source_behind">
+    <fire>
+      <direction type="absolute">90</direction>
+      <speed>$1</speed>
+      <bulletRef label="bullet_frag"></bulletRef>
+    </fire>
+  </action>
+
+  <action label="source">
+    <fire>
+      <direction type="absolute">270</direction>
+      <speed>$1</speed>
+      <bulletRef label="bullet_frag"></bulletRef>
+    </fire>
+  </action>
+
+  <bullet label="bullet_frag">
+    <action>
+      <wait>15</wait>
+      <changeSpeed>
+        <speed>0</speed>
+        <term>0</term>
+      </changeSpeed>
+      <wait>15 - $rank*7.5</wait>
+      <repeat>
+        <times>20</times>
+        <action>
+          <trigger>sound=bouletGreen</trigger>
+          <fire>
+            <direction type="absolute">180</direction>
+            <speed>0.35 + $rank * 0.15</speed>
+            <bullet label="bullet_normal"></bullet>
+          </fire>
+          <fire>
+            <direction type="absolute">0</direction>
+            <speed>0.35 + $rank * 0.15</speed>
+            <bullet label="bullet_normal"></bullet>
+          </fire>
+          <wait>5</wait>
+        </action>
+      </repeat>
+      <wait>20- $rank*7.5</wait>
+      <vanish />
+    </action>
+  </bullet>
+
+</bulletml>

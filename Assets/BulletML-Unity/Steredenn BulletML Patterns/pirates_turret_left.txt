@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd"[]>
+<!-- Pirates - Mini Sentry -->
+<!-- ================ -->
+<!-- A stupid mini turret  -->
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <!-- Loop -->
+    <repeat>
+      <times>9999</times>
+      <action>
+        <wait>6</wait>
+        <actionRef label="shoot" />
+      </action>
+    </repeat>
+  </action>
+  <!-- Shoot the player-->
+  <action label="shoot">
+    <trigger>attack</trigger>
+    <fire>
+      <direction type="absolute">271 - $rand*2</direction>
+      <speed>0.3</speed>
+      <bullet label="blast_normal" />
+    </fire>
+  </action>
+</bulletml>

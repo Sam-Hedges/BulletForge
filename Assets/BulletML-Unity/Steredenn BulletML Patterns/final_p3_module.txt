@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <action>
+      <repeat>
+        <times>9999</times>
+        <action>
+
+          <trigger>attack2</trigger>
+
+          <fire>
+            <direction type="absolute">45</direction>
+            <bulletRef label="blast_normal" />
+          </fire>
+
+          <fire>
+            <direction type="absolute">135</direction>
+            <bulletRef label="blast_normal" />
+          </fire>
+
+          <fire>
+            <direction type="absolute">225</direction>
+            <bulletRef label="blast_normal" />
+          </fire>
+
+          <fire>
+            <direction type="absolute">315</direction>
+            <bulletRef label="blast_normal" />
+          </fire>
+
+          <wait>53</wait>
+
+        </action>
+      </repeat>
+
+    </action>
+
+  </action>
+
+  <bullet label="blast_normal">
+    <speed>0.35</speed>
+    <action>
+      <wait>2</wait>
+      <changeSpeed>
+        <speed>0.035</speed>
+        <term>20</term>
+      </changeSpeed>
+    </action>
+  </bullet>
+
+</bulletml>

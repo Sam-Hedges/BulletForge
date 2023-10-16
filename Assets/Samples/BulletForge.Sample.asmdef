@@ -1,0 +1,16 @@
+{
+    "name": "BulletForge.Sample",
+    "rootNamespace": "BulletForge",
+    "references": [
+        "GUID:ba24aebe336556646b73f79d91ae214d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

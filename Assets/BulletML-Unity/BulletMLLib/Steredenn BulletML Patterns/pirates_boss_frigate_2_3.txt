@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate boss MK2 -->
+<!-- ===================== -->
+<!-- Pattern 3 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <times>99999</times>
+      <action>
+
+        <trigger>attack3</trigger>
+
+        <repeat>
+          <times>15</times>
+          <action>
+            <actionRef label="side" >
+              <param>0</param>
+            </actionRef>
+            <actionRef label="side" >
+              <param>90</param>
+            </actionRef>
+            <actionRef label="side" >
+              <param>180</param>
+            </actionRef>
+            <actionRef label="side" >
+              <param>270</param>
+            </actionRef>
+            <wait>1</wait>
+          </action>
+        </repeat>
+
+        <wait>30</wait>
+        <trigger>attack3</trigger>
+
+        <repeat>
+          <times>15</times>
+          <action>
+            <actionRef label="side" >
+              <param>45</param>
+            </actionRef>
+            <actionRef label="side" >
+              <param>135</param>
+            </actionRef>
+            <actionRef label="side" >
+              <param>225</param>
+            </actionRef>
+            <actionRef label="side" >
+              <param>315</param>
+            </actionRef>
+            <wait>1</wait>
+          </action>
+        </repeat>
+        <wait>30</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <action label="side">
+
+    <repeat>
+      <times>3</times>
+      <action>
+        <fire>
+          <direction type="absolute">($1 + 15) - (15 * 2 * $rand)</direction>
+          <speed>0.25 + $rank*0.05</speed>
+          <bullet label="blast_normal"></bullet>
+        </fire>
+      </action>
+    </repeat>
+  </action>
+
+</bulletml>

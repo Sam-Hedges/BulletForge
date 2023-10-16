@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Battleship -->
+<!-- ==================== -->
+<!-- Heavy armed, heavy armoured -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Loop -->
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <!-- Change the weapon position quickly.
+             Prevent the next pattern to start to the old
+             pattern position. -->
+        <actionRef label="pattern_empty_bottom" />
+
+        <!-- Pattern 1 -->
+        <repeat>
+          <times>5 + ($rank * 5)</times>
+          <action>
+            <actionRef label="pattern1" />
+            <wait>50 - ($rank * 20)</wait>
+          </action>
+        </repeat>
+
+        <!-- Change the weapon position quickly.
+             Prevent the next pattern to start to the old
+             pattern position. -->
+        <actionRef label="pattern_empty_top" />
+
+        <!-- Pattern 2 -->
+        <wait>70 - ($rank * 10)</wait>
+        <actionRef label="pattern2">
+          <param>-1</param>
+        </actionRef>
+        <wait>35 - ($rank * 5)</wait>
+        <actionRef label="pattern2">
+          <param>1</param>
+        </actionRef>
+
+        <!-- Change the weapon position quickly.
+             Prevent the next pattern to start to the old
+             pattern position. -->
+        <actionRef label="pattern_empty_bottom" />
+
+        <!-- Pattern 3 -->
+        <wait>80 - ($rank * 20)</wait>
+        <repeat>
+          <times>6 + ($rank * 6)</times>
+          <action>
+            <actionRef label="pattern3" />
+            <wait>50 - ($rank * 30)</wait>
+          </action>
+        </repeat>
+        <wait>30</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <!-- Pattern 1 -->
+
+  <action label="pattern1">
+    <trigger>pos1</trigger>
+    <repeat>
+      <times>25</times>
+      <action>
+        <trigger>attack1</trigger>
+        <trigger>attack1_sound</trigger>
+        <fire>
+          <direction type="sequence">15</direction>
+          <bulletRef label="bullet_normal" />
+        </fire>
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="bullet_normal">
+    <speed>0</speed>
+    <direction type="relative">-20</direction>
+    <action>
+      <changeSpeed>
+        <speed>0.05</speed>
+        <term>50</term>
+      </changeSpeed>
+    </action>
+  </bullet>
+
+  <!-- Pattern 2 -->
+
+  <action label="pattern2">
+    <trigger>pos2</trigger>
+    <repeat>
+      <times>30</times>
+      <action>
+        <trigger>attack2</trigger>
+        <trigger>attack2_sound</trigger>
+        <fire>
+          <direction type="sequence">1 * $1</direction>
+          <bullet label="big_blue">
+            <speed>0.4 + ($rank * 0.2)</speed>
+          </bullet>
+        </fire>
+        <wait>5 - ($rank * 2)</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <!-- Pattern 3 -->
+
+  <action label="pattern3">
+    <trigger>pos1</trigger>
+    <trigger>attack1</trigger>
+    <trigger>attack3_sound</trigger>
+    <fire>
+      <bullet label="big_pink">
+        <speed>0.15 + ($rank * 0.15)</speed>
+        <direction type="aim">0</direction>
+        <action>
+          <wait>5</wait>
+          <repeat>
+            <times>100</times>
+            <actionRef label="trail" />
+          </repeat>
+        </action>
+      </bullet>
+    </fire>
+  </action>
+
+  <action label="trail">
+    <repeat>
+      <times>10</times>
+      <action>
+        <fire>
+
+          <!-- Bullet -->
+          <bullet label="bullet_normal">
+            <direction type="absolute">$rand*360</direction>
+            <speed>0.05</speed>
+            <action>
+              <wait>15 - ($rank * 5)</wait>
+              <vanish />
+            </action>
+          </bullet>
+          <!-- /Bullet -->
+
+        </fire>
+      </action>
+    </repeat>
+
+    <!-- Wait a little. -->
+    <wait>3 - ($rank * 1)</wait>
+  </action>
+
+  <!-- Pattern to fix the weapon position. -->
+
+  <action label="pattern_empty_bottom">
+    <trigger>pos1</trigger>
+    <wait>3</wait>
+  </action>
+
+  <action label="pattern_empty_top">
+    <trigger>pos2</trigger>
+    <wait>3</wait>
+  </action>
+
+</bulletml>

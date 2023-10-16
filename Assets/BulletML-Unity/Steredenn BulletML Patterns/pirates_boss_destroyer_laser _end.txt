@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Destroyer boss -->
+<!-- ===================== -->
+<!-- Laser end -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <trigger>laserend</trigger>
+    <wait>90</wait>
+  </action>
+
+</bulletml>

@@ -1,0 +1,485 @@
+French
+Français
+#######
+
+# -------------------------------------------------------
+# Global.
+# -------------------------------------------------------
+
+Game = Steredenn
+
+Common_Play = Jouer
+Common_Exit = Quitter
+Common_Start = Commencer
+Common_Back = Retour
+Common_Restart = Rejouer
+Common_Pause = Pause
+Common_Coop = Coop
+
+Common_Previous = Préc.
+Common_Next = Suiv.
+
+Common_Menu = Menu
+Common_Settings = Paramètres
+Common_Scores = Scores
+Common_Challenges = Défis
+Common_Arena = Arène
+Common_Daily = Défi Quotidien
+Common_Credits = Crédits
+
+Common_Yes = Oui
+Common_No = Non
+Common_None = Aucune
+
+Common_Completed = Fini
+
+Common_End = Fin
+
+# -------------------------------------------------------
+# Main menu.
+# -------------------------------------------------------
+
+Main_Overlay_Production = une production PIXELNEST STUDIO
+Main_Overlay_Present    = PIXELNEST STUDIO et PLUS présentent
+Main_Overlay_Start      = Appuyer sur une touche pour commencer
+
+Main_Button_Play       = $Common_Play
+Main_Button_Superplay  = Superplay
+Main_Button_Arena      = $Common_Arena
+Main_Button_Challenges = $Common_Challenges
+Main_Button_Daily      = $Common_Daily
+Main_Button_Scores     = $Common_Scores
+Main_Button_Settings   = $Common_Settings
+Main_Button_Credits    = $Common_Credits
+Main_Button_Exit       = $Common_Exit
+
+Main_Unlock_Offline   = Connexion Requise
+Main_Unlock_Superplay = Terminer le jeu une fois
+Main_Unlock_Arena     = Battre un boss
+
+Main_Profile_Nickname = Invité
+Main_Profile_Change   = Changer de profil
+
+# -------------------------------------------------------
+# Controls.
+# -------------------------------------------------------
+
+Controls_Panel_Title = Contrôles
+Controls_Panel_Gamepad = Pour une expérience de jeu optimale, utilisez une manette
+
+Controls_Movement_Title    = Mouvements
+Controls_Movement_Subtitle = (Essence illimitée)
+Controls_Action1_Title     = Tirer
+Controls_Action1_Subtitle  = (Munitions illimitées)
+Controls_Action2_Title     = Ramasser un bonus
+Controls_Action2_Subtitle  = (Arme ou amélioration)
+Controls_Action3_Title     = Changer d'arme
+Controls_Action3_Subtitle  = (Deux armes max)
+
+Controls_Button_Tutorial = Tutorial
+Controls_Button_Start = $Common_Start
+Controls_Button_Back = $Common_Back
+
+# -------------------------------------------------------
+# Superplay.
+# -------------------------------------------------------
+
+Superplay_Panel_Title = Superplay
+Superplay_Panel_Description = Le mode [ED9301]Superplay[-] permet de rejouer une partie à [ED9301]l'identique[-] : mêmes [ED9301]vagues[-], [ED9301]améliorations[-] et [ED9301]armes[-].
+Superplay_Panel_Explanation = Superplay est un mode de jeu spécial qui permet de contrôler l'aléatoire (vagues d'ennemis, améliorations et armes).\n\nVous pouvez ainsi défier vos amis pour voir qui fait le meilleur score sur une partie précise. Ce mode est aussi idéal pour tenter un speedrun, s'entraîner ou filmer sa performance.\n\n\n[ED9301]Attention :[-] votre score ne sera pas ajouté au tableau des scores dans ce mode.
+Superplay_Panel_Variant     = Choisissez la [ED9301]variante[-] ci-dessous :
+
+Superplay_Button_Previous = $Common_Previous
+Superplay_Button_Next = $Common_Next
+Superplay_Button_Reset = Reset
+Superplay_Button_Random = Aléatoire
+Superplay_Button_Start = $Common_Start
+Superplay_Button_Back = $Common_Back
+
+# -------------------------------------------------------
+# Daily Run.
+# -------------------------------------------------------
+
+Daily_Panel_Title = $Common_Daily
+
+Daily_Panel_Loading  = Chargement...
+Daily_Panel_Unplayed = Vous n'avez pas encore joué aujourd'hui
+Daily_Panel_Normal   = Aujourd'hui : partie normale
+Daily_Panel_Today    = Aujourd'hui :
+Daily_Panel_Weapons  = Armes
+Daily_Panel_Cargos   = Sans Cargos
+Daily_Panel_Result   = Rang [ED9301]{0}[-] & Score [ED9301]{1}[-]
+
+Daily_Panel_Explanation = Tentez votre chance dans ce défi quotidien - mesurez-vous [ED9301]au monde entier[-]. Vous n'avez [ED9301]qu'une partie par jour[-] pour être le meilleur et tous les joueurs partagent la même partie (ennemis, boss, armes et améliorations). Chaque jour est un nouveau défi à relever !
+
+Daily_Button_Play     = Lancer le défi du jour
+Daily_Button_Tomorrow = Prochain défi dans {0}
+
+# -------------------------------------------------------
+# Settings.
+# -------------------------------------------------------
+
+Settings_Panel_Title = $Common_Settings
+
+Settings_Panel_Sound = Son
+Settings_Panel_Music = Musique
+
+Settings_Panel_CinemaLabel = Cinéma
+Settings_Panel_CinemaInfo  = [pas d'interface]
+
+Settings_Panel_FlashLabel  = Flash
+Settings_Panel_FlashInfo   = [flash sur une touche]
+
+Settings_Panel_VibrationLabel = Vibrations
+Settings_Panel_VibrationInfo  = [manettes uniquement]
+
+Settings_Panel_LangLabel      = Défaut
+Settings_Panel_LangInfo       = [langage]
+
+# -
+
+Settings_Mappings_Title = Contrôles
+
+Settings_Panel_Swap = Changer
+Settings_Panel_Pick = Ramasser
+
+Settings_Keyboard_Up     = Haut
+Settings_Keyboard_Down   = Bas
+Settings_Keyboard_Left   = Gauche
+Settings_Keyboard_Right  = Droite
+Settings_Keyboard_Shoot  = Tirer
+Settings_Keyboard_Pick   = Ramasser un bonus
+Settings_Keyboard_Swap   = Changer d'arme
+Settings_Keyboard_Pause  = $Common_Pause
+
+Settings_Keyboard_Reset  = Configuration par défaut
+Settings_Keyboard_Error  = Touche déjà utilisée
+
+# -
+
+Settings_Graphics_Title = Graphismes
+
+Settings_Graphics_DisplayLabel = Plein Ecran
+Settings_Graphics_DisplayInfo  = [moniteur]
+
+Settings_Graphics_ResolutionLabel = 1920*1080
+Settings_Graphics_ResolutionInfo  = [résolution]
+
+Settings_Graphics_Warning = Changer la résolution rédémarrera le jeu.
+
+# -
+
+Settings_Header_Gamepad  = Manette
+Settings_Header_Keyboard = Clavier
+
+Settings_Button_More   = Augmenter
+Settings_Button_Less   = Diminuer
+Settings_Button_Toggle = Modifier
+Settings_Button_Ok     = Ok
+Settings_Button_Back   = $Common_Back
+
+Settings_Button_ShowMappings = Contrôles
+Settings_Button_ShowGraphics = Graphismes
+
+# -------------------------------------------------------
+# Scores.
+# -------------------------------------------------------
+
+Scores_Panel_Title = $Common_Scores
+
+Scores_Button_Previous     = $Common_Previous
+Scores_Button_Next         = $Common_Next
+Scores_Button_Detail       = Détail
+Scores_Button_Achievements = Succès
+Scores_Button_ShowFriends  = Amis
+Scores_Button_ShowAll      = Tous
+Scores_Button_FocusMe      = Afficher mon score
+Scores_Button_FocusFirst   = Afficher le premier
+Scores_Button_Back         = $Common_Back
+
+Scores_Profile_Nickname = Invité
+
+# -------------------------------------------------------
+# Credits.
+# -------------------------------------------------------
+
+Credits_Panel_Title = $Common_Credits
+
+Credits_Section_Collaborators = Collaborateurs
+Credits_Section_Engines       = Moteurs
+Credits_Section_Libraries     = Bibliothèques
+Credits_Section_Special       = Remerciements
+
+# -------------------------------------------------------
+# Game Over.
+# -------------------------------------------------------
+
+Over_Button_Restart = Réessayer
+Over_Button_Scores  = $Common_Scores
+Over_Button_Menu    = $Common_Menu
+
+Over_Label_Combo = [Combo]
+Over_Label_Loop = [Loop]
+
+# -------------------------------------------------------
+# Arena.
+# -------------------------------------------------------
+
+Arena_Boss_Title    = Arena - Boss
+
+Arena_Boss_StatTitle = $Common_Completed
+Arena_Boss_StatOne   = 1 arme
+Arena_Boss_StatTwo   = 2 armes
+Arena_Boss_StatYes   = $Common_Yes
+Arena_Boss_StatNo    = $Common_No
+
+Arena_Boss_Locked        = Verrouillé
+Arena_Boss_Unlocked      = Déverrouillé
+Arena_Boss_NonIdentified = Non-identifié
+Arena_Boss_NotAvailable  = Pas encore disponible
+
+Arena_Weapons_Title       = Arena - Armes
+Arena_Weapons_FirstEmpty  = Aucune arme principale
+Arena_Weapons_SecondEmpty = Aucune arme secondaire
+Arena_Weapons_Primary     = Arme principale
+Arena_Weapons_Secondary   = Arme secondaire
+
+Arena_Button_Start    = $Common_Start
+Arena_Button_Select   = Sélectionner
+Arena_Button_First    = Arme principale
+Arena_Button_Second   = Arme secondaire
+Arena_Button_Previous = $Common_Previous
+Arena_Button_Next     = $Common_Next
+Arena_Button_Back     = $Common_Back
+
+# -------------------------------------------------------
+# Challenges.
+# -------------------------------------------------------
+
+Challenges_Panel_Title     = $Common_Challenges
+Challenges_Panel_Completed = $Common_Completed
+
+Challenges_Button_Start    = $Common_Start
+Challenges_Button_Back     = $Common_Back
+Challenges_Button_Previous = $Common_Previous
+Challenges_Button_Next     = $Common_Next
+
+# -------------------------------------------------------
+# Challenge Over.
+# -------------------------------------------------------
+
+ChallengeOver_Button_Retry = Réessayer
+ChallengeOver_Button_Menu = $Common_Menu
+
+ChallengeOver_Result_Success = Succès
+ChallengeOver_Result_Failure = Echec
+
+ChallengeOver_Label_Time = [Temps]
+ChallengeOver_Label_HP = [Vie]
+
+ChallengeOver_Label_Weapon1 = [Arme 1]
+ChallengeOver_Label_Weapon2 = [Arme 2]
+ChallengeOver_Label_WeaponNone = $Common_None
+
+# -------------------------------------------------------
+# Pause.
+# -------------------------------------------------------
+
+Pause_Panel_Title     = #Pause
+Pause_Panel_Restart   = Go !
+
+Pause_Button_Resume   = Reprendre
+Pause_Button_Restart  = $Common_Restart
+Pause_Button_Settings = $Common_Settings
+Pause_Button_Menu     = $Common_Menu
+
+# -------------------------------------------------------
+# Coop.
+# -------------------------------------------------------
+
+Coop_Panel_Title = $Common_Coop
+
+Coop_P1_Title    = Joueur 1
+Coop_P2_Title    = Joueur 2
+
+# -------------------------------------------------------
+# Game UI.
+# -------------------------------------------------------
+
+HUD_Indicator_Time    = Temps
+HUD_Empty_Weapon      = Vide
+
+HUD_Wave_Destroy = Détruire
+HUD_Wave_Dodge   = Esquiver
+HUD_Wave_Boss    = Boss
+
+# -------------------------------------------------------
+# Events.
+# -------------------------------------------------------
+
+Event_Background_Sunburn   = Soleil
+Event_Background_Ruins     = Ruines
+
+Event_Random_AsteroidField = Champ d'astéroides
+Event_Random_MeteorShower  = Pluie de météorites
+Event_Random_Battlefield   = Champ de bataille
+Event_Random_Minefield     = Champ de mines
+Event_Random_LaserRain     = Ciblage laser
+Event_Random_Nemesis       = Némésis
+
+# -------------------------------------------------------
+# Bosses.
+# -------------------------------------------------------
+
+Boss_Name_Bomber     = Bombardier
+Boss_Name_Frigate    = Frégate
+Boss_Name_Destroyer  = Destroyer
+Boss_Name_Cruiser    = Croiseur
+Boss_Name_Carrier    = Porte-nef
+Boss_Name_Battleship = Cuirassé
+Boss_Name_Mothership = Vaisseau-mère
+Boss_Name_Nemesis    = Némésis
+
+Boss_Achievement_Bomber     = Un petit pas
+Boss_Achievement_Frigate    = Un pas de géant
+Boss_Achievement_Destroyer  = LASER!
+Boss_Achievement_Cruiser    = Un peu plus près du paradis
+Boss_Achievement_Carrier    = Ils sont partout
+Boss_Achievement_Battleship = Les Cartouches avant la Tempête
+Boss_Achievement_Mothership = Le Commencement et la Fin
+Boss_Achievement_Nemesis    = Rebelle
+
+# -------------------------------------------------------
+# Classes.
+# -------------------------------------------------------
+
+Weapon_Class_None    = $Common_None
+
+Weapon_Class_Bullet  = Bullet
+Weapon_Class_Energy  = Energy
+Weapon_Class_Heavy   = Heavy
+Weapon_Class_Contact = Contact
+Weapon_Class_Bot     = Bots
+Weapon_Class_Shield  = Shield
+
+# -------------------------------------------------------
+# Upgrades.
+# -------------------------------------------------------
+
+Upgrade_Class_Offense = Attaque
+Upgrade_Class_Defense = Défense
+Upgrade_Class_Tech    = Tech
+Upgrade_Class_Score   = Score
+
+### Details
+
+Upgrade_None                    = $Common_None
+
+### General
+
+# Offense
+Upgrade_Offense_Damage          = {0} dégâts
+Upgrade_Offense_Reload          = Rechargement plus rapide
+Upgrade_Offense_ShieldBreaker   = Perce les boucliers
+Upgrade_Offense_ContactShock    = Libère une onde destructrice lors d'un contact
+
+# Defense
+Upgrade_Defense_Health          = {0} points de vie
+Upgrade_Defense_Backfire        = Renvoie les dégâts sur une touche
+Upgrade_Defense_Collision       = Les collisions font moins mal
+Upgrade_Defense_Laser           = Absorbe les lasers temporairement
+
+# Tech
+Upgrade_Tech_Swap               = Continue de tirer après un changement d'arme
+Upgrade_Tech_Cargo              = {0} cargo par niveau
+Upgrade_Tech_OneShotPerPress    = Toutes les armes tirent en continu
+Upgrade_Tech_Shield             = Construit un bouclier quand le vaisseau ne tire pas
+
+# Score
+Upgrade_Score_Bonus             = {0} score
+Upgrade_Score_ComboBonus        = Combo supplémentaire à chaque vague
+Upgrade_Score_ComboLoss         = Réduit la perte de combo sur une touche
+Upgrade_Score_AllowOneMiss      = Une chance de plus de réussir une vague
+
+### Specific
+
+# Weapon - All
+Upgrade_WeaponAll_Damage        = {0} dégâts
+Upgrade_WeaponAll_Drop          = {0} de chances de drop et {1} dégâts
+
+# Weapon - Bullet
+Upgrade_WeaponBullet_Cannon     = Autocanon
+
+# Weapon - Energy
+Upgrade_WeaponEnergy_Instant    = Raygun & Désintègre les rochers et débris
+
+# Weapon - Heavy
+Upgrade_WeaponHeavy_Area        = Minirockets & Zone d'effet plus importante
+
+# Weapon - Contact
+Upgrade_WeaponContact_Damage    = {0} dégâts
+
+# Weapon - Bot
+Upgrade_WeaponBot               = Améliore la résistance et durabilité
+
+# Weapon - Shield
+Upgrade_WeaponShield            = Améliore la durée et le rechargement
+
+# -------------------------------------------------------
+# Tutorial.
+# -------------------------------------------------------
+
+Tutorial_Virtual   = Bonjour, Capitaine.\n\n[7F7D7D]Activation de la réalité virtuelle et de l'armement. Lancement de la musique.[-]
+
+Tutorial_Move = Bien ! [ED9301]Déplaçons le vaisseau.[-]
+
+Tutorial_Shoot = Vous voyez le bouton au dessus ? Utilisons celui-ci pour faire feu.\n\nEt... [ED9301]détruisons tout ![-]
+
+Tutorial_UI_1 = Nous manquons d'informations. Activons [ED9301]l'interface de combat[-].
+Tutorial_UI_Better = C'est mieux, non ?
+Tutorial_UI_2 = [ED9301]Voici notre armure.[-] Si la barre est vide, le vaisseau explose.\n\n[FFE3B4]Détruire un boss est la seule façon de le réparer.[-]
+Tutorial_UI_3 = [ED9301]Voici nos armes.[-] Nous pouvons en transporter deux à la fois.\n\n[FFE3B4]Trouver et utiliser la bonne combinaison d'armes est crucial.[-]
+Tutorial_UI_4 = [ED9301]Voici notre score.[-]\n\nIl y a le score général, le score pour la vague en cours et notre [ED9301]combo[-].
+
+Tutorial_Damages_1 = Nos armes ont des [ED9301]forces[-] et des [ED9301]faiblesses[-].
+Tutorial_Damages_2 = Détruisons le premier rocher sans protection.\n\nLa [FF1C00]couleur rouge[-] indique des [ED9301]dégâts normaux[-].
+Tutorial_Damages_3 = Maintenant, détruisons le deuxième rocher possèdant une armure.\n\nLa [FF8A04]couleur orange[-] nous révèle que l'ennemi est [ED9301]résistant[-] à notre arme.
+Tutorial_Damages_4 = Finalement, détruisons le dernier débris.\n\nLa [FF1F8C]couleur violette[-] signifie que nous infligeons des [ED9301]dégâts supplémentaires[-].
+Tutorial_Damages_5 = Il est vital de comprendre comment nos armes réagissent aux ennemis.\n\n[FFE3B4]Trouvons leurs faiblesses et abattons-les![-]
+
+Tutorial_Score_1 = Chaque niveau est divisé en plusieurs vagues.\n\n[FFE3B4]Une vague est terminée après avoir détruit ou évité tous les ennemis.[-]
+Tutorial_Score_How = Nous gagnons des points en tuant des ennemis - et nous en gagnons plus avec notre [ED9301]combo[-].\n\nComment pouvons-nous accroître ce [ED9301]combo[-] ?
+Tutorial_Score_Dodge = [ED9301]Ne pas se faire toucher[-] nous procure un [ED9301]combo[-] automatiquement à chaque vague.
+Tutorial_Score_Objective = L'indicateur en bas à droite indique [ED9301]l'objectif de la vague en cours[-].\n\nRemplir cet objectif rapporte un autre point de [ED9301]combo[-].
+Tutorial_Score_Goal = [ED9301]Détruisons ces ennemis[-] pour obtenir quelques points et terminer la vague.
+Tutorial_Score_Done = Bien joué !\n\n[FFE3B4]Le[-] [ED9301]combo[-] [FFE3B4]est appliqué dès qu'un ennemi disparaît.[-]
+Tutorial_Score_Event = Finalement, des [ED9301]événements spéciaux[-] nous permettent de gagner plus de points tant qu'ils sont actifs.
+
+Tutorial_Pick = Cette capsule contient une nouvelle arme. [ED9301]Ramassons-la.[-]
+
+Tutorial_Swap_1 = Utilisons ces nouveaux [ED9301]Homing Missiles[-] pour [ED9301]détruire le générateur[-].\n\n[FFE3B4]Il alimente d'autres lasers qui bloquent le chemin.[-]
+Tutorial_Swap_2 = Pour finir, [ED9301]changeons d'arme[-] afin de revenir au [ED9301]Blaster[-] et détruire le dernier chasseur.
+
+Tutorial_Ready_1 = Bon travail. Nous sommes prêts.\n\n[7F7D7D]Arrêt de la réalité virtuelle et désarmement.[-]
+Tutorial_Ready_2 = Qu'est-ce que... ???
+Tutorial_Ready_3 = [ED9301]Nous sommes attaqués ! ALLONS-Y ![-]
+
+# -------------------------------------------------------
+# Start cinematic texts.
+# -------------------------------------------------------
+
+Start_Cinematic_Title    = Prêt ?
+
+Start_Cinematic_Subtitle = Bonne chance !
+
+# -------------------------------------------------------
+# Boss cinematic texts.
+# -------------------------------------------------------
+
+Boss_Cinematic_Title       = Attention
+
+# -------------------------------------------------------
+# Tips.
+# -------------------------------------------------------
+
+Game_Tips = Game Over

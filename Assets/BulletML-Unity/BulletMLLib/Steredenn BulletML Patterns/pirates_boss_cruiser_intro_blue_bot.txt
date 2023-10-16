@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - boss cruiser -->
+<!-- ================= -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Time before pattern start-->
+    <wait>110</wait>
+
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <trigger>attack</trigger>
+        <fire>
+          <direction type="absolute">285</direction>
+          <speed>0.2</speed>
+          <bullet label="bullet_normal" />
+        </fire>
+
+        <wait>15</wait>
+      </action>
+    </repeat>
+  </action>
+
+</bulletml>

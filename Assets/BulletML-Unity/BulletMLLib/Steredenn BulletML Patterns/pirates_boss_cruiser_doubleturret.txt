@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - boss cruiser -->
+<!-- ================= -->
+<!-- Double Turret -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <actionRef label="shot" />
+        <actionRef label="shot" />
+        
+        <wait>15 - $rank*10</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="shot">
+    <trigger>attack</trigger>
+    <fire>
+      <direction type="absolute">182 - $rand*4</direction>
+      <bulletRef label="bullet_frag" />
+    </fire>
+    <wait>10</wait>
+  </action>
+
+  <bullet label="bullet_frag">
+    <speed>0.2</speed>
+        
+    <action>
+      <wait>30 - $rand*15</wait>
+      <changeSpeed>
+        <speed>0</speed>
+        <term>30</term>
+      </changeSpeed>      
+      
+      <wait>60</wait>
+
+      <trigger>sound=cruiserMKI_B02</trigger>
+      
+      <repeat>
+        <times>12</times>
+        <action>
+          <fire>
+            <bullet label="blast_normal">
+              <direction type="sequence">30</direction>
+              <speed>0.25 + $rank*0.15</speed>
+            </bullet>
+          </fire>
+        </action>
+      </repeat>
+      <vanish />
+    </action>
+  </bullet>
+
+</bulletml>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd"[]>
+<!-- Pirates - boss cruiser -->
+<!-- ================= -->
+<!-- Turret 1 -->
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+	<action label="top">
+		<wait>30</wait>
+		<repeat>
+			<times>9999</times>
+
+			<action>
+
+        <!--<trigger>loadbigpink</trigger>-->
+        <wait>30</wait>
+        <trigger>attack</trigger>
+
+				<fire>
+					<bullet label="big_pink">
+            <speed>0.1</speed>
+            <action>
+              <changeSpeed>
+                <speed>0</speed>
+                <term>10</term>
+              </changeSpeed>
+
+              <wait>20</wait>
+
+              <trigger>sound=cruiserMKI_A02</trigger>
+              <fire>
+                <direction type="aim">0</direction>
+                <speed>0.35</speed>
+                <bullet label="big_pink" >
+                  <action>
+                    <changeDirection>
+                      <direction type="aim">0</direction>
+                      <term>5</term>
+                    </changeDirection>
+                  </action>
+                </bullet>
+              </fire>
+
+              <vanish />
+            </action>
+
+
+					</bullet>
+				</fire>
+				<wait>90 - $rank*60</wait>
+			</action>
+		</repeat>
+	</action>
+</bulletml>

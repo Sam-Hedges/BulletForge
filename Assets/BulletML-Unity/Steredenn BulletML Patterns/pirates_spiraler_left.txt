@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd"[]>
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <!-- Loop -->
+    <repeat>
+      <times>9999</times>
+      <action>
+        <wait>20 - ($rank * 10)</wait>
+        <trigger>attack</trigger>
+        <trigger>rotate_5</trigger>
+        <fire>
+          <setDirection type="absolute">270</setDirection>
+          <direction type="sequence">5</direction>
+          <speed>0.1</speed>
+          <bullet label="bullet_normal" />
+        </fire>
+      </action>
+    </repeat>
+  </action>
+
+</bulletml>

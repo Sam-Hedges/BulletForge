@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <trigger>load_trigger</trigger>
+    <wait>30</wait>
+  </action>
+</bulletml>

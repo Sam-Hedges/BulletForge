@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+
+    <repeat>
+      <times>99</times>
+      <action>
+
+        <repeat>
+          <times>5 + $rank*2</times>
+          <action>
+
+            <trigger>attack</trigger>
+            <trigger>sound=cruiserMKI_A02</trigger>
+            <repeat>
+              <times>2</times>
+              <action>
+                <fire>
+                  <setDirection type="aim">10</setDirection>
+                  <direction type="sequence">10</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+              </action>
+            </repeat>
+            <repeat>
+              <times>2</times>
+              <action>
+                <fire>
+                  <direction type="sequence">-10</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+              </action>
+            </repeat>
+
+            <wait>10 - 5 * $rank</wait>
+
+          </action>
+        </repeat>
+
+
+        <wait>60</wait>
+      </action>
+    </repeat>
+
+  </action>
+
+  <bullet label="bullet_homing" >
+    <speed>0.2 + $rank * 0.12</speed>
+    <action>
+      <wait>35 + $rand * 15 - $rand * 25</wait>
+      <repeat>
+        <times>5</times>
+        <action>
+          <changeDirection>
+            <direction type="aim">0</direction>
+            <term>1</term>
+          </changeDirection>
+          <wait>1</wait>
+        </action>
+      </repeat>
+      <trigger>sound=missile_Explose</trigger>
+
+    </action>
+  </bullet>
+
+</bulletml>

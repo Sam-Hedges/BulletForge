@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "../bulletml.dtd"[]>
+<!-- Pirates - BATTLESHIP boss -->
+<!-- ===================== -->
+<!-- Phase1 2 -->
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+	<action label="top">
+		<repeat>
+			<times>9999</times>
+			<action>
+        <trigger>attack</trigger>
+			<trigger>attack1_2</trigger>
+        <actionRef label="shoot">
+          <param>-10</param>
+        </actionRef>
+        <actionRef label="shoot">
+          <param>10</param>
+        </actionRef>
+				<wait>33</wait>
+			</action>
+		</repeat>
+	</action>
+
+  <action label="shoot">
+    <fire>
+      <direction type="aim">$1</direction>
+      <speed>0.09 + $rank*0.15</speed>
+      <bullet label="bullet_normal" />
+    </fire>
+  </action>
+</bulletml>

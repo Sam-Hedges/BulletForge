@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Bomber boss -->
+<!-- ===================== -->
+<!-- Pattern 3 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+
+      <!-- Infinite loop -->
+      <times>99999</times>
+      <action>
+
+        <!-- Bullet circle-->
+        <action>
+          <repeat>
+            <times>3 + $rank*3</times>
+            <action>
+              <trigger>attack3</trigger>
+              <fire>
+                <direction type="aim">15 - (30 * $rand)</direction>
+                <bulletRef label="bullet_frag"/>
+              </fire>
+              <wait>10</wait>
+            </action>
+          </repeat>
+
+        </action>
+
+        <wait>120</wait>
+
+        <!-- End of main loop -->
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="bullet_frag">
+    <speed>0.1 </speed>
+    <action>
+      <wait>20 - $rank * 15</wait>
+      <trigger>sound=bomberMkI_C_Explose</trigger>
+      <repeat>
+        <times>10 + $rank*10</times>
+        <action>
+          <fire>
+            <bulletRef label="blast_homing"/>
+          </fire>
+          <wait>1</wait>
+        </action>
+      </repeat>
+      <vanish />
+    </action>
+  </bullet>
+
+  <bullet label="blast_homing">
+    <direction type="absolute">360*$rand</direction>
+    <speed>0.1</speed>
+    <action>
+      <changeDirection>
+        <direction type="aim">4 - (8 * $rand)</direction>
+        <term>20</term>
+      </changeDirection>
+      <changeSpeed>
+        <speed>0.75</speed>
+        <term>60</term>
+      </changeSpeed>
+    </action>
+  </bullet>
+
+</bulletml>

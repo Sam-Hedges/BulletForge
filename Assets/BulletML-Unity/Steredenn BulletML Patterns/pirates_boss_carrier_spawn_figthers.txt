@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Carrier boss -->
+<!-- ===================== -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <trigger>spawnfighters</trigger>
+    <wait>120- $rank*40</wait>
+  </action>
+
+</bulletml>

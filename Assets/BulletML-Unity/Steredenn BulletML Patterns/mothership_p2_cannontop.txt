@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <trigger>load</trigger>
+    <trigger>sound=motherShip_Transform</trigger>
+    
+    <wait>60</wait>
+
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <trigger>attack_p1</trigger>
+        <trigger>sound=motherShip_A</trigger>
+
+        <repeat>
+          <times>12</times>
+          <action>
+            <fire>
+              <direction type="sequence">30</direction>
+              <speed>0.3</speed>
+              <bullet label="bullet_normal" >
+                <action>
+                  <actionRef label="frag" />
+                </action>
+              </bullet>
+            </fire>
+          </action>
+        </repeat>
+
+        <wait>40</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <action label="frag">
+    <wait>5</wait>
+    <repeat>
+      <times>5</times>
+      <action>
+        <wait>10</wait>
+        <fire>
+          <direction type="absolute">0</direction>
+          <bullet label="bullet_frag" >
+            <speed>0.01</speed>
+            <action>
+              <wait>180</wait>
+              <vanish />
+            </action>
+          </bullet>
+        </fire>
+      </action>
+    </repeat>
+  </action>
+</bulletml>

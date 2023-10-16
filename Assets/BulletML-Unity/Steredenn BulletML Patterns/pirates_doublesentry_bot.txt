@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Double Sentry - Bot part -->
+<!-- ================================== -->
+<!-- A ppwerful and stupid turret  -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <wait>40</wait>
+    <actionRef label="pattern" />
+  </action>
+
+  <!-- Helix bullet -->
+  <bullet label="bullet_normal">
+    <speed>0.25</speed>
+    <actionRef label="helix_behavior" >
+      <param>-1</param>
+      <param>40</param>
+    </actionRef>
+  </bullet>
+
+  <!-- Common to both parts -->
+  <!-- ======================================================================== -->
+
+  <!-- Shoot with a half helix -->
+  <!-- arg1: initial fire direction-->
+  <action label="pattern">
+    <!-- Loop -->
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <!-- Shoot -->
+        <repeat>
+          <times>15 + (10 * $rank)</times>
+          <action>
+          	<trigger>attack</trigger>
+            <fire>
+              <direction type="absolute">270</direction>
+              <bulletRef label="bullet_normal" />
+            </fire>
+            <wait>4</wait>
+          </action>
+        </repeat>
+
+        <!-- Time to aim -->
+        <wait>240 - 120 * $rank</wait>
+      </action>
+    </repeat>
+
+  </action>
+
+
+  <!-- Bullet helix behavior-->
+  <!-- arg 1: -1 or 1 for direction -->
+  <!-- arg 2: time between changes (in frames) -->
+  <action label="helix_behavior">
+    <action>
+
+      <!-- First direction change -->
+      <changeDirection>
+        <direction type="relative">45 * $1</direction>
+        <term>$2 /2</term>
+      </changeDirection>
+      <wait>$2/2</wait>
+
+      <!-- Loop -->
+      <repeat>
+        <times>10</times>
+        <action>
+
+          <changeDirection>
+            <direction type="relative">-90 * $1</direction>
+            <term>$2</term>
+          </changeDirection>
+
+          <wait>$2</wait>
+
+          <changeDirection>
+            <direction type="relative">90 * $1</direction>
+            <term>$2</term>
+          </changeDirection>
+
+          <wait>$2</wait>
+        </action>
+      </repeat>
+    </action>
+  </action>
+
+</bulletml>

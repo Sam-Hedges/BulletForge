@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <repeat>
+    <times>99999</times>
+    <action>
+    
+      <actionRef label="p"></actionRef>
+    
+      <wait>200</wait>
+
+    </action>
+    </repeat>
+  </action>
+  
+  <action label="p">
+  </action>
+</bulletml>

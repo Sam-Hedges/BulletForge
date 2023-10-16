@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+
+    <trigger>attack2loaded</trigger>
+    <trigger>sound=battleShipMkI_D</trigger>
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">180</direction>
+        <action>
+          <wait>5</wait>
+          <actionRef label="bullet_behavior" >
+            <param>270</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">180</direction>
+        <action>
+          <wait>5</wait>
+          <actionRef label="bullet_behavior" >
+            <param>90</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">165</direction>
+        <action>
+          <wait>9</wait>
+          <actionRef label="bullet_behavior" >
+            <param>270</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">165</direction>
+        <action>
+          <wait>9</wait>
+          <actionRef label="bullet_behavior" >
+            <param>90</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">180</direction>
+        <action>
+          <wait>13</wait>
+          <actionRef label="bullet_behavior" >
+            <param>270</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">180</direction>
+        <action>
+          <wait>13</wait>
+          <actionRef label="bullet_behavior" >
+            <param>90</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">170</direction>
+        <action>
+          <wait>17</wait>
+          <actionRef label="bullet_behavior" >
+            <param>270</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">170</direction>
+        <action>
+          <wait>17</wait>
+          <actionRef label="bullet_behavior" >
+            <param>90</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">0</direction>
+        <action>
+          <wait>5</wait>
+          <actionRef label="bullet_behavior" >
+            <param>270</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">0</direction>
+        <action>
+          <wait>5</wait>
+          <actionRef label="bullet_behavior" >
+            <param>90</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">-15</direction>
+        <action>
+          <wait>9</wait>
+          <actionRef label="bullet_behavior" >
+            <param>270</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">-15</direction>
+        <action>
+          <wait>9</wait>
+          <actionRef label="bullet_behavior" >
+            <param>90</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">0</direction>
+        <action>
+          <wait>13</wait>
+          <actionRef label="bullet_behavior" >
+            <param>270</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">0</direction>
+        <action>
+          <wait>13</wait>
+          <actionRef label="bullet_behavior" >
+            <param>90</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">-10</direction>
+        <action>
+          <wait>17</wait>
+          <actionRef label="bullet_behavior" >
+            <param>270</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+    <fire>
+      <bullet label="bullet_frag">
+        <speed>0.4</speed>
+        <direction type="absolute">-10</direction>
+        <action>
+          <wait>17</wait>
+          <actionRef label="bullet_behavior" >
+            <param>90</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+
+    <!--- LASER -->
+    <wait>80 - $rank * 40</wait>
+    <trigger>laserstart</trigger>
+    <wait>30</wait>
+    <trigger>laser</trigger>
+    <wait>90 + $rank * 30</wait>
+    <trigger>laserend</trigger>
+    <wait>50</wait>
+  </action>
+
+
+  <action label="bullet_behavior">
+    <changeDirection>
+      <direction type="absolute">$1</direction>
+      <term>3</term>
+    </changeDirection>
+    <changeSpeed>
+      <speed>0.3 + $rank * 0.1</speed>
+      <term>10</term>
+    </changeSpeed>
+
+    <repeat>
+      <times>99</times>
+      <action>
+        <trigger>sound=fregateMKI_A3</trigger>
+        <fire>
+          <speed>0</speed>
+          <bullet label="bullet_normal">
+            <action>
+              <wait>120</wait>
+              <vanish />
+            </action>
+          </bullet>
+        </fire>
+        <wait>13 - $rank * 7</wait>
+      </action>
+    </repeat>
+  </action>
+</bulletml>

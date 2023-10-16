@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+
+    <repeat>
+      <times>99999</times>
+      <action>
+
+      <trigger>attack_blue</trigger>
+      <trigger>sound=motherShip_E</trigger>
+
+			<repeat>
+			<times>30</times>
+			<action>
+				<fire>
+					<speed>0.05</speed>
+					<direction type="sequence">12</direction>
+					<bullet label="bullet_normal"/>
+				</fire>
+			</action>
+			</repeat>
+
+        <wait>60</wait>
+        
+      </action>
+    </repeat>
+  </action>
+</bulletml>

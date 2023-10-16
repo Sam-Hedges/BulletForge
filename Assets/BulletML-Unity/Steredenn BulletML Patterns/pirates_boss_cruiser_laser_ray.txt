@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - boss cruiser -->
+<!-- ================= -->
+<!-- Laser -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <trigger>laserstart</trigger>
+    <wait>25</wait>
+    <trigger>laser</trigger>
+    <wait>110</wait>
+    <trigger>laserstop</trigger>
+  </action>
+
+</bulletml>

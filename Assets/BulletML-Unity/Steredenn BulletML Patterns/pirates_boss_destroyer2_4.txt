@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+
+    <actionRef label="p2">
+      <param>270-30</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="p2">
+      <param>270+30</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="p2">
+      <param>270-15</param>
+    </actionRef>
+    <wait>3</wait>
+    <actionRef label="p2">
+      <param>270+15</param>
+    </actionRef>
+
+    <actionRef label="p">
+      <param>180</param>
+    </actionRef>
+
+    <actionRef label="p">
+      <param>0</param>
+    </actionRef>
+
+  </action>
+
+  <action label="p">
+    <trigger>attack</trigger>
+    <trigger>sound=destroyerMKI_B</trigger>
+    <fire>
+      <direction type="absolute">$1</direction>
+      <speed>0.25</speed>
+      <bullet label="bullet_frag">
+        <action>
+          <changeSpeed>
+            <speed>0</speed>
+            <term>25</term>
+          </changeSpeed>
+
+          <wait>45</wait>
+
+
+          <repeat>
+            <times>45 * (1 + $rank * 0.5)</times>
+            <action>
+              <trigger>sound=bomberMkI_C</trigger>
+              <fire>
+                <direction type="sequence">22</direction>
+                <speed>0.15 + $rank * 0.15</speed>
+                <bullet label="bullet_normal"></bullet>
+              </fire>
+              <wait>2</wait>
+            </action>
+          </repeat>
+
+          <vanish />
+        </action>
+      </bullet>
+    </fire>
+  </action>
+
+  <action label="p2">
+    <fire>
+      <direction type="absolute">$1</direction>
+      <speed>0.1</speed>
+      <bullet label="blast_frag">
+        <action>
+          <wait>20</wait>
+          <changeSpeed>
+            <speed>0</speed>
+            <term>20</term>
+          </changeSpeed>
+          <wait>19</wait>
+
+          <trigger>sound=blastPink</trigger>
+          <fire>
+            <direction type="relative">0</direction>
+            <speed>0.15 + ($rank * 0.15)</speed>
+            <bullet label="blast_homing">
+            </bullet>
+          </fire>
+          <fire>
+            <direction type="relative">30</direction>
+            <speed>0.15 + ($rank * 0.15)</speed>
+            <bullet label="blast_homing">
+            </bullet>
+          </fire>
+          <fire>
+            <direction type="relative">-30</direction>
+            <speed>0.15 + ($rank * 0.15)</speed>
+            <bullet label="blast_homing">
+            </bullet>
+          </fire>
+
+          <vanish />
+        </action>
+      </bullet>
+    </fire>
+  </action>
+
+</bulletml>

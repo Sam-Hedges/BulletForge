@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd"[]>
+<!-- Pirates - boss cruiser -->
+<!-- ================= -->
+<!-- Turret 2 -->
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <wait>60</wait>
+
+    <repeat>
+      <times>9999</times>
+      <action>
+        <repeat>
+          <times>10 + 10*$rank</times>
+
+          <action>
+            <trigger>attack</trigger>
+            <actionRef label="shoot">
+              <param>360</param>
+            </actionRef>
+            <actionRef label="shoot">
+              <param>315</param>
+            </actionRef>
+            <actionRef label="shoot">
+              <param>270</param>
+            </actionRef>
+            <actionRef label="shoot">
+              <param>225</param>
+            </actionRef>
+            <actionRef label="shoot">
+              <param>180</param>
+            </actionRef>
+            <actionRef label="shoot">
+              <param>135</param>
+            </actionRef>
+            <actionRef label="shoot">
+              <param>90</param>
+            </actionRef>
+            <actionRef label="shoot">
+              <param>45</param>
+            </actionRef>
+            <actionRef label="shoot">
+              <param>0</param>
+            </actionRef>
+
+            <wait>60</wait>
+
+          </action>
+        </repeat>
+
+      </action>
+    </repeat>
+
+  </action>
+
+  <action label="shoot">
+    <fire>
+      <direction type="absolute">$1</direction>
+      <speed>0.15</speed>
+
+      <bullet label="bullet_normal">
+        <action>
+          <wait>20</wait>
+          <changeSpeed>
+            <speed>0.8</speed>
+            <term>180 - $rank * 60</term>
+          </changeSpeed>
+          <changeDirection>
+            <direction type="sequence">45 - (90 * $rand)</direction>
+            <term>30</term>
+          </changeDirection>
+        </action>
+      </bullet>
+
+    </fire>
+  </action>
+
+</bulletml>

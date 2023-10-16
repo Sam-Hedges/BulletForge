@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Bomber -->
+<!-- ================ -->
+<!-- Bombers are slightly more solid and more agressive than fighters, but nothing too fancy -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Loop -->
+    <action>
+      <repeat>
+        <times>9999</times>
+
+        <actionRef maxDifficulty="0.25"                      label="easy" />
+        <actionRef minDifficulty="0.25" maxDifficulty="0.5"  label="normal" />
+        <actionRef minDifficulty="0.5"  maxDifficulty="0.75" label="hard" />
+        <actionRef minDifficulty="0.75"                      label="insane" />
+      </repeat>
+
+    </action>
+  </action>
+
+  <action label="easy">
+    <!-- Time to aim -->
+    <wait>150 - (100 * $rank) + (50 * $rand)</wait>
+
+    <trigger>attack</trigger>
+
+    <fire>
+      <direction type="absolute">270</direction>
+      <bulletRef label="blast_normal" />
+    </fire>
+
+    <wait>10</wait>
+
+    <trigger>attack</trigger>
+
+    <!-- 1/  top shot -->
+    <fire>
+      <direction type="absolute">258</direction>
+      <bulletRef label="blast_normal" />
+    </fire>
+    <!-- 2/ bot shot -->
+    <fire>
+      <direction type="absolute">282</direction>
+      <bulletRef label="blast_normal" />
+    </fire>
+
+    <wait>20</wait>
+  </action>
+
+  <action label="normal">
+    <!-- Time to aim -->
+    <wait>150 - (100 * $rank) + (50 * $rand)</wait>
+
+    <!-- Multiple triple shots -->
+
+    <repeat>
+      <times>2 + ($rank * 2)</times>
+      <action>
+
+        <trigger>attack</trigger>
+
+        <!-- 1/  top shot -->
+        <fire>
+          <direction type="absolute">255</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+        <!-- 2/ middle shot -->
+        <fire>
+          <direction type="absolute">270</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+        <!-- 3/ bot shot -->
+        <fire>
+          <direction type="absolute">285</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+
+        <wait>30 - ($rank * 20)</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="hard">
+    <!-- Time to aim -->
+    <wait>160 - (90 * $rank) + (50 * $rand)</wait>
+
+    <!-- Multiple triple shots -->
+
+    <repeat>
+      <times>2 + ($rank * 1.7)</times>
+      <action>
+
+        <trigger>attack</trigger>
+
+        <!-- 1/  top shot -->
+        <fire>
+          <direction type="absolute">255</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+        <!-- 2/ middle shot -->
+        <fire>
+          <direction type="absolute">265</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+        <!-- 3/ bot shot -->
+        <fire>
+          <direction type="absolute">275</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+        <!-- 4/ bot shot -->
+        <fire>
+          <direction type="absolute">285</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+
+        <wait>20</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="insane">
+    <!-- Time to aim -->
+    <wait>160 - (90 * $rank) + (50 * $rand)</wait>
+
+    <!-- Multiple triple shots -->
+
+    <repeat>
+      <times>2 + ($rank * 2)</times>
+      <action>
+
+        <trigger>attack</trigger>
+
+        <!-- 1/  top shot -->
+        <fire>
+          <direction type="absolute">250</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+        <fire>
+          <direction type="absolute">260</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+        <fire>
+          <direction type="absolute">270</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+        <fire>
+          <direction type="absolute">280</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+        <fire>
+          <direction type="absolute">290</direction>
+          <bulletRef label="blast_normal" />
+        </fire>
+
+        <wait>20</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <!-- Speeding bullets -->
+  <bullet label="blast_normal">
+    <speed>0.2 + $rank * 0.05</speed>
+  </bullet>
+</bulletml>

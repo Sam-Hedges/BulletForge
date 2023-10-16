@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <uie:Toolbar />
+    <BB.SplitView fixed-pane-index="1" fixed-pane-initial-dimension="150">
+        <ui:VisualElement name="LeftContainer">
+            <ui:Label text="Pattern Tree" display-tooltip-when-elided="true" />
+            <BB.SpawnGroupGraphView focusable="true" name="GraphView" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RightContainer">
+            <uie:Toolbar>
+                <uie:ToolbarButton text="Start" display-tooltip-when-elided="true" name="Start" />
+                <uie:ToolbarButton text="Pause" display-tooltip-when-elided="true" name="Pause" />
+                <uie:ToolbarButton text="Reset" display-tooltip-when-elided="true" name="Reset" />
+            </uie:Toolbar>
+            <BB.SpawnGroupSimulationView name="SimulationView" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </BB.SplitView>
+</ui:UXML>

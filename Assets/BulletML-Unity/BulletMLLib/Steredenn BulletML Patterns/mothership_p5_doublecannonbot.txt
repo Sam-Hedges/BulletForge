@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd"[]>
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <times>99999</times>
+      <action>
+        <trigger>attack_blue</trigger>
+        <trigger>soundloop=motherShip_F</trigger>
+
+        <repeat>
+          <times>21</times>
+          <action>
+            
+            <fire>
+              <direction type="sequence">60</direction>
+              <bullet label="bullet_normal">
+                <speed>0.15</speed>
+                <action>
+                  <fire>
+                    <direction type="relative">15</direction>
+                    <bulletRef label="bullet_normal" />
+                  </fire>
+                  <fire>
+                    <direction type="relative">-15</direction>
+                    <bulletRef label="bullet_normal" />
+                  </fire>
+                </action>
+              </bullet>
+            </fire>
+
+            <wait>4</wait>
+          </action>
+        </repeat>
+        
+        <trigger>soundstop=motherShip_F</trigger>
+
+        <wait>60</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="bullet_normal">
+    <speed>0.15</speed>
+  </bullet>
+
+</bulletml>

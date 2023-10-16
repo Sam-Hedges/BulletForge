@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+  
+    <trigger>load_trigger</trigger>
+    <wait>1</wait>
+    
+    <!--- Missiles -->
+    <repeat>
+      <times>10</times>
+      <action>
+        <fire>
+        
+          <direction type="sequence">36</direction>
+          <speed>0.2</speed>
+          <bullet label="big_blue" >
+            <wait>15</wait>
+            <changeSpeed>
+              <speed>0</speed>
+              <term>10</term>
+            </changeSpeed>
+            <wait>10</wait>
+            <trigger>effect=BossDestroyer-Fire</trigger>
+            <vanish />
+          </bullet>
+          
+        </fire>
+      </action>
+    </repeat>
+    
+    <wait>60</wait>
+    
+    <!-- Laser -->
+    <trigger>laserstart</trigger>
+    <wait>30</wait>
+    <trigger>laser</trigger>
+    <wait>240</wait>
+    <trigger>laserend</trigger>
+    <wait>50</wait>
+  
+  </action>
+  
+</bulletml>

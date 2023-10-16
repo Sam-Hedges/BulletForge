@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Cruiser -->
+<!-- ================= -->
+<!-- Turret 3 : Pinkman -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <wait>150</wait>
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <actionRef label="shoot" />
+
+        <wait>100 - ($rank * 50)</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="shoot">
+    <repeat>
+      <times>4 + ($rank * 4)</times>
+      <action>
+
+        <trigger>attack22</trigger>
+
+        <fire>
+          <direction type="absolute">240</direction>
+
+          <bullet label="big_pink">
+            <direction type="sequence">-20 + ($rank * 10)</direction>
+            <speed>0.5 + ($rank * 0.2)</speed>
+            <action>
+              <changeSpeed>
+                <term>3</term>
+                <speed>0.1 + ($rank * 0.1)</speed>
+              </changeSpeed>
+            </action>
+            <action>
+              <changeDirection>
+                <direction type="relative">90</direction>
+                <term>60 - ($rank * 30)</term>
+              </changeDirection>
+            </action>
+          </bullet>
+        </fire>
+
+        <wait>30 - ($rank * 15)</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+</bulletml>

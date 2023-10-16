@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate -->
+<!-- ================= -->
+<!-- -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <action>
+
+      <repeat>
+        <times>9999</times>
+        <action>
+
+          <action>
+            <repeat>
+              <times>3</times>
+              <action>
+                <fire>
+                  <direction type="sequence">14</direction>
+                  <bullet label="bullet_normal">
+                    <speed>0.7 + $rank * 0.2</speed>
+                   </bullet>
+                </fire>
+              </action>
+
+              <wait>30 - 10 * $rank</wait>
+            </repeat>
+          </action>
+
+          <wait>50 - (30 * $rank)</wait>
+
+        </action>
+      </repeat>
+
+    </action>
+
+  </action>
+</bulletml>

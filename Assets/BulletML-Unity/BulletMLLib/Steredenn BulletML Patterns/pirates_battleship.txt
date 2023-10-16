@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Battleship -->
+<!-- ==================== -->
+<!-- Heavy armed, heavy armoured -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Loop -->
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <!-- Pattern 1 -->
+        <actionRef label="pattern1" />
+
+        <wait>120 - ($rank * 60)</wait>
+
+        <!-- Pattern 2 -->
+        <actionRef label="pattern2" />
+
+        <wait>240 - ($rank * 120)</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="pattern1">
+    <repeat>
+      <times>6 + ($rank * 4)</times>
+      <action>
+
+        <trigger>attack1</trigger>
+
+        <!-- All directions, covering ~180°-->
+        <actionRef label="shootDirectional">
+          <param>200</param>
+        </actionRef>
+        <actionRef label="shootDirectional">
+          <param>230</param>
+        </actionRef>
+        <actionRef label="shootDirectional">
+          <param>260</param>
+        </actionRef>
+        <actionRef label="shootDirectional">
+          <param>290</param>
+        </actionRef>
+        <actionRef label="shootDirectional">
+          <param>320</param>
+        </actionRef>
+        <actionRef label="shootDirectional">
+          <param>350</param>
+        </actionRef>
+
+        <!-- Time between shots-->
+        <wait>20 - ($rank * 10)</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="pattern2">
+    <repeat>
+      <times>5 + ($rank * 4)</times>
+      <action>
+
+        <trigger>attack2</trigger>
+
+        <fire>
+          <!-- Total random-->
+          <direction type="absolute">360 * $rand</direction>
+
+          <!-- Frag bullet-->
+          <bulletRef label="bullet_frag" />
+        </fire>
+
+        <wait>20 - ($rank * 10)</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <!-- Shoota normal bullet in the given direction -->
+  <!-- arg1: angle, in degrees (0 = bottom)-->
+  <action label="shootDirectional">
+    <fire>
+      <direction type="absolute">$1</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+  </action>
+
+  <!-- Speeding bullets -->
+  <bullet label="bullet_normal">
+    <speed>0.15 + $rank * 0.15</speed>
+  </bullet>
+
+  <!-- Temp bullets -->
+  <bullet label="bullet_frag">
+    <speed>0.4</speed>
+    <action>
+      <action>
+        <changeDirection>
+          <direction type="relative">20</direction>
+          <term>20</term>
+        </changeDirection>
+      </action>
+      <changeSpeed>
+        <speed>0</speed>
+        <term>20</term>
+      </changeSpeed>
+      <wait>20</wait>
+
+      <!-- Frag -->
+      <trigger>sound=bouletPink</trigger>
+      <repeat>
+        <times>2 + $rank*3</times>
+        <action>
+          <fire>
+            <bulletRef label="bullet_homing" />
+          </fire>
+        </action>
+      </repeat>
+
+      <vanish />
+    </action>
+  </bullet>
+
+  <!-- Homing bullets -->
+  <bullet label="bullet_homing">
+    <speed>0.35 + $rank * 0.2</speed>
+    <action>
+      <changeDirection>
+        <direction type="aim">0</direction>
+        <term>0</term>
+      </changeDirection>
+      <changeSpeed>
+        <speed>1.5</speed>
+        <term>60</term>
+      </changeSpeed>
+    </action>
+  </bullet>
+</bulletml>

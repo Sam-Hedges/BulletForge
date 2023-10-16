@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Bomber boss -->
+<!-- ===================== -->
+<!-- Pattern 3 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+
+      <times>99999</times>
+      <action>
+        <trigger>attack3</trigger>
+
+        <fire>
+          <direction type="sequence">8</direction>
+          <bullet label="bullet_homing">
+            <speed>0.15</speed>
+            <action>
+
+              <action>
+
+                <!-- First (two other rays)-->
+                <fire>
+                  <direction type="relative">-10</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+                <fire>
+                  <direction type="relative">-20</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+
+                <!-- Second -->
+                <fire>
+                  <direction type="relative">-240</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+                <fire>
+                  <direction type="relative">-250</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+                <fire>
+                  <direction type="relative">-260</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+
+                <!-- Third -->
+                <fire>
+                  <direction type="relative">-120</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+                <fire>
+                  <direction type="relative">-130</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+                <fire>
+                  <direction type="relative">-140</direction>
+                  <bulletRef label="bullet_homing" />
+                </fire>
+              </action>
+
+            </action>
+          </bullet>
+        </fire>
+
+        <wait>9</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="bullet_homing">
+    <speed>0.15</speed>
+  </bullet>
+</bulletml>

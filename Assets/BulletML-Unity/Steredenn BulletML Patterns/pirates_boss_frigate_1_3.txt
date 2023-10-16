@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate boss -->
+<!-- ===================== -->
+<!-- Pattern 3 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <!-- The main loop, until the boss is destroyed -->
+      <times>99999</times>
+      <action>
+
+        <trigger>effectp=ChargementTirBoss01</trigger>
+        
+        <wait>45</wait>
+        
+        <trigger>attackp3_1</trigger>
+
+        <!-- A big fast bullet -->
+        <fire>
+          <direction type="absolute">270 - $rand*15</direction>
+          <speed>0.35</speed>
+          <bulletRef label="big_pink"></bulletRef>
+        </fire>
+
+        <actionRef label="target_salve" />
+
+        <wait>20</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <!-- Shoot 3 homing bullets to distract the player during the wall. -->
+  <action label="target_salve">
+    <wait>25</wait>
+    <repeat>
+      <times>3</times>
+      <action>
+        <trigger>attackp3_2</trigger>
+        <fire>
+          <direction type="aim">0</direction>
+          <speed>0.3 + $rank*0.05</speed>
+          <bullet label="blast_homing"></bullet>
+        </fire>
+        <wait>45</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="big_pink">
+    <action>
+      <!-- Frag bullets from each side -->
+      <repeat>
+        <times>30</times>
+        <action>
+          <fire>
+            <direction type="relative">0</direction>
+            <speed>0</speed>
+            <bulletRef label="bullet_frag"></bulletRef>
+          </fire>
+          <wait>10</wait>
+        </action>
+      </repeat>
+
+    </action>
+  </bullet>
+
+  <bullet label="bullet_frag">
+    <action>
+      <wait>30 - $rank*15</wait>
+      <trigger>sound=fregateMKI_A2</trigger>
+      <repeat>
+        <times>12</times>
+        <action>
+
+          <!-- top -->
+          <fire>
+            <direction type="absolute">0</direction>
+            <speed>0.4 + $rank*0.1</speed>
+            <bullet label="blast_normal"></bullet>
+          </fire>
+
+          <!-- right -->
+          <!--
+          <fire>
+            <direction type="absolute">90</direction>
+            <speed>0.3 + $rank*0.1</speed>
+            <bullet label="blast_normal"></bullet>
+          </fire>
+          -->
+
+          <!-- bottom -->
+          <fire>
+            <direction type="absolute">180</direction>
+            <speed>0.4 + $rank*0.1</speed>
+            <bullet label="blast_normal"></bullet>
+          </fire>
+
+          <!-- left -->
+          <!--
+          <fire>
+            <direction type="absolute">270</direction>
+            <speed>0.3 + $rank*0.1</speed>
+            <bullet label="blast_normal"></bullet>
+          </fire>
+          -->
+          <wait>4</wait>
+        </action>
+      </repeat>
+      <wait>4</wait>
+      <vanish />
+    </action>
+  </bullet>
+
+</bulletml>

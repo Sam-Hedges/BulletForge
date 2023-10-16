@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <repeat>
+      <times>99999</times>
+      <action>
+
+        <actionRef label="p">
+          <param>180</param>
+        </actionRef>
+
+        <wait>30</wait>
+
+        <actionRef label="p">
+          <param>0</param>
+        </actionRef>
+
+        <wait>30</wait>
+
+        <wait>300</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <action label="p">
+
+    <repeat>
+      <times>10</times>
+
+      <action>
+        <trigger>attack3_2</trigger>
+        <fire>
+          <bulletRef label="bullet_frag" />
+        </fire>
+        <trigger>attack3_1</trigger>
+        <fire>
+          <bulletRef label="bullet_normal" />
+        </fire>
+        <wait>7</wait>
+      </action>
+    </repeat>
+
+  </action>
+
+  <bullet label="bullet_frag">
+    <speed>0.25</speed>
+    <direction type="absolute">0</direction>
+    <action>
+      <wait>10</wait>
+      <repeat>
+        <times>99</times>
+        <action>
+          <changeDirection>
+            <direction type="relative">-180</direction>
+            <term>25</term>
+          </changeDirection>
+          <wait>45</wait>
+          <changeDirection>
+            <direction type="relative">180</direction>
+            <term>25</term>
+          </changeDirection>
+          <wait>45</wait>
+        </action>
+      </repeat>
+    </action>
+
+  </bullet>
+
+  <bullet label="bullet_normal">
+    <speed>0.25</speed>
+    <direction type="absolute">180</direction>
+    <action>
+      <wait>10</wait>
+      <repeat>
+        <times>99</times>
+        <action>
+          <changeDirection>
+            <direction type="relative">180</direction>
+            <term>25</term>
+          </changeDirection>
+          <wait>45</wait>
+          <changeDirection>
+            <direction type="relative">-180</direction>
+            <term>25</term>
+          </changeDirection>
+          <wait>45</wait>
+        </action>
+      </repeat>
+    </action>
+
+  </bullet>
+
+</bulletml>

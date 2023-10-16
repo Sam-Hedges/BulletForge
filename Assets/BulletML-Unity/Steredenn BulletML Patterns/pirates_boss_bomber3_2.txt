@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Bomber boss -->
+<!-- ===================== -->
+<!-- Pattern 2 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <times>9999</times>
+      <action>
+        <trigger>attack2</trigger>
+
+        <actionRef label="oneshot">
+          <param>195</param>
+        </actionRef>
+
+        <actionRef label="oneshot">
+          <param>235</param>
+        </actionRef>
+
+        <actionRef label="oneshot">
+          <param>270</param>
+        </actionRef>
+
+        <actionRef label="oneshot">
+          <param>305</param>
+        </actionRef>
+
+        <actionRef label="oneshot">
+          <param>345</param>
+        </actionRef>
+        
+        <wait>300</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="oneshot">
+    <fire label="shot">
+      <direction type="absolute">$1</direction>
+      <bulletRef label="bullet_frag" />
+    </fire>
+  </action>
+
+  <bullet label="bullet_frag">
+    <speed>0.2</speed>
+    <action>
+      <wait>20</wait>
+      <changeSpeed>
+        <speed>0</speed>
+        <term>10</term>
+      </changeSpeed>
+      <action>
+        <trigger>sound=bomberMkIII_B_Explose</trigger>
+        <repeat>
+          <times>120</times>
+          <action>
+            <fire>
+              <direction type="absolute">(270 + 1) - ((1 * 2) * $rand)</direction>
+              <speed>0.25</speed>
+              <bullet label="bullet_normal" />
+            </fire>
+            <wait>2</wait>
+          </action>
+        </repeat>
+      </action>
+      <vanish />
+    </action>
+  </bullet>
+
+</bulletml>

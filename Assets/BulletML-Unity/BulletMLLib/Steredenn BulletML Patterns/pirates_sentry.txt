@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Sentry -->
+<!-- ================ -->
+<!-- A stupid turret  -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Loop -->
+    <action>
+      <repeat>
+        <times>9999</times>
+        <action>
+          <!-- Time to aim -->
+          <wait>120 - 40 * $rank</wait>
+
+          <!-- Shoot -->
+          <action>
+
+            <!-- Shoot multiple charging frag bullets-->
+            <repeat>
+              <times>3 + ($rank * 4)</times>
+              <action>
+                <wait>4</wait>
+                <actionRef label="shoot" />
+              </action>
+            </repeat>
+          </action>
+        </action>
+      </repeat>
+
+    </action>
+  </action>
+
+  <!-- Shoot the player-->
+  <action label="shoot">
+    <trigger>attack</trigger>
+    <fire>
+      <direction type="aim">$rand*10</direction>
+      <speed>0.05</speed>
+      <bulletRef label="bullet_frag" />
+    </fire>
+  </action>
+
+  <!-- Charging bullet -->
+  <bullet label="bullet_frag">
+    <action>
+      <!-- Let move -->
+      <wait>5</wait>
+
+      <!-- STOP -->
+      <changeSpeed>
+        <speed>0</speed>
+        <term>15</term>
+      </changeSpeed>
+
+      <!-- Charge -->
+      <wait>15</wait>
+
+      <!-- Fire! -->
+      <fire>
+        <direction type="aim">0</direction>
+        <bulletRef label="blast_homing" />
+      </fire>
+
+      <trigger>sound=blastPink</trigger>
+
+      <vanish />
+    </action>
+
+  </bullet>
+
+  <!-- Frag bullet aiming player-->
+  <bullet label="blast_homing">
+    <speed>0.3 + $rank * 0.2</speed>
+    <!-- Re-aim-->
+    <action>
+      <changeDirection>
+        <direction type="aim">0</direction>
+        <term>1</term>
+      </changeDirection>
+    </action>
+  </bullet>
+</bulletml>

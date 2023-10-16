@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Bomber boss -->
+<!-- ===================== -->
+<!-- Pattern 3 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+
+      <times>99999</times>
+      <action>
+        <trigger>attack3</trigger>
+        <fire>
+          <direction type="absolute">270</direction>
+          <bulletRef label="bullet_frag"/>
+        </fire>
+        <wait>30</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="bullet_frag">
+    <speed>0.1</speed>
+    <action>
+      <changeSpeed>
+        <speed>0</speed>
+        <term>45</term>
+      </changeSpeed>
+      <wait>90 - $rand*30</wait>
+      <trigger>sound=bomberMkII_C_Explose</trigger>
+
+      <repeat>
+        <times>3</times>
+        <action>
+          <fire>
+            <direction type="absolute">0</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">30</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">60</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">90</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">120</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">150</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">180</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">210</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">240</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">270</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">300</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <fire>
+            <direction type="absolute">330</direction>
+            <bulletRef label="blast_normal"/>
+          </fire>
+          <wait>5</wait>
+        </action>
+      </repeat>
+
+      <vanish />
+    </action>
+  </bullet>
+
+  <bullet label="blast_normal">
+    <speed>0.2</speed>
+  </bullet>
+
+</bulletml>

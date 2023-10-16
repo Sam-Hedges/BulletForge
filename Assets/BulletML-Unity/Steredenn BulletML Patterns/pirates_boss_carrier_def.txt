@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Carrier boss -->
+<!-- ===================== -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <trigger>shockwave_disable</trigger>
+    <repeat>
+      <!-- The main loop, until the boss is destroyed -->
+      <times>99999</times>
+      <action>
+        <trigger>spawnfighters</trigger>
+        <trigger>attackshield</trigger>
+        <actionRef label="shield1" />
+        <actionRef label="shield2" />
+        <wait>30</wait>
+      </action>
+    </repeat>
+  </action>
+
+
+  <action label="shield1">
+    <fire>
+      <bullet label="bullet_shield" >
+        <direction type="absolute">270</direction>
+        <speed>0.2</speed>
+        <actionRef label="deploy_shield" >
+          <param>20</param>
+        </actionRef>
+      </bullet>
+    </fire>
+  </action>
+
+  <action label="shield2">
+    <fire>
+      <bullet label="bullet_shield" >
+        <direction type="absolute">270</direction>
+        <speed>0.125</speed>
+        <actionRef label="deploy_shield" >
+          <param>15</param>
+        </actionRef>
+      </bullet>
+    </fire>
+  </action>
+
+  <action label="deploy_shield" >
+    <wait>$1</wait>
+    <trigger>sound=carrierMKI_A02</trigger>
+    <repeat>
+      <times>4</times>
+      <action>
+        <fire>
+          <direction type="sequence">90</direction>
+          <bullet label="bullet_shield">
+            <speed>0.125</speed>
+            <action>
+              <changeSpeed>
+                <speed>0</speed>
+                <term>12</term>
+              </changeSpeed>
+            </action>
+          </bullet>
+        </fire>
+      </action>
+    </repeat>
+    <vanish />
+  </action>
+
+</bulletml>

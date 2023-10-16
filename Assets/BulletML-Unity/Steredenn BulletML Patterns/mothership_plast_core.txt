@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd"[]>
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <times>99999</times>
+      <action>
+      
+        <trigger>load_trigger</trigger>
+        <wait>180</wait>
+      
+        <repeat>
+        <times>3</times>
+        <action>
+        
+          <trigger>attack</trigger>
+
+          <fire>
+            <direction type="aim">0</direction>
+            <speed>0.3</speed>
+            <bullet label="big_pink" >
+              <action>
+                <repeat>
+                  <times>4</times>
+                  <action>
+                    <wait>8</wait>
+                    <fire>
+                      <direction type="absolute">135</direction>
+                      <bulletRef label="bullet_frag" />
+                    </fire>
+                    <fire>
+                      <direction type="absolute">45</direction>
+                      <bulletRef label="bullet_frag" />
+                    </fire>
+                  </action>
+                </repeat>
+              </action>
+            </bullet>
+          </fire>
+
+          <wait>240</wait>
+          
+          </action>
+        </repeat>
+        
+        <trigger>unload_trigger</trigger>
+        
+        <wait>180</wait>
+        <trigger>taunt</trigger>
+
+      <wait>600</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="bullet_frag">
+    <speed>0.15</speed>
+    <action>
+      <action>
+        <wait>20</wait>
+
+        <repeat>
+          <times>12</times>
+          <action>
+            <fire>
+              <direction type="sequence">30</direction>
+              <bullet label="blast_normal">
+                <speed>0.3</speed>
+                <action>
+                  <wait>1</wait>
+                  <action>
+                    <changeSpeed>
+                      <speed>0.075</speed>
+                      <term>10</term>
+                    </changeSpeed>
+                  </action>
+                </action>
+              </bullet>
+            </fire>
+          </action>
+        </repeat>
+
+        <wait>60</wait>
+        
+        <vanish />
+      </action>
+    </action>
+  </bullet>
+</bulletml>

@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate boss MK2 -->
+<!-- ===================== -->
+<!-- Pattern 1 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <!-- The main loop, until the boss is destroyed -->
+      <times>99999</times>
+      <action>
+
+        <actionRef label="pattern">
+          <param>-1</param>
+        </actionRef>
+
+        <actionRef label="defense" />
+
+        <wait>25</wait>
+
+        <actionRef label="pattern">
+          <param>1</param>
+        </actionRef>
+
+        <actionRef label="defense" />
+
+        <wait>25</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+  <action label="pattern">
+    <trigger>attack</trigger>
+    <actionRef label="shoot">
+      <param>270 + (45 * -$1)</param>
+    </actionRef>
+    <actionRef label="shoot">
+      <param>270 + (30 * -$1)</param>
+    </actionRef>
+    <actionRef label="shoot">
+      <param>270 + (15 * -$1)</param>
+    </actionRef>
+    <actionRef label="shoot">
+      <param>270</param>
+    </actionRef>
+    <actionRef label="shoot">
+      <param>270 + (15 * $1)</param>
+    </actionRef>
+    <actionRef label="shoot">
+      <param>270 + (30 * $1)</param>
+    </actionRef>
+    <actionRef label="shoot">
+      <param>270 + (45 * $1)</param>
+    </actionRef>
+    <actionRef label="shoot">
+      <param>270 + (60 * $1)</param>
+    </actionRef>
+    <actionRef label="shoot">
+      <param>270 + (75 * $1)</param>
+    </actionRef>
+    <actionRef label="shoot">
+      <param>270 + (90 * $1)</param>
+    </actionRef>
+  </action>
+
+  <action label="shoot">
+    <fire>
+      <direction type="absolute">$1</direction>
+      <bullet label="bullet_normal">
+        <speed>0.1</speed>
+        <action>
+          <wait>2</wait>
+          <changeSpeed>
+            <speed>0.04 - $rank*0.005</speed>
+            <term>20</term>
+          </changeSpeed>
+        </action>
+      </bullet>
+    </fire>
+  </action>
+
+  <action label="defense">
+    <fire>
+      <direction type="absolute">270 - 30</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+     <fire>
+      <direction type="absolute">270 - 10</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+    <fire>
+      <direction type="absolute">270</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+    <fire>
+      <direction type="absolute">270 + 10</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+    <fire>
+      <direction type="absolute">270 + 30</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+  </action>
+
+  <bullet label="bullet_normal">
+    <speed>$rank*0.2</speed>
+    <!-- Re-aim-->
+    <action>
+      <wait>$rank*300</wait>
+      <vanish />
+    </action>
+  </bullet>
+
+</bulletml>

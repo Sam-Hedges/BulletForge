@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - boss cruiser -->
+<!-- ================= -->
+<!-- Double Turret -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Time before pattern start-->
+    <wait>190</wait>
+
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <trigger>attack</trigger>
+        <fire>
+          <direction type="absolute">290 - $rand*30</direction>
+          <speed>0.2 + ($rank * 0.1)</speed>
+          <bullet label="blast_normal" />
+        </fire>
+
+        <wait>40 - ($rank * 20)</wait>
+      </action>
+    </repeat>
+  </action>
+
+</bulletml>

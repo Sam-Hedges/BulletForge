@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+
+    <repeat>
+      <times>99999</times>
+      <action>
+      
+        <wait>30</wait>
+
+        <trigger>laserstart</trigger>
+        <wait>24</wait>
+        
+        <trigger>laser</trigger>
+        <wait>180</wait>
+
+        <trigger>laserend</trigger>
+        <wait>60</wait>
+        
+      </action>
+    </repeat>
+  </action>
+</bulletml>

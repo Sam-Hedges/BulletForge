@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate boss -->
+<!-- ===================== -->
+<!-- Pattern 2 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <!-- The main loop, until the boss is destroyed -->
+      <times>99999</times>
+      <action>
+        <trigger>attack2</trigger>
+        <action>
+          <!-- Tri shot-->
+          <actionRef label="directional_shot">
+            <param>-30</param>
+          </actionRef>
+          <actionRef label="directional_shot">
+            <param>0</param>
+          </actionRef>
+          <actionRef label="directional_shot">
+            <param>30</param>
+          </actionRef>
+        </action>
+        <!-- space to go between shots -->
+        <wait>6</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="directional_shot">
+    <fire>
+      <direction type="aim">$1</direction>
+      <speed type="absolute">0.2 + ($rank * 0.2)</speed>
+      <bullet label="big_blue" />
+    </fire>
+  </action>
+
+</bulletml>

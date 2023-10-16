@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Bomber boss -->
+<!-- ===================== -->
+<!-- Pattern 1 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <wait>90</wait>
+    <repeat>
+      <times>9999</times>
+      <action>
+        <action>
+          <repeat>
+            <times>5 + (4 * $rank)</times>
+            <action>
+              <trigger>attack</trigger>
+              <fire label="shot">
+                <direction type="absolute">274 - $rand * 8</direction>
+                <bulletRef label="big_blue" />
+              </fire>
+              <wait>4</wait>
+            </action>
+          </repeat>
+        </action>
+        <wait>(30 - (10 * $rank))</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="big_blue">
+    <speed>0.35</speed>
+  </bullet>
+</bulletml>

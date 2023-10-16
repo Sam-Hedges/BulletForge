@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Bomber boss -->
+<!-- ===================== -->
+<!-- Pattern 1 -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <times>9+$rand*3</times>
+      <action>
+        <actionRef label="upanddown" >
+          <param>1</param>
+        </actionRef>
+        <wait>30</wait>
+        <actionRef label="homing"  />
+        <wait>90</wait>
+        <actionRef label="upanddown" >
+          <param>-1</param>
+        </actionRef>
+        <wait>30</wait>
+        <actionRef label="homing"  />
+        <wait>90</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="homing">
+    <repeat>
+      <times>3 + (5 * $rank)</times>
+      <action>
+        <trigger>attack_pink</trigger>
+        <fire label="shot">
+          <direction type="aim">0 + ($rand * 10) - ($rand * 10)</direction>
+          <speed>0.3 + $rand * 0.1  + $rank* 0.25</speed>
+          <bullet label="big_pink" />
+        </fire>
+        <wait>3</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="upanddown">
+    <trigger>attack</trigger>
+    <fire>
+      <bullet label="bullet_frag">
+        <direction type="absolute">270</direction>
+        <speed>0.085</speed>
+        <action>
+          <changeDirection>
+            <direction type="relative">180</direction>
+            <term>75</term>
+          </changeDirection>
+          <wait>75</wait>
+          <changeSpeed>
+            <speed>0</speed>
+            <term>1</term>
+          </changeSpeed>
+
+          <trigger>sound=bomberMkI_A_Explose</trigger>
+
+          <repeat>
+            <times>40</times>
+            <action>
+              <fire>
+                <direction type="absolute">$1 * (92 - $rand * 4)</direction>
+                <speed>0.4</speed>
+                <bullet label="bullet_normal" />
+              </fire>
+              <wait>2 - $rand * 1</wait>
+            </action>
+          </repeat>
+          <vanish />
+        </action>
+      </bullet>
+    </fire>
+    <fire>
+      <bullet label="bullet_frag">
+        <direction type="absolute">270</direction>
+        <speed>0.085</speed>
+        <action>
+          <changeDirection>
+            <direction type="relative">-180</direction>
+            <term>75</term>
+          </changeDirection>
+          <wait>75</wait>
+          <changeSpeed>
+            <speed>0</speed>
+            <term>1</term>
+          </changeSpeed>
+          <repeat>
+            <times>40</times>
+            <action>
+              <fire>
+                <direction type="absolute">($1 * -1) * (92 - $rand * 4)</direction>
+                <speed>0.4</speed>
+                <bullet label="bullet_normal" />
+              </fire>
+              <wait>2 - $rand * 1</wait>
+            </action>
+          </repeat>
+          <vanish />
+        </action>
+      </bullet>
+    </fire>
+  </action>
+
+</bulletml>

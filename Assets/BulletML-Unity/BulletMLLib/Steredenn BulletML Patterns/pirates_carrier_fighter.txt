@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Fighter -->
+<!-- ================= -->
+<!-- Fighters are pop-corn enemies, they are not supposed to be dangerous and they will die in one shot. -->
+<!-- But they will be LEGIONS -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Small wait-->
+    <wait>120</wait>
+
+    <!-- Loop -->
+    <action>
+      <repeat>
+        <times>9999</times>
+        <action>
+          
+          <!-- Shoot -->
+          <actionRef label="shoot" />
+          <wait>(320 - $rank*160)</wait>
+          
+        </action>
+      </repeat>
+
+    </action>
+  </action>
+
+  <!-- Shoot the player-->
+  <action label="shoot">
+    <trigger>attack</trigger>
+    <fire>
+      <direction type="aim">0</direction>
+      <speed>0.25</speed>
+      <bulletRef label="bullet_homing" />
+    </fire>
+  </action>
+
+  <!-- Normal bullet -->
+  <bullet label="bullet_homing">
+  </bullet>
+</bulletml>

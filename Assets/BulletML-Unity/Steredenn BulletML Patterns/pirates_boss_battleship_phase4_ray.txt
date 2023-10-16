@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "../bulletml.dtd"[]>
+<!-- Pirates - BATTLESHIP boss -->
+<!-- ===================== -->
+<!-- Phase1 1 -->
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+
+    <wait>90</wait>
+
+    <repeat>
+      <times>99999</times>
+      <action>
+
+        <repeat>
+          <times>21</times>
+          <action>
+            <actionRef label="prism1">
+              <param>36</param>
+            </actionRef>
+            <actionRef label="prism1">
+              <param>-36</param>
+            </actionRef>
+            <actionRef label="prism2">
+              <param>25</param>
+            </actionRef>
+            <actionRef label="prism2">
+              <param>-25</param>
+            </actionRef>
+            <actionRef label="prism3">
+              <param>12</param>
+            </actionRef>
+            <actionRef label="prism3">
+              <param>-12</param>
+            </actionRef>
+            <actionRef label="prism3">
+              <param>0</param>
+            </actionRef>
+            <wait>3</wait>
+          </action>
+        </repeat>
+
+        <wait>70</wait>
+
+      </action>
+    </repeat>
+
+  </action>
+
+  <action label="prism1">
+    <trigger>attack</trigger>
+    <fire>
+      <direction type="aim">$1 + $rand*2</direction>
+      <speed>0.23</speed>
+      <bullet label="bullet_homing">
+        <action>
+          <actionRef label="behavior">
+            <param>15</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+  </action>
+  <action label="prism2">
+    <trigger>attack</trigger>
+    <fire>
+      <direction type="aim">$1+ $rand*2</direction>
+      <speed>0.23</speed>
+      <bullet label="bullet_homing">
+        <action>
+          <actionRef label="behavior">
+            <param>12</param>
+          </actionRef>
+        </action>
+      </bullet>
+    </fire>
+    <action label="prism3">
+      <fire>
+        <direction type="aim">$1+ $rand*2</direction>
+        <speed>0.23</speed>
+        <bullet label="bullet_homing">
+          <action>
+            <actionRef label="behavior">
+              <param>10</param>
+            </actionRef>
+          </action>
+        </bullet>
+      </fire>
+    </action>
+  </action>
+
+  <action label="behavior">
+    <wait>$1 + $rand*1</wait>
+    <repeat>
+      <times>2</times>
+      <action>
+        <changeDirection>
+          <direction type="aim">0</direction>
+          <term>0</term>
+        </changeDirection>
+        <wait>1</wait>
+      </action>
+    </repeat>
+  </action>
+
+</bulletml>

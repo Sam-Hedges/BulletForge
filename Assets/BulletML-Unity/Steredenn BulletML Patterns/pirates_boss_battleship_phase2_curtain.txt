@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "../bulletml.dtd">
+
+<bulletml xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <times>9999</times>
+      <action>
+        <actionRef label="shoot">
+          <param>1</param>
+        </actionRef>
+        <wait>280</wait>
+        <actionRef label="shoot">
+          <param>-1</param>
+        </actionRef>
+        <wait>280</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <action label="shoot">
+    <trigger>attack</trigger>
+    <trigger>attack2</trigger>
+    <fire>
+      <direction type="absolute">$rand*10</direction>
+      <bulletRef label="bullet_frag"/>
+    </fire>
+
+    <repeat>
+      <times>18</times>
+      <action>
+        <trigger>attack</trigger>
+        <trigger>attack2</trigger>
+        <fire>
+          <direction type="sequence">20*$1</direction>
+          <bulletRef label="bullet_frag"/>
+        </fire>
+        <wait>3</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <bullet label="bullet_frag">
+    <speed>0.3</speed>
+    <action>
+      <wait>4</wait>
+      <repeat>
+        <times>8</times>
+        <action>
+          <wait>10 - $rank*3</wait>
+          <fireRef label="rollOut"/>
+        </action>
+      </repeat>
+      <vanish />
+    </action>
+  </bullet>
+
+  <fire label="rollOut">
+    <direction type="relative">90</direction>
+    <speed>0.0001</speed>
+
+    <bullet label="bullet_normal_nolimit">
+      <action>
+        <wait>120</wait>
+        <changeSpeed>
+          <speed>0.2 + $rank*0.15</speed>
+          <term>40</term>
+        </changeSpeed>
+        <changeDirection>
+          <direction type="relative">50-$rank*40</direction>
+          <term>40</term>
+        </changeDirection>
+        <wait>500</wait>
+        <vanish />
+      </action>
+    </bullet>
+  </fire>
+
+
+</bulletml>

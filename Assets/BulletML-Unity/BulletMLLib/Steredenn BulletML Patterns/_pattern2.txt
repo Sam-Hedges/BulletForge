@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <repeat>
+    <times>99999</times>
+    <action>
+    
+      <actionRef label="p"></actionRef>
+      <wait>40</wait>
+      <actionRef label="p"></actionRef>
+      <wait>40</wait>
+      <actionRef label="p"></actionRef>
+    
+      <wait>200</wait>
+
+    </action>
+    </repeat>
+  </action>
+  
+  <action label="p">
+     <repeat>
+        <times>30</times>
+        <action>
+        <fire>
+          <setDirection type="absolute">270</setDirection>
+          <direction type="sequence">12</direction>
+          <bullet label="bullet_frag">
+          <speed>0.2</speed>
+          <action>
+            <wait>20</wait>
+            <changeSpeed>
+              <speed>0</speed>
+              <term>10</term>
+            </changeSpeed>
+            <wait>30</wait>
+            
+            <fire>
+              <direction type="aim">0</direction>
+              <speed>0.3</speed>
+              <bullet label ="blast_homing"></bullet>
+            </fire>
+            <vanish />
+          </action>
+          
+          </bullet>
+        </fire>
+        </action>
+      </repeat>
+  </action>
+</bulletml>

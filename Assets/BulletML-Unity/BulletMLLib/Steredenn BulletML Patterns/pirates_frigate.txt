@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - Frigate -->
+<!-- ================= -->
+<!-- -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <!-- Loop -->
+    <action>
+      <repeat>
+        <times>9999</times>
+        <action>
+          <!-- Arc, top to bot -->
+          <actionRef label="shoot_arc">
+            <param>1</param>
+          </actionRef>
+
+          <!-- Missile -->
+          <actionRef label="shoot_homing" />
+
+          <wait>100 - (50 * $rank)</wait>
+        </action>
+      </repeat>
+
+    </action>
+  </action>
+
+  <!-- Shoot an arc of bullets-->
+  <action label="shoot_arc">
+    <trigger>attack</trigger>
+
+    <!-- First bullet to set aim-->
+    <fire minDifficulty="1">
+      <direction type="aim">-30</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+    <fire>
+      <direction type="aim">-20</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+    <fire minDifficulty="0.5">
+      <direction type="aim">-10</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+    <fire>
+      <direction type="aim">0</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+    <fire minDifficulty="0.5">
+      <direction type="aim">10</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+    <fire>
+      <direction type="aim">20</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+    <fire minDifficulty="1">
+      <direction type="aim">30</direction>
+      <bulletRef label="bullet_normal" />
+    </fire>
+  </action>
+
+  <!-- Shoot a rapid bullet targeting the player -->
+  <action label="shoot_homing">
+    <wait>30 - ($rank * 15)</wait>
+    <trigger>attack2</trigger>
+    <fire>
+      <bulletRef label="bullet_homing" />
+    </fire>
+  </action>
+
+  <!-- Arc bullets -->
+  <bullet label="bullet_normal">
+    <speed>0.12 + $rank * 0.1</speed>
+  </bullet>
+
+  <!-- Homing bullets-->
+  <bullet label="bullet_homing">
+    <direction type="aim">0</direction>
+    <speed>0.35 + $rank * 0.15</speed>
+    <action>
+      <changeSpeed>
+        <speed>0.3 + $rank * 0.1</speed>
+        <term>60</term>
+      </changeSpeed>
+    </action>
+  </bullet>
+</bulletml>

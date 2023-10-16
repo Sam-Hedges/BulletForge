@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <repeat>
+      <times>99999</times>
+      <action>
+
+        <repeat>
+          <times>5</times>
+          <action>
+
+            <repeat>
+              <times>5 + $rank*5</times>
+              <action>
+                <actionRef label="shoot_homing">
+                </actionRef>
+                <wait>21</wait>
+              </action>
+            </repeat>
+
+            <wait>120</wait>
+          </action>
+        </repeat>
+        
+      </action>
+    </repeat>
+  </action>
+
+  <action label="shoot_homing">
+    <trigger>attack</trigger>
+    <trigger>sound=motherShip_G</trigger>
+    <fire>
+      <direction type="aim">$rand*5</direction>
+      <speed>0.3</speed>
+
+      <bullet label="missile_fat" />
+    </fire>
+  </action>
+
+
+</bulletml>

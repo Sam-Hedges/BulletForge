@@ -1,0 +1,13 @@
+{
+  "name": "com.fetsss.bullet-pattern-editor",
+  "version": "1.0.0",
+  "displayName": "Bullet Pattern Editor",
+  "description": "A graph-based bullet pattern editor for Bullet-hell games",
+  "unity": "2021.2",
+  "unityRelease": "14f1",
+  "author": {
+    "name": "Fetss",
+    "email": "fetss1511@gamil.com",
+    "url": "https://fetss.itch.io/"
+  }
+}

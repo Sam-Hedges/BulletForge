@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+
+    <trigger>load</trigger>
+    <wait>60</wait>
+
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <trigger>attack2</trigger>
+        <fire>
+          <direction type="absolute">180</direction>
+          <speed>0.1</speed>
+          <bullet label="bullet_frag" >
+
+            <action>
+              <wait>10</wait>
+              <changeSpeed>
+                <speed>0</speed>
+                <term>1</term>
+              </changeSpeed>
+
+              <repeat>
+                <times>36</times>
+                <action>
+
+                  <fire>
+                    <direction type="sequence">10</direction>
+
+                    <bullet label="bullet_frag">
+                      <speed>0.05</speed>
+                      <action>
+                        <wait>40</wait>
+                        <changeSpeed>
+                          <speed>0.05</speed>
+                          <term>30</term>
+                        </changeSpeed>
+
+                        <fire>
+                          <direction type="relative">0</direction>
+                          <speed>0.12</speed>
+                          <bullet label="blast_normal" />
+                        </fire>
+
+                        <vanish />
+
+                      </action>
+                    </bullet>
+
+                  </fire>
+
+                  <fire>
+                    <direction type="sequence">10</direction>
+
+                    <bullet label="bullet_frag">
+                      <speed>0.1</speed>
+                      <action>
+                        <wait>40</wait>
+                        <changeSpeed>
+                          <speed>0.05</speed>
+                          <term>30</term>
+                        </changeSpeed>
+
+                        <fire>
+                          <direction type="relative">0</direction>
+                          <speed>0.12</speed>
+                          <bullet label="blast_normal" />
+                        </fire>
+
+                        <vanish />
+
+                      </action>
+                    </bullet>
+
+                  </fire>
+
+                  <fire>
+                    <direction type="sequence">10</direction>
+
+                    <bullet label="bullet_frag">
+                      <speed>0.15</speed>
+                      <action>
+                        <wait>40</wait>
+                        <changeSpeed>
+                          <speed>0.05</speed>
+                          <term>30</term>
+                        </changeSpeed>
+
+                        <fire>
+                          <direction type="relative">0</direction>
+                          <speed>0.12</speed>
+                          <bullet label="blast_normal" />
+                        </fire>
+
+                        <vanish />
+
+                      </action>
+                    </bullet>
+
+                  </fire>
+                </action>
+              </repeat>
+              <vanish />
+            </action>
+
+          </bullet>
+        </fire>
+                  
+        <wait>40</wait>
+        
+        <!--- Play a single frag sound! -->
+        <trigger>sound=motherShipMini_C</trigger>
+
+        <wait>140</wait>
+
+      </action>
+    </repeat>
+  </action>
+
+</bulletml>

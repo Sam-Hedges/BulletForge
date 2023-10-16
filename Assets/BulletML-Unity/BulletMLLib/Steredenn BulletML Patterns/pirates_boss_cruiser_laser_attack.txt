@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+
+<!-- Pirates - boss cruiser -->
+<!-- ================= -->
+<!-- Laser -->
+
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+  <action label="top">
+    <wait>150</wait>
+    <repeat>
+      <times>16</times>
+      <action>
+        <actionRef label="part" />
+      </action>
+    </repeat>
+  </action>
+
+  <!-- Split so we can make the sound every n bullets but not every time-->
+  <action label="part">
+    <trigger>attack</trigger>
+    <repeat>
+      <times>4</times>
+      <action>
+        <fire>
+          <direction type="absolute">281 - $rand*16</direction>
+          <speed>0.4</speed>
+          <bullet label="bullet_normal" />
+        </fire>
+        <wait>2</wait>
+      </action>
+    </repeat>
+  </action>
+
+</bulletml>

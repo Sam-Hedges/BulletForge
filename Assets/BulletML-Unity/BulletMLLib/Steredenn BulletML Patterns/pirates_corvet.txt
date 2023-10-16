@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <!-- P2 -->
+        <actionRef label="p2" />
+        <trigger>attackstart</trigger>
+        <wait>40</wait>
+
+        <!-- Empty pattern hack -->
+        <actionRef label="pattern_empty_top" />
+
+        <!-- P1 -->
+        <actionRef label="p1" />
+        <wait>60</wait>
+
+        <!-- P2 again -->
+        <actionRef label="p2" />
+        <wait>20</wait>
+      </action>
+    </repeat>
+
+  </action>
+
+  <!-- Pattern 1 -->
+  <action label="p1">
+    <trigger>p1</trigger>
+    <wait>1</wait>
+
+    <repeat>
+      <times>4 + $rank*2</times>
+      <action>
+        <trigger>attack</trigger>
+        <fire>
+          <direction type="aim">0</direction>
+          <speed>0.25 + ($rank * 0.15)</speed>
+          <bullet label="big_pink">
+            <!-- HACK: prevent a false position for the first. -->
+            <changeDirection>
+              <direction type="aim">0</direction>
+              <term>1</term>
+            </changeDirection>
+          </bullet>
+        </fire>
+        <wait>8 - ($rank * 4)</wait>
+      </action>
+    </repeat>
+  </action>
+
+  <!-- Pattern 2 -->
+  <action label="p2">
+  	<trigger>p2</trigger>
+  	<wait>1</wait>
+
+    <repeat>
+      <times>5 + ($rank * 5)</times>
+      <action>
+
+        <trigger>attack2</trigger>
+        <fire>
+          <bullet label="bullet_normal">
+            <direction type="absolute">(270 + 20) - ((20 * 2)*$rand)</direction>
+            <speed>0.15 + ($rank * 0.1)</speed>
+          </bullet>
+        </fire>
+        <wait>15 - ($rank * 5)</wait>
+
+      </action>
+    </repeat>
+
+    <wait>20</wait>
+  </action>
+
+  <!-- Empty pattern to fix the BulletML first bullet bug. -->
+  <action label="pattern_empty_top">
+    <trigger>attack</trigger>
+    <fire>
+      <direction type="aim">0</direction>
+      <bullet label="big_pink">
+        <vanish />
+      </bullet>
+    </fire>
+  </action>
+</bulletml>

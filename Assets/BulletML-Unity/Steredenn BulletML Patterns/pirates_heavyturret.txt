@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE bulletml SYSTEM "bulletml.dtd">
+<bulletml type="horizontal" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+
+    <repeat>
+      <times>9999</times>
+      <action>
+
+        <trigger>attackstart</trigger>
+        <wait>45</wait>
+
+        <repeat>
+          <times>3</times>
+          <action>
+            <trigger>attack</trigger>
+            
+            <fire>
+              <direction type="absolute">360</direction>
+              <bulletRef label="bullet_normal" />
+            </fire>
+            <fire>
+              <direction type="absolute">340</direction>
+              <bulletRef label="bullet_normal" />
+            </fire>
+            <fire>
+              <direction type="absolute">320</direction>
+              <bulletRef label="bullet_normal" />
+            </fire>
+            <fire>
+              <direction type="absolute"></direction>
+              <bulletRef label="bullet_normal" />
+            </fire>
+            
+            <wait>15 - (10 * $rank)</wait>
+            
+            <fire>
+              <direction type="absolute">270</direction>
+              <bulletRef label="bullet_normal" />
+            </fire>
+            <fire>
+              <direction type="absolute">290</direction>
+              <bulletRef label="bullet_normal" />
+            </fire>
+            <fire>
+              <direction type="absolute">250</direction>
+              <bulletRef label="bullet_normal" />
+            </fire>
+            
+            <wait>15 - (10 * $rank)</wait>
+            
+          </action>
+        </repeat>
+        
+        <wait>60 - (15 * $rank)</wait>
+
+      </action>
+    </repeat>
+
+  </action>
+
+<bullet label="bullet_normal">
+	<speed>0.075 + ($rank * 0.15)</speed>
+</bullet>
+
+</bulletml>
