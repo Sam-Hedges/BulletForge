@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   root:
     spawn:
-      rid: 645522553785548800
+      rid: 645522559068012569
     simulationSpace: 1
     positionOffset: {x: 0, y: 0}
     rotationOffset: 0
@@ -37,9 +37,9 @@ MonoBehaviour:
     interval: 0
     parent:
       rid: -2
-    simulationColor: {r: 0.14617944, g: 1, b: 0, a: 1}
+    simulationColor: {r: 1, g: 1, b: 1, a: 1}
   - spawn:
-      rid: 645522553785548801
+      rid: 645522559068012570
     simulationSpace: 1
     positionOffset: {x: 0, y: 0}
     rotationOffset: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
       rid: -2
     simulationColor: {r: 0, g: 0, b: 0, a: 0}
   - spawn:
-      rid: 645522553785548802
+      rid: 645522559068012571
     simulationSpace: 0
     positionOffset: {x: 0, y: 0}
     rotationOffset: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
       rid: -2
     simulationColor: {r: 0, g: 0, b: 0, a: 0}
   - spawn:
-      rid: 645522553785548803
+      rid: 645522559068012572
     simulationSpace: 0
     positionOffset: {x: 0, y: 0}
     rotationOffset: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
       rid: -2
     simulationColor: {r: 1, g: 1, b: 1, a: 1}
   - spawn:
-      rid: 645522553785548804
+      rid: 645522559068012573
     simulationSpace: 1
     positionOffset: {x: 0, y: 0}
     rotationOffset: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
       rid: -2
     simulationColor: {r: 0, g: 0.834991, b: 1, a: 1}
   - spawn:
-      rid: 645522553785548800
+      rid: 645522559068012569
     simulationSpace: 1
     positionOffset: {x: 0, y: 0}
     rotationOffset: 0
@@ -105,11 +105,11 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 645522553785548800
+    - rid: 645522559068012569
       type: {class: MovementSpawnGroup, ns: BB, asm: fetsss.bullet-pattern-editor}
       data:
         spawn:
-          rid: 645522553785548804
+          rid: 645522559068012573
         simulationSpace: 1
         positionOffset: {x: 0, y: 0}
         rotationOffset: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
         simulationColor: {r: 0, g: 0.834991, b: 1, a: 1}
         rotationSpeed: 0
         movementSpeed: {x: 0, y: 2}
-    - rid: 645522553785548801
-      type: {class: BulletSpawnGroup, ns: BB, asm: fetsss.bullet-pattern-editor}
+    - rid: 645522559068012570
+      type: {class: MultiSpawnGroup, ns: BB, asm: fetsss.bullet-pattern-editor}
       data:
         spawn:
           rid: -2
@@ -136,15 +136,14 @@ MonoBehaviour:
         interval: 0
         parent:
           rid: -2
-        simulationColor: {r: 0.14617944, g: 1, b: 0, a: 1}
-        bulletPrefab: {fileID: 8784138624476675749, guid: 41a5453181da32e4a9dde4be28031415,
-          type: 3}
-        bulletSpeed: 5
-    - rid: 645522553785548802
+        simulationColor: {r: 1, g: 1, b: 1, a: 1}
+        spawns:
+        - rid: -2
+    - rid: 645522559068012571
       type: {class: TargetSpawnGroup, ns: BB, asm: fetsss.bullet-pattern-editor}
       data:
         spawn:
-          rid: 645522553785548801
+          rid: 645522559068012570
         simulationSpace: 1
         positionOffset: {x: 0, y: 0}
         rotationOffset: 0
@@ -156,11 +155,11 @@ MonoBehaviour:
           rid: -2
         simulationColor: {r: 0, g: 0, b: 0, a: 0}
         maxRotationSpeed: 100000
-    - rid: 645522553785548803
+    - rid: 645522559068012572
       type: {class: CircleSpawnGroup, ns: BB, asm: fetsss.bullet-pattern-editor}
       data:
         spawn:
-          rid: 645522553785548802
+          rid: 645522559068012571
         simulationSpace: 0
         positionOffset: {x: 0, y: 0}
         rotationOffset: 0
@@ -173,11 +172,11 @@ MonoBehaviour:
         simulationColor: {r: 0, g: 0, b: 0, a: 0}
         count: 10
         radius: 2
-    - rid: 645522553785548804
+    - rid: 645522559068012573
       type: {class: MovementSpawnGroup, ns: BB, asm: fetsss.bullet-pattern-editor}
       data:
         spawn:
-          rid: 645522553785548803
+          rid: 645522559068012572
         simulationSpace: 0
         positionOffset: {x: 0, y: 0}
         rotationOffset: 0

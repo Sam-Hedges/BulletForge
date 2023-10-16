@@ -7,6 +7,6 @@ namespace BulletForge.Elements
 {
     public class BFNode : Node
     {
-        
+        public string NodeName { get; set; }   
     }
 }
