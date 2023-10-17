@@ -65,14 +65,15 @@ namespace BulletForge.Windows
         /// <returns></returns>
         private BFNode CreateNode(ENodeType nodeType, Vector2 position)
         {
-            Type type =Type.GetType($"BF.Elements.BF{nodeType}Node");
+            Type type = Type.GetType($"BulletForge.Elements.BF{nodeType}Node");
+            
             if (type == null) {
                 Debug.LogError($"BFGraphView.CreateNode: Type BF{nodeType}Node not found");
                 return new BFNode();
             }
             
             BFNode node = Activator.CreateInstance(type) as BFNode;
-                
+            
             node.Initialize(position);
             node.Draw();
             

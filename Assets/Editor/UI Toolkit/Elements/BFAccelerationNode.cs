@@ -24,7 +24,7 @@ namespace BulletForge.Elements
             CreateIOPort("Duration", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
             
             // Output Container
-            CreateIOPort("Acceleration", outputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
+            CreateIOPort("Acceleration", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
         }
     }
 }
