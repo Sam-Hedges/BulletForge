@@ -3,7 +3,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System;
-
+using System.Collections.Generic;
 
 namespace BulletForge.Windows
 {
@@ -25,7 +25,34 @@ namespace BulletForge.Windows
             AddStyles();
         }
         
-        /// <summary>s
+        #region Overrides
+        
+        /// <summary>
+        ///   <para>Get all ports compatible with given port</para>
+        /// </summary>
+        /// <param name="startPort">Start port to validate against</param>
+        /// <param name="nodeAdapter">Node adapter</param>
+        public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
+        {
+            List<Port> compatiblePorts = new List<Port>();
+            
+            ports.ForEach(port => {
+                // If the port is the same as the start port, then skip
+                // If the port is on the same node as the start port, then skip
+                // If the port is the same direction as the start port, then skip
+                if (startPort != port && startPort.node != port.node && startPort.direction != port.direction) {
+                    compatiblePorts.Add(port);
+                }
+            });
+            
+            return compatiblePorts;
+        }
+        
+        #endregion
+
+        #region Manipulator Methods
+
+        /// <summary>
         /// Allows for control over the graph view
         /// </summary>
         private void AddManipulators()
@@ -36,12 +63,53 @@ namespace BulletForge.Windows
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
             
-            // Add a contextual menu to add each type of node
+            // Add a contextual rc menu to create each type of node in the graph view
             foreach (ENodeType nodeType in Enum.GetValues(typeof(ENodeType))) {
                 this.AddManipulator(CreateNodeContextualMenu($"Add Node ({nodeType})", nodeType));
             }
+            
+            this.AddManipulator(CreateGroupContextualMenu());
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private IManipulator CreateGroupContextualMenu()
+        {
+            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
+                menuEvent => menuEvent.menu.AppendAction("Add Group", actionEvent => AddElement(CreateGroup("Group", actionEvent.eventInfo.localMousePosition)))
+            );
+
+            return contextualMenuManipulator;
+        }
+        
+        /// <summary>
+        /// Creates a group and adds it to the graph view
+        /// </summary>
+        /// <param name="position">The position to create the Group</param>
+        /// <returns></returns>
+        public BFGroup CreateGroup(string title, Vector2 position)
+        {
+            BFGroup group = new BFGroup(title, position);
+            
+            AddElement(group);
+
+            foreach (GraphElement selectedElement in selection)
+            {
+                if (!(selectedElement is BFNode))
+                {
+                    continue;
+                }
+
+                BFNode node = (BFNode) selectedElement;
+
+                group.AddElement(node);
+            }
+
+            return group;
+        }
+
         /// <summary>
         /// Creates a contextual menu to add a node of a specific type
         /// </summary>
@@ -79,7 +147,11 @@ namespace BulletForge.Windows
             
             return node;
         }
+        
+        #endregion
 
+        #region Visual Methods
+        
         /// <summary>
         /// Adds a grid background to the graph view
         /// </summary>
@@ -96,9 +168,13 @@ namespace BulletForge.Windows
         /// </summary>
         private void AddStyles()
         {
-            StyleSheet styleSheet = EditorGUIUtility.Load("BulletForge/BFGraphViewStyles.uss") as StyleSheet;
+            StyleSheet graphViewStyleSheet = EditorGUIUtility.Load("BulletForge/BFGraphViewStyles.uss") as StyleSheet;
+            StyleSheet nodeStyleSheet = EditorGUIUtility.Load("BulletForge/BFNodeStyles.uss") as StyleSheet;
 
-            styleSheets.Add(styleSheet);
+            styleSheets.Add(graphViewStyleSheet);
+            styleSheets.Add(nodeStyleSheet);
         }
+        
+        #endregion
     }
 }
