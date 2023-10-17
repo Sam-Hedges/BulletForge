@@ -3,60 +3,78 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace DS.Windows
+namespace BulletForge.Windows
 {
     using System;
     using Utilities;
-
-    public class DSEditorWindow : EditorWindow
+    
+    /// <summary>
+    /// Contains the graph view and other elements that make up the pattern graph window
+    /// </summary>
+    public class BFEditorWindow : EditorWindow
     {
-        private DSGraphView graphView;
+        private BFGraphView graphView;
 
-        private readonly string defaultFileName = "DialoguesFileName";
+        private readonly string defaultFileName = "PatternFileName";
 
         private static TextField fileNameTextField;
         private Button saveButton;
         private Button miniMapButton;
-
-        [MenuItem("Window/DS/Dialogue Graph")]
+        
+        [MenuItem("BulletForge/Pattern Graph")]
         public static void Open()
-        {
-            GetWindow<DSEditorWindow>("Dialogue Graph");
+        { 
+            // Get existing open window or if none, make a new one
+            GetWindow<BFEditorWindow>("Pattern Graph"); 
         }
-
-        private void OnEnable()
+        
+        /// <summary>
+        /// Called when the window is opened.
+        /// </summary>
+        private void CreateGUI()
         {
             AddGraphView();
             AddToolbar();
 
             AddStyles();
         }
-
+        
+        /// <summary>
+        /// Adds a GraphView to the window
+        /// </summary>
         private void AddGraphView()
         {
-            graphView = new DSGraphView(this);
-
-            graphView.StretchToParentSize();
-
+            // Create a new GraphView
+            BFGraphView graphView = new BFGraphView(this);
+            graphView.StretchToParentSize(); // Make the GraphView fill the entire window
             rootVisualElement.Add(graphView);
         }
+        
+        /// <summary>
+        /// Applies the visual parameters within the stylesheet to the window
+        /// </summary>
+        private void AddStyles()
+        {
+            StyleSheet styleSheet = EditorGUIUtility.Load("BulletForge/BFVariables.uss") as StyleSheet;
 
+            rootVisualElement.styleSheets.Add(styleSheet);
+        }
+        
         private void AddToolbar()
         {
             Toolbar toolbar = new Toolbar();
 
-            fileNameTextField = DSElementUtility.CreateTextField(defaultFileName, "File Name:", callback =>
+            fileNameTextField = BFElementUtility.CreateTextField(defaultFileName, "File Name:", callback =>
             {
                 fileNameTextField.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
             });
 
-            saveButton = DSElementUtility.CreateButton("Save", () => Save());
+            saveButton = BFElementUtility.CreateButton("Save", () => Save());
 
-            Button loadButton = DSElementUtility.CreateButton("Load", () => Load());
-            Button clearButton = DSElementUtility.CreateButton("Clear", () => Clear());
-            Button resetButton = DSElementUtility.CreateButton("Reset", () => ResetGraph());
-
-            miniMapButton = DSElementUtility.CreateButton("Minimap", () => ToggleMiniMap());
+            Button loadButton = BFElementUtility.CreateButton("Load", () => Load());
+            Button clearButton = BFElementUtility.CreateButton("Clear", () => Clear());
+            Button resetButton = BFElementUtility.CreateButton("Reset", () => ResetGraph());
+            
 
             toolbar.Add(fileNameTextField);
             toolbar.Add(saveButton);
@@ -70,11 +88,6 @@ namespace DS.Windows
             rootVisualElement.Add(toolbar);
         }
 
-        private void AddStyles()
-        {
-            rootVisualElement.AddStyleSheets("DialogueSystem/DSVariables.uss");
-        }
-
         private void Save()
         {
             if (string.IsNullOrEmpty(fileNameTextField.value))
@@ -84,8 +97,8 @@ namespace DS.Windows
                 return;
             }
 
-            DSIOUtility.Initialize(graphView, fileNameTextField.value);
-            DSIOUtility.Save();
+            BFIOUtility.Initialize(graphView, fileNameTextField.value);
+            BFIOUtility.Save();
         }
 
         private void Load()
@@ -99,8 +112,8 @@ namespace DS.Windows
 
             Clear();
 
-            DSIOUtility.Initialize(graphView, Path.GetFileNameWithoutExtension(filePath));
-            DSIOUtility.Load();
+            BFIOUtility.Initialize(graphView, Path.GetFileNameWithoutExtension(filePath));
+            BFIOUtility.Load();
         }
 
         private void Clear()
@@ -114,13 +127,7 @@ namespace DS.Windows
 
             UpdateFileName(defaultFileName);
         }
-
-        private void ToggleMiniMap()
-        {
-            graphView.ToggleMiniMap();
-
-            miniMapButton.ToggleInClassList("ds-toolbar__button__selected");
-        }
+        
 
         public static void UpdateFileName(string newFileName)
         {

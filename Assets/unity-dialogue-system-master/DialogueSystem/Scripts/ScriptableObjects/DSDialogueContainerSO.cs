@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace DS.ScriptableObjects
 {
+    using Utilities;
+    
     public class DSDialogueContainerSO : ScriptableObject
     {
         [field: SerializeField] public string FileName { get; set; }
