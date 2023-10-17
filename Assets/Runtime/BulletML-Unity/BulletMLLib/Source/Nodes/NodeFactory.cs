@@ -102,7 +102,7 @@ namespace BulletMLLib
           }
         default:
           {
-            throw new Exception("Unhandled type of ENodeName: \"" + nodeType.ToString() + "\"");
+            throw new Exception("Unhandled type of ENodeType: \"" + nodeType.ToString() + "\"");
           }
       }
     }

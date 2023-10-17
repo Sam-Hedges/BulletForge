@@ -1,13 +1,14 @@
-using BulletForge.Elements;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 
 
 namespace BulletForge.Windows
 {
     using Elements;
+    using Enumerations;
     
     /// <summary>
     /// Governs the layout of the graph view that contains the nodes
@@ -24,37 +25,58 @@ namespace BulletForge.Windows
             AddStyles();
         }
         
-        /// <summary>
-        /// Creates a node and adds it to the graph view
-        /// </summary>
-        private BFNode CreateNode(Vector2 position)
-        {
-            BFNode node = new BFNode();
-            node.Initialize(position);
-            node.Draw();
-            AddElement(node);
-            return node;
-        }
-        
         /// <summary>s
         /// Allows for control over the graph view
         /// </summary>
         private void AddManipulators()
         {
             SetupZoom(0.1f, 10f); 
+            
             this.AddManipulator(new ContentDragger());
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
-            this.AddManipulator(CreateNodeContextualMenu()); 
+            
+            // Add a contextual menu to add each type of node
+            foreach (ENodeType nodeType in Enum.GetValues(typeof(ENodeType))) {
+                this.AddManipulator(CreateNodeContextualMenu($"Add Node ({nodeType})", nodeType));
+            }
         }
-
-        private IManipulator CreateNodeContextualMenu() 
+        
+        /// <summary>
+        /// Creates a contextual menu to add a node of a specific type
+        /// </summary>
+        /// <param name="title">The text that is displayed in the contextual menu</param>
+        /// <param name="nodeType">The type of node to display</param>
+        /// <returns></returns>
+        private IManipulator CreateNodeContextualMenu(string title, ENodeType nodeType) 
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction("Add Node", actionEvent => AddElement(CreateNode(actionEvent.eventInfo.localMousePosition)))
+                menuEvent => menuEvent.menu.AppendAction(title, actionEvent => AddElement(CreateNode(nodeType, actionEvent.eventInfo.localMousePosition)))
                 );
 
             return contextualMenuManipulator;
+        }
+        
+        /// <summary>
+        /// Creates a node and adds it to the graph view
+        /// </summary>
+        /// <param name="nodeType">The type of node to create</param>
+        /// <param name="position">The position to create the node</param>
+        /// <returns></returns>
+        private BFNode CreateNode(ENodeType nodeType, Vector2 position)
+        {
+            Type type =Type.GetType($"BF.Elements.BF{nodeType}Node");
+            if (type == null) {
+                Debug.LogError($"BFGraphView.CreateNode: Type BF{nodeType}Node not found");
+                return new BFNode();
+            }
+            
+            BFNode node = Activator.CreateInstance(type) as BFNode;
+                
+            node.Initialize(position);
+            node.Draw();
+            
+            return node;
         }
 
         /// <summary>

@@ -7,12 +7,12 @@ namespace BulletForge.Elements
 {
     using Enumerations;
     
-    public class BFFireNode : BFNode
+    public class BFAccelerationNode : BFNode
     {
         public override void Initialize(Vector2 position) {
             base.Initialize(position);
             
-            NodeType = ENodeType.Fire;
+            NodeType = ENodeType.Acceleration;
         }
 
         public override void Draw() {
@@ -21,9 +21,10 @@ namespace BulletForge.Elements
             // Input Container
             CreateIOPort("Direction", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
             CreateIOPort("Speed", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
-            CreateIOPort("Bullet Ref", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            CreateIOPort("Duration", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
             
-            // No Output Container
+            // Output Container
+            CreateIOPort("Acceleration", outputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
         }
     }
 }

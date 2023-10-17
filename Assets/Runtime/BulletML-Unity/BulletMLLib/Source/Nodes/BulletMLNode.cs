@@ -85,9 +85,9 @@ namespace BulletMLLib
     }
 
     /// <summary>
-    /// Convert a string to it's ENodeType enum equivalent
+    /// Convert a string to it's EDirectionType enum equivalent
     /// </summary>
-    /// <returns>ENodeType: the nuem value of that string</returns>
+    /// <returns>EDirectionType: the nuem value of that string</returns>
     /// <param name="str">The string to convert to an enum</param>
     public static ENodeType StringToType(string str)
     {
@@ -103,9 +103,9 @@ namespace BulletMLLib
     }
 
     /// <summary>
-    /// Convert a string to it's ENodeName enum equivalent
+    /// Convert a string to it's ENodeType enum equivalent
     /// </summary>
-    /// <returns>ENodeName: the nuem value of that string</returns>
+    /// <returns>ENodeType: the nuem value of that string</returns>
     /// <param name="str">The string to convert to an enum</param>
     public static ENodeName StringToName(string str)
     {
