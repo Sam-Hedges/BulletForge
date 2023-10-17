@@ -65,7 +65,7 @@ namespace DS.Windows
             toolbar.Add(resetButton);
             toolbar.Add(miniMapButton);
 
-            toolbar.AddStyleSheets("DialogueSystem/BFToolbarStyles.uss");
+            toolbar.AddStyleSheets("DialogueSystem/DSToolbarStyles.uss");
 
             rootVisualElement.Add(toolbar);
         }
