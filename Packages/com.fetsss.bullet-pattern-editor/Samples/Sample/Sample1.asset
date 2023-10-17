@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   root:
     spawn:
-      rid: 645522559068012575
+      rid: 7663633821486022681
     simulationSpace: 1
     positionOffset: {x: 0, y: 0}
     rotationOffset: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
       rid: -2
     simulationColor: {r: 1, g: 1, b: 1, a: 1}
   - spawn:
-      rid: 645522559068012575
+      rid: 7663633821486022681
     simulationSpace: 1
     positionOffset: {x: 0, y: 0}
     rotationOffset: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 645522559068012575
+    - rid: 7663633821486022681
       type: {class: CircleSpawnGroup, ns: BB, asm: fetsss.bullet-pattern-editor}
       data:
         spawn:

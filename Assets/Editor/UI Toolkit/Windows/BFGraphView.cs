@@ -1,6 +1,7 @@
 using BulletForge.Elements;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 
@@ -20,31 +21,42 @@ namespace BulletForge.Windows
             
             AddGridBackground();
     
-            CreateNode();
-
             AddStyles();
         }
         
         /// <summary>
         /// Creates a node and adds it to the graph view
         /// </summary>
-        private void CreateNode()
+        private BFNode CreateNode(Vector2 position)
         {
             BFNode node = new BFNode();
-            node.Initialize();
+            node.Initialize(position);
             node.Draw();
             AddElement(node);
+            return node;
         }
         
-        /// <summary>
+        /// <summary>s
         /// Allows for control over the graph view
         /// </summary>
         private void AddManipulators()
         {
             SetupZoom(0.1f, 10f); 
             this.AddManipulator(new ContentDragger());
+            this.AddManipulator(new SelectionDragger());
+            this.AddManipulator(new RectangleSelector());
+            this.AddManipulator(CreateNodeContextualMenu()); 
         }
-        
+
+        private IManipulator CreateNodeContextualMenu() 
+        {
+            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
+                menuEvent => menuEvent.menu.AppendAction("Add Node", actionEvent => AddElement(CreateNode(actionEvent.eventInfo.localMousePosition)))
+                );
+
+            return contextualMenuManipulator;
+        }
+
         /// <summary>
         /// Adds a grid background to the graph view
         /// </summary>

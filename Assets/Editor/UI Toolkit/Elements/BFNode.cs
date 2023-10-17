@@ -1,4 +1,5 @@
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 
@@ -15,12 +16,12 @@ namespace BulletForge.Elements
         
         public ERunStatus RunStatus { get; set; }
 
-        public void Initialize()
+        public virtual void Initialize(Vector2 position)
         {
-            
+            SetPosition(new Rect(position, Vector2.zero));
         }
 
-        public void Draw()
+        public virtual void Draw()
         {
             // Title Container
             TextField nodeNameTextElement = new TextField()

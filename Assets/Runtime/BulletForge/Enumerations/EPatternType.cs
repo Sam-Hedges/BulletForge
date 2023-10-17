@@ -7,9 +7,9 @@ namespace BulletForge.Enumerations
   /// </summary>
   public enum EPatternType
   {
-    vertical,
-    horizontal,
-    none
+    Vertical,
+    Horizontal,
+    None
   }
 }
 
