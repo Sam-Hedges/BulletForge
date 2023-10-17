@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 namespace BulletForge.Elements
 {
     using Enumerations;
+    using Utilities;
     
     public class BFDirectionNode : BFNode
     {
@@ -19,11 +20,11 @@ namespace BulletForge.Elements
             base.Draw();
             
             // Input Container
-            CreateIOPort("Type", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
-            CreateIOPort("Vector2", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            this.CreateIOPort("Type", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
+            this.CreateIOPort("Vector2", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
             
             // Output Container
-            CreateIOPort("Direction", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            this.CreateIOPort("Direction", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi);
         }
     }
 }

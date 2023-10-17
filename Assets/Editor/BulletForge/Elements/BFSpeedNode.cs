@@ -1,12 +1,11 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
-
 
 namespace BulletForge.Elements
 {
     using Enumerations;
-    
+    using Utilities;
+
     public class BFSpeedNode : BFNode
     {
         public override void Initialize(Vector2 position) {
@@ -19,10 +18,10 @@ namespace BulletForge.Elements
             base.Draw();
             
             // Input Container
-            CreateIOPort("Speed", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            this.CreateIOPort("Speed", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
             
             // Output Container
-            CreateIOPort("Speed", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            this.CreateIOPort("Speed", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi);
         }
     }
 }

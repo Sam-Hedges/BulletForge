@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 namespace BulletForge.Elements
 {
     using Enumerations;
+    using Utilities;
     
     public class BFFireNode : BFNode
     {
@@ -19,9 +20,9 @@ namespace BulletForge.Elements
             base.Draw();
             
             // Input Container
-            CreateIOPort("Direction", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
-            CreateIOPort("Speed", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
-            CreateIOPort("Bullet Ref", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            this.CreateIOPort("Direction", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
+            this.CreateIOPort("Speed", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
+            this.CreateIOPort("Bullet Ref", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
             
             // No Output Container
         }

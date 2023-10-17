@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 namespace BulletForge.Elements
 {
     using Enumerations;
+    using Utilities;
     
     public class BFAccelerationNode : BFNode
     {
@@ -19,12 +20,12 @@ namespace BulletForge.Elements
             base.Draw();
             
             // Input Container
-            CreateIOPort("Direction", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
-            CreateIOPort("Speed", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
-            CreateIOPort("Duration", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            this.CreateIOPort("Direction", inputContainer, Orientation.Horizontal, Direction.Input);
+            this.CreateIOPort("Speed", inputContainer, Orientation.Horizontal, Direction.Input);
+            this.CreateIOPort("Duration", inputContainer, Orientation.Horizontal, Direction.Input);
             
             // Output Container
-            CreateIOPort("Acceleration", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            this.CreateIOPort("Acceleration", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi);
         }
     }
 }

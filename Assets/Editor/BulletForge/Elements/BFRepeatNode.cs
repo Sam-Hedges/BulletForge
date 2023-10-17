@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 namespace BulletForge.Elements
 {
     using Enumerations;
+    using Utilities;
     
     public class BFRepeatNode : BFNode
     {
@@ -19,11 +20,11 @@ namespace BulletForge.Elements
             base.Draw();
             
             // Input Container
-            CreateIOPort("Action Ref", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
-            CreateIOPort("Times", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            this.CreateIOPort("Action Ref", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
+            this.CreateIOPort("Times", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
             
             // Output Container
-            CreateIOPort("Action Ref", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            this.CreateIOPort("Action Ref", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi);
         }
     }
 }

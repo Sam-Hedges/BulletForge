@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 namespace BulletForge.Elements
 {
     using Enumerations;
+    using Utilities;
     
     public class BFVanishNode : BFNode
     {
@@ -19,7 +20,7 @@ namespace BulletForge.Elements
             base.Draw();
             
             // Input Container
-            CreateIOPort("Bullet Ref", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
+            this.CreateIOPort("Bullet Ref", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
             
             // No Output Container
         }
