@@ -3,6 +3,8 @@ using UnityEngine.UIElements;
 
 namespace BulletForge.Windows
 {
+    using Utilities;
+    
     /// <summary>
     /// Contains the graph view and other elements that make up the pattern graph window
     /// </summary>
@@ -41,9 +43,7 @@ namespace BulletForge.Windows
         /// </summary>
         private void AddStyles()
         {
-            StyleSheet styleSheet = EditorGUIUtility.Load("BulletForge/BFVariables.uss") as StyleSheet;
-
-            rootVisualElement.styleSheets.Add(styleSheet);
+            rootVisualElement.AddStyleSheets("BulletForge/BFVariables.uss");
         }
     }
 }

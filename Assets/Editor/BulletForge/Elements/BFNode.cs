@@ -24,8 +24,8 @@ namespace BulletForge.Elements
             SetPosition(new Rect(position, Vector2.zero));
             
             // Add Styles to the Node Containers
-            mainContainer.AddToClassList("bf-node__main-container");
-            extensionContainer.AddToClassList("bf-node__extension-container");
+            mainContainer.AddClasses("bf-node__main-container");
+            extensionContainer.AddClasses("bf-node__extension-container");
         }
         
         /// <summary>
@@ -37,9 +37,11 @@ namespace BulletForge.Elements
             TextElement nodeNameTextElement = BFElementUtility.CreateTextElement(NodeType.ToString());
             
             // Add Styles to the Node Title
-            nodeNameTextElement.AddToClassList("bf-node__textfield");
-            nodeNameTextElement.AddToClassList("bf-node__filename-textfield");
-            nodeNameTextElement.AddToClassList("bf-node__textfield__hidden");
+            nodeNameTextElement.AddClasses(
+                "bf-node__textfield",
+                "bf-node__filename-textfield",
+                "bf-node__textfield__hidden"
+                );
             
             // Insert the Node Title into the container
             titleContainer.Insert(0, nodeNameTextElement);

@@ -9,6 +9,7 @@ namespace BulletForge.Windows
 {
     using Elements;
     using Enumerations;
+    using Utilities;
     
     /// <summary>
     /// Governs the layout of the graph view that contains the nodes
@@ -68,11 +69,10 @@ namespace BulletForge.Windows
         /// </summary>
         private void AddStyles()
         {
-            StyleSheet graphViewStyleSheet = EditorGUIUtility.Load("BulletForge/BFGraphViewStyles.uss") as StyleSheet;
-            StyleSheet nodeStyleSheet = EditorGUIUtility.Load("BulletForge/BFNodeStyles.uss") as StyleSheet;
-
-            styleSheets.Add(graphViewStyleSheet);
-            styleSheets.Add(nodeStyleSheet);
+            this.AddStyleSheets(
+                "BulletForge/BFGraphViewStyles.uss", 
+                "BulletForge/BFNodeStyles.uss"
+                );
         }
         
         #endregion
