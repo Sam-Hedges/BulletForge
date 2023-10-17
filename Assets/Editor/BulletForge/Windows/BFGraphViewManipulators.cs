@@ -37,24 +37,44 @@ namespace BulletForge.Windows
             
             // Add a contextual rc menu to create each type of node in the graph view
             foreach (ENodeType nodeType in Enum.GetValues(typeof(ENodeType))) {
-                graphView.AddManipulator(CreateNodeContextualMenu($"Add Node ({nodeType})", nodeType));
+                graphView.AddManipulator(CreateContextualMenu($"Add Node ({nodeType})", nodeType.ToString()));
             }
             
-            graphView.AddManipulator(CreateGroupContextualMenu());
+            graphView.AddManipulator(CreateContextualMenu("Add Group", "Group"));
         }
         
         /// <summary>
-        /// 
+        /// Creates a contextual menu to add a node of a specific type
         /// </summary>
+        /// <param name="contextMenuTitle">The Call to Action text within the menu</param>
+        /// <param name="name">ENodeType.ToString() for a Node / Any string title for a group</param>
         /// <returns></returns>
-        private IManipulator CreateGroupContextualMenu()
+        private IManipulator CreateContextualMenu(string contextMenuTitle, string name)
         {
-            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction("Add Group", actionEvent => graphView.AddElement(CreateGroup("Group", actionEvent.eventInfo.localMousePosition)))
-            );
+            ContextualMenuManipulator contextualMenuManipulator;
+            
+            // Attempt to parse the name to ENodeType
+            bool isParsed = Enum.TryParse(name, out ENodeType nodeType);
+            
+            // If the name is a valid ENodeType, then create a node
+            if (isParsed)
+            {
+                contextualMenuManipulator = new ContextualMenuManipulator(
+                    menuEvent => menuEvent.menu.AppendAction(contextMenuTitle,
+                        actionEvent => graphView.AddElement(CreateNode(nodeType, actionEvent.eventInfo.localMousePosition)))
+                );
+            }
+            else
+            {
+                contextualMenuManipulator = new ContextualMenuManipulator(
+                    menuEvent => menuEvent.menu.AppendAction(contextMenuTitle,
+                        actionEvent => graphView.AddElement(CreateGroup(name, actionEvent.eventInfo.localMousePosition)))
+                );
+            }
 
             return contextualMenuManipulator;
         }
+        
         
         /// <summary>
         /// Creates a group and adds it to the graph view
@@ -67,35 +87,19 @@ namespace BulletForge.Windows
             
             graphView.AddElement(group);
 
+            // Add all selected nodes to the group
             foreach (GraphElement selectedElement in graphView.selection)
             {
-                if (!(selectedElement is BFNode))
+                if (selectedElement is BFNode)
                 {
-                    continue;
+                    BFNode node = (BFNode)selectedElement;
+                    group.AddElement(node);
                 }
-
-                BFNode node = (BFNode) selectedElement;
-
-                group.AddElement(node);
             }
 
             return group;
         }
-
-        /// <summary>
-        /// Creates a contextual menu to add a node of a specific type
-        /// </summary>
-        /// <param name="title">The text that is displayed in the contextual menu</param>
-        /// <param name="nodeType">The type of node to display</param>
-        /// <returns></returns>
-        private IManipulator CreateNodeContextualMenu(string title, ENodeType nodeType) 
-        {
-            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-                menuEvent => menuEvent.menu.AppendAction(title, actionEvent => graphView.AddElement(CreateNode(nodeType, actionEvent.eventInfo.localMousePosition)))
-                );
-
-            return contextualMenuManipulator;
-        }
+        
         
         /// <summary>
         /// Creates a node and adds it to the graph view
@@ -119,5 +123,5 @@ namespace BulletForge.Windows
             
             return node;
         }
-        }
+    }
 }
