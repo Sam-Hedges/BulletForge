@@ -7,7 +7,9 @@ namespace BulletForge.Elements
 {
     using Enumerations;
     using Utilities;
-    
+    /// <summary>
+    /// Applies an acceleration to a bullet.
+    /// </summary>
     public class BFAccelerationNode : BFNode
     {
         public override void Initialize(Vector2 position) {

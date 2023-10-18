@@ -8,6 +8,9 @@ namespace BulletForge.Elements
     using Enumerations;
     using Utilities;
     
+    /// <summary>
+    /// Sends the logic to make a bullet vanish
+    /// </summary>
     public class BFVanishNode : BFNode
     {
         public override void Initialize(Vector2 position) {

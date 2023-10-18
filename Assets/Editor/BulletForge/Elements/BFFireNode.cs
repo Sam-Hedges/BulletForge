@@ -8,6 +8,9 @@ namespace BulletForge.Elements
     using Enumerations;
     using Utilities;
     
+    /// <summary>
+    /// Sends the logic to fire a bullet
+    /// </summary>
     public class BFFireNode : BFNode
     {
         public override void Initialize(Vector2 position) {

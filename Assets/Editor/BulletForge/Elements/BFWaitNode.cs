@@ -8,6 +8,9 @@ namespace BulletForge.Elements
     using Enumerations;
     using Utilities;
     
+    /// <summary>
+    /// Wait for a certain amount of time then continues to the following actions
+    /// </summary>
     public class BFWaitNode : BFNode
     {
         public override void Initialize(Vector2 position) {

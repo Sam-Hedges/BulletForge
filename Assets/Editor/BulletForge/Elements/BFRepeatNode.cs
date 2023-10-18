@@ -8,6 +8,9 @@ namespace BulletForge.Elements
     using Enumerations;
     using Utilities;
     
+    /// <summary>
+    /// Repeats the following actions a number of times
+    /// </summary>
     public class BFRepeatNode : BFNode
     {
         public override void Initialize(Vector2 position) {

@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace BulletForge.Windows
@@ -24,6 +25,8 @@ namespace BulletForge.Windows
         {
             AddGraphView();
 
+            AddToolbar();
+
             AddStyles();
         }
         
@@ -39,11 +42,29 @@ namespace BulletForge.Windows
         }
         
         /// <summary>
+        /// Adds a toolbar to the top of the window
+        /// </summary>
+        private void AddToolbar()
+        {
+            Toolbar toolbar = new Toolbar();
+            
+            TextField fileNameTextField = BFElementUtility.CreateTextField("BulletPatternFileName", "File Name:");
+            
+            Button saveButton = BFElementUtility.CreateButton("Save");
+            
+            toolbar.Add(fileNameTextField);
+            toolbar.Add(saveButton);
+            
+            rootVisualElement.Add(toolbar);
+        }
+        
+        /// <summary>
         /// Applies the visual parameters within the stylesheet to the window
         /// </summary>
         private void AddStyles()
         {
             rootVisualElement.AddStyleSheets("BulletForge/BFVariables.uss");
+            rootVisualElement.AddStyleSheets("BulletForge/BFToolbarStyles.uss");
         }
     }
 }

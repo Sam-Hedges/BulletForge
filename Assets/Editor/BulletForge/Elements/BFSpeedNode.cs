@@ -5,7 +5,10 @@ namespace BulletForge.Elements
 {
     using Enumerations;
     using Utilities;
-
+    
+    /// <summary>
+    /// Creates a speed for a bullet
+    /// </summary>
     public class BFSpeedNode : BFNode
     {
         public override void Initialize(Vector2 position) {

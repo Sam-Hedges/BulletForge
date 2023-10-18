@@ -13,6 +13,7 @@ namespace BulletForge.Elements
     /// </summary>
     public class BFNode : Node
     {
+        public string ID { get; set; }
         public ENodeType NodeType { get; set; }
         
         /// <summary>
@@ -21,6 +22,10 @@ namespace BulletForge.Elements
         /// <param name="position">The position the node will be created at</param>
         public virtual void Initialize(Vector2 position)
         {
+            // Set the Node ID
+            ID = Guid.NewGuid().ToString();
+            
+            // Set the Node Position
             SetPosition(new Rect(position, Vector2.zero));
             
             // Add Styles to the Node Containers

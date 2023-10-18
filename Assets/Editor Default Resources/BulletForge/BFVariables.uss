@@ -10,7 +10,7 @@
     --bf-colors-window-dark-grey-5: #252729;
     --bf-colors-window-dark-grey-6: #27292C;
 
-    --bf-colors-window-yellow: #FDD057;
+    --bf-colors-window-yellow: #00A8FF;
 
     --bf-metrics-grid-25: 25;
     --bf-metrics-window-pixels-n12: -12px;

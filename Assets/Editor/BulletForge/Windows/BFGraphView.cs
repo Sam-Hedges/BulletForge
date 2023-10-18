@@ -18,6 +18,8 @@ namespace BulletForge.Windows
     {
         private BFSearchWindow searchWindow;
         
+        
+        
         // Called when the graph view is created
         public BFGraphView(BFEditorWindow bfEditorWindow)
         {

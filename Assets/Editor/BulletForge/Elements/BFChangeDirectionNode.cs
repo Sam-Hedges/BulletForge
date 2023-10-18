@@ -6,7 +6,11 @@ using UnityEngine.UIElements;
 namespace BulletForge.Elements
 {
     using Enumerations;
+    using Utilities;
     
+    /// <summary>
+    /// Changes the direction of a bullet.
+    /// </summary>
     public class BFChangeDirectionNode : BFNode
     {
         public override void Initialize(Vector2 position) {
@@ -19,13 +23,8 @@ namespace BulletForge.Elements
             base.Draw();
             
             // Input Container
-            Port directionPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
-            directionPort.portName = "Input";
-            inputContainer.Add(directionPort);
-            
-            Port speedPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
-            speedPort.portName = "Input";
-            inputContainer.Add(speedPort);
+            this.CreateIOPort("Bullet Ref", inputContainer, Orientation.Horizontal, Direction.Input);
+            this.CreateIOPort("New Direction", inputContainer, Orientation.Horizontal, Direction.Input);
             
             // No Output Container
         }

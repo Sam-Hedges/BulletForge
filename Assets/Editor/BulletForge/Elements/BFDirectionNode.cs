@@ -8,6 +8,9 @@ namespace BulletForge.Elements
     using Enumerations;
     using Utilities;
     
+    /// <summary>
+    /// Gives a bullet a direction.
+    /// </summary>
     public class BFDirectionNode : BFNode
     {
         public override void Initialize(Vector2 position) {
