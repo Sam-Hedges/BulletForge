@@ -33,7 +33,7 @@ namespace BulletForge.Windows
         private void AddGraphView()
         {
             // Create a new GraphView
-            BFGraphView graphView = new BFGraphView();
+            BFGraphView graphView = new BFGraphView(this);
             graphView.StretchToParentSize(); // Make the GraphView fill the entire window
             rootVisualElement.Add(graphView);
         }

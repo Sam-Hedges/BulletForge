@@ -1,25 +1,26 @@
-using UnityEditor;
+using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System;
-using System.Collections.Generic;
 
 namespace BulletForge.Windows
 {
     using Elements;
     using Enumerations;
+    using Utilities;
     
     /// <summary>
     /// Adds manipulators to the graph view
     /// </summary>
     public class BFGraphViewManipulators
     {
+        private BFEditorWindow editorWindow;
         private GraphView graphView;
         
-        public BFGraphViewManipulators(GraphView graphView)
+        public BFGraphViewManipulators(GraphView bfGraphView, BFEditorWindow bfEditorWindow)
         {
-            this.graphView = graphView;
+            graphView = bfGraphView;
+            editorWindow = bfEditorWindow;
             
             AddManipulators();
         }
@@ -44,6 +45,24 @@ namespace BulletForge.Windows
         }
         
         /// <summary>
+        /// Gets the mouse position in the graph view
+        /// </summary>
+        /// <returns></returns>
+        public Vector2 GetLocalMousePosition(Vector2 mousePosition, bool isSearchWindow = false)
+        {
+            Vector2 worldMousePosition = mousePosition;
+
+            if (isSearchWindow)
+            {
+                worldMousePosition -= editorWindow.position.position;
+            }
+            
+            Vector2 localMousePosition = graphView.contentViewContainer.WorldToLocal(worldMousePosition);
+            
+            return localMousePosition;
+        }
+        
+        /// <summary>
         /// Creates a contextual menu to add a node of a specific type
         /// </summary>
         /// <param name="contextMenuTitle">The Call to Action text within the menu</param>
@@ -61,14 +80,14 @@ namespace BulletForge.Windows
             {
                 contextualMenuManipulator = new ContextualMenuManipulator(
                     menuEvent => menuEvent.menu.AppendAction(contextMenuTitle,
-                        actionEvent => graphView.AddElement(CreateNode(nodeType, actionEvent.eventInfo.localMousePosition)))
+                        actionEvent => graphView.AddElement(CreateNode(nodeType, GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
                 );
             }
             else
             {
                 contextualMenuManipulator = new ContextualMenuManipulator(
                     menuEvent => menuEvent.menu.AppendAction(contextMenuTitle,
-                        actionEvent => graphView.AddElement(CreateGroup(name, actionEvent.eventInfo.localMousePosition)))
+                        actionEvent => graphView.AddElement(CreateGroup(name, GetLocalMousePosition(actionEvent.eventInfo.localMousePosition))))
                 );
             }
 
@@ -107,7 +126,7 @@ namespace BulletForge.Windows
         /// <param name="nodeType">The type of node to create</param>
         /// <param name="position">The position to create the node</param>
         /// <returns></returns>
-        private BFNode CreateNode(ENodeType nodeType, Vector2 position)
+        public BFNode CreateNode(ENodeType nodeType, Vector2 position)
         {
             Type type = Type.GetType($"BulletForge.Elements.BF{nodeType}Node");
             

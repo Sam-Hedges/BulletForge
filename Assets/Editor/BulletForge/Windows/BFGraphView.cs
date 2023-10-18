@@ -16,16 +16,35 @@ namespace BulletForge.Windows
     /// </summary>
     public class BFGraphView : GraphView
     {
+        private BFSearchWindow searchWindow;
+        
         // Called when the graph view is created
-        public BFGraphView()
+        public BFGraphView(BFEditorWindow bfEditorWindow)
         {
-            BFGraphViewManipulators graphViewManipulators = new BFGraphViewManipulators(this);
+            BFGraphViewManipulators graphViewManipulators = new BFGraphViewManipulators(this, bfEditorWindow);
+                
+            AddSearchWindow(graphViewManipulators);
             
             AddGridBackground();
             
             AddStyles();
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="graphViewManipulators"></param>
+        private void AddSearchWindow(BFGraphViewManipulators graphViewManipulators)
+        {
+            if (searchWindow == null) {
+                searchWindow = ScriptableObject.CreateInstance<BFSearchWindow>();
+                searchWindow.Initialize(this, graphViewManipulators);
+            }
+            
+            // Opens the search window at the mouse position
+            nodeCreationRequest = context => SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), searchWindow);
+        }
+
         #region Overrides
         
         /// <summary>
