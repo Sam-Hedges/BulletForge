@@ -11,6 +11,9 @@ namespace BulletForge.Windows
     /// </summary>
     public class BFEditorWindow : EditorWindow
     {
+        
+        private static TextField fileNameTextField;
+        
         [MenuItem("BulletForge/Pattern Graph")]
         public static void Open()
         { 
@@ -39,6 +42,15 @@ namespace BulletForge.Windows
             BFGraphView graphView = new BFGraphView(this);
             graphView.StretchToParentSize(); // Make the GraphView fill the entire window
             rootVisualElement.Add(graphView);
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newFileName"></param>
+        public static void UpdateFileName(string newFileName)
+        {
+            fileNameTextField.value = newFileName;
         }
         
         /// <summary>

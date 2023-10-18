@@ -17,13 +17,12 @@ namespace BulletForge.Windows
     public class BFGraphView : GraphView
     {
         private BFSearchWindow searchWindow;
-        
-        
+        public BFGraphViewManipulators graphViewManipulators;
         
         // Called when the graph view is created
         public BFGraphView(BFEditorWindow bfEditorWindow)
         {
-            BFGraphViewManipulators graphViewManipulators = new BFGraphViewManipulators(this, bfEditorWindow);
+            graphViewManipulators = new BFGraphViewManipulators(this, bfEditorWindow);
                 
             AddSearchWindow(graphViewManipulators);
             

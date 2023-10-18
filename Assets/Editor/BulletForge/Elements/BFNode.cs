@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -7,6 +8,7 @@ namespace BulletForge.Elements
 {
     using Enumerations;
     using Utilities;
+    using Data.Save;
     
     /// <summary>
     /// A base class for all nodes in the graph view to inherit from
@@ -14,7 +16,10 @@ namespace BulletForge.Elements
     public class BFNode : Node
     {
         public string ID { get; set; }
+        public List<BFNodeSaveData> Data { get; set; }
         public ENodeType NodeType { get; set; }
+        
+        public BFGroup Group { get; set; }
         
         /// <summary>
         /// Initializes the node parameters and position
@@ -24,6 +29,9 @@ namespace BulletForge.Elements
         {
             // Set the Node ID
             ID = Guid.NewGuid().ToString();
+            
+            // Initialize the Node Data
+            Data = new List<BFNodeSaveData>();
             
             // Set the Node Position
             SetPosition(new Rect(position, Vector2.zero));
