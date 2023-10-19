@@ -18,6 +18,10 @@ namespace BulletForge.Elements
             base.Initialize(position);
             
             NodeType = ENodeType.Acceleration;
+            
+            // Initialize the Node Connections
+            BFConnectionSaveData connectionData = new BFConnectionSaveData();
+            Connections.Add(connectionData);
         }
 
         public override void Draw() {

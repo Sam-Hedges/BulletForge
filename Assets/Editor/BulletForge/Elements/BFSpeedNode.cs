@@ -1,10 +1,9 @@
-using BulletForge.Data;
-using BulletForge.Data.Save;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace BulletForge.Elements
 {
+    using Data.Save;
     using Enumerations;
     using Utilities;
     

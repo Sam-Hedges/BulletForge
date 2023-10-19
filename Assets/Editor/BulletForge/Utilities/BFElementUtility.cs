@@ -61,23 +61,19 @@ namespace BulletForge.Utilities
         {
             if (connections == null)
             {
-                Port port = ReturnPort();
-                container.Add(port);
-            }
-            
-            foreach (var connection in connections)
-            {
-                Port port = ReturnPort();
-                port.userData = connection;
+                Port port = node.InstantiatePort(orientation, direction, capacity, typeof(bool));
+                port.portName = portName;
                 container.Add(port);
             }
 
-            Port ReturnPort()
-            {
-                Port port = node.InstantiatePort(orientation, direction, capacity, typeof(bool));
-                port.portName = portName;
-                return port;
-            }
+            if (connections != null)
+                foreach (var connection in connections)
+                {
+                    Port port = node.InstantiatePort(orientation, direction, capacity, typeof(bool));
+                    port.portName = portName;
+                    port.userData = connection;
+                    container.Add(port);
+                }
         }
         
         /// <summary>

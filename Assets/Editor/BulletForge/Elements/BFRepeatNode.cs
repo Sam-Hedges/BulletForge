@@ -7,6 +7,7 @@ namespace BulletForge.Elements
 {
     using Enumerations;
     using Utilities;
+    using Data.Save;
     
     /// <summary>
     /// Repeats the following actions a number of times
@@ -17,6 +18,10 @@ namespace BulletForge.Elements
             base.Initialize(position);
             
             NodeType = ENodeType.Repeat;
+            
+            // Initialize the Node Connections
+            BFConnectionSaveData connectionData = new BFConnectionSaveData();
+            Connections.Add(connectionData);
         }
 
         public override void Draw() {

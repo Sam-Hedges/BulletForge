@@ -7,6 +7,7 @@ namespace BulletForge.Elements
 {
     using Enumerations;
     using Utilities;
+    using Data.Save;
     
     /// <summary>
     /// Sends the logic to make a bullet vanish
@@ -17,6 +18,10 @@ namespace BulletForge.Elements
             base.Initialize(position);
             
             NodeType = ENodeType.Vanish;
+            
+            // Initialize the Node Connections
+            BFConnectionSaveData connectionData = new BFConnectionSaveData();
+            Connections.Add(connectionData);
         }
 
         public override void Draw() {
