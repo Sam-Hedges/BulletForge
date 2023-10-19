@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,7 +17,7 @@ namespace BulletForge.Elements
     public class BFNode : Node
     {
         public string ID { get; set; }
-        public List<BFNodeSaveData> Data { get; set; }
+        public List<BFConnectionSaveData> Connections { get; set; }
         public ENodeType NodeType { get; set; }
         
         public BFGroup Group { get; set; }
@@ -27,11 +28,11 @@ namespace BulletForge.Elements
         /// <param name="position">The position the node will be created at</param>
         public virtual void Initialize(Vector2 position)
         {
-            // Set the Node ID
+            // Set the Node NodeID
             ID = Guid.NewGuid().ToString();
             
-            // Initialize the Node Data
-            Data = new List<BFNodeSaveData>();
+            // Initialize the Node Connections
+            Connections = new List<BFConnectionSaveData>();
             
             // Set the Node Position
             SetPosition(new Rect(position, Vector2.zero));
@@ -58,6 +59,13 @@ namespace BulletForge.Elements
             
             // Insert the Node Title into the container
             titleContainer.Insert(0, nodeNameTextElement);
+        }
+        
+        public bool IsStartingNode()
+        {
+            Port inputPort = (Port) inputContainer.Children().First();
+
+            return !inputPort.connected;
         }
     }
 }

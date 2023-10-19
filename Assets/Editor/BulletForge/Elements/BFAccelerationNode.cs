@@ -29,7 +29,7 @@ namespace BulletForge.Elements
             this.CreateIOPort("Duration", inputContainer, Orientation.Horizontal, Direction.Input);
             
             // Output Container
-            this.CreateIOPort("Acceleration", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi);
+            this.CreateIOPort("Acceleration", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, Connections);
         }
     }
 }

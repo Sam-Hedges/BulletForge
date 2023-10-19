@@ -1,3 +1,5 @@
+using BulletForge.Data;
+using BulletForge.Data.Save;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -15,6 +17,10 @@ namespace BulletForge.Elements
             base.Initialize(position);
             
             NodeType = ENodeType.Speed;
+            
+            // Initialize the Node Connections
+            BFConnectionSaveData connectionData = new BFConnectionSaveData();
+            Connections.Add(connectionData);
         }
 
         public override void Draw() {
@@ -24,7 +30,7 @@ namespace BulletForge.Elements
             this.CreateIOPort("Speed", inputContainer, Orientation.Horizontal, Direction.Input, Port.Capacity.Single);
             
             // Output Container
-            this.CreateIOPort("Speed", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi);
+            this.CreateIOPort("Speed", outputContainer, Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, Connections);
         }
     }
 }

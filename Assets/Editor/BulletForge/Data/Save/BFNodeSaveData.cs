@@ -7,7 +7,7 @@ namespace BulletForge.Data.Save
     using Enumerations;
     
     /// <summary>
-    /// Used to save the nodes
+    /// A data class used to save store the data of a node
     /// </summary>
     [Serializable]
     public class BFNodeSaveData

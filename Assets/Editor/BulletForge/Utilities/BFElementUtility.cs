@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using BulletForge.Data.Save;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
@@ -55,13 +57,27 @@ namespace BulletForge.Utilities
         /// <param name="direction">Port direction (input or output)</param>
         /// <param name="capacity">Specifies how many edges a port can have connected</param>
         /// <returns></returns>
-        public static void CreateIOPort(this BFNode node, string portName, VisualElement container, Orientation orientation = Orientation.Horizontal, Direction direction = Direction.Output, Port.Capacity capacity = Port.Capacity.Single)
+        public static void CreateIOPort(this BFNode node, string portName, VisualElement container, Orientation orientation = Orientation.Horizontal, Direction direction = Direction.Output, Port.Capacity capacity = Port.Capacity.Single, List<BFConnectionSaveData> connections = null)
         {
-            Port port = node.InstantiatePort(orientation, direction, capacity, typeof(bool));
+            if (connections == null)
+            {
+                Port port = ReturnPort();
+                container.Add(port);
+            }
+            
+            foreach (var connection in connections)
+            {
+                Port port = ReturnPort();
+                port.userData = connection;
+                container.Add(port);
+            }
 
-            port.portName = portName;
-
-            container.Add(port);
+            Port ReturnPort()
+            {
+                Port port = node.InstantiatePort(orientation, direction, capacity, typeof(bool));
+                port.portName = portName;
+                return port;
+            }
         }
         
         /// <summary>

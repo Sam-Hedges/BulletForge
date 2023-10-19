@@ -11,7 +11,7 @@ namespace BulletForge.Data
     [Serializable]
     public class BFConnectionData
     {
-        [field: SerializeField] public string ID { get; set; }
+        [field: SerializeField] public string NodeID { get; set; }
         [field: SerializeField] public BFNodeSO NextNode { get; set; }
     }
 }

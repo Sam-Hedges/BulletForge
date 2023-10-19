@@ -11,12 +11,15 @@ namespace BulletForge.Utilities
     using Elements;
     using ScriptableObjects;
     using Windows;
+    using Data;
     
     /// <summary>
     /// 
     /// </summary>
     public class BFSaveUtility
     {
+        #region Variables
+        
         private BFGraphView graphView;
         
         // Used for saving the graph
@@ -29,12 +32,14 @@ namespace BulletForge.Utilities
         private static Dictionary<string, BFGroupSO> createdGroups;
         private static Dictionary<string, BFNodeSO> createdNodes;
         
-        public BFSaveUtility(BFGraphView bfGraphView, string fileName, string folderPath)
+        #endregion
+        
+        public BFSaveUtility(BFGraphView bfGraphView, string fileName)
         {
             graphView = bfGraphView;
             
             graphFileName = fileName;
-            containerFolderPath = folderPath;
+            containerFolderPath = $"Assets/Runtime/BulletForge/Patterns/{graphFileName}";
             
             nodes = new List<BFNode>();
             groups = new List<BFGroup>();
@@ -43,21 +48,22 @@ namespace BulletForge.Utilities
             createdNodes = new Dictionary<string, BFNodeSO>();
         }
         
+        #region Save Methods
+        
         /// <summary>
-        /// 
+        /// Saves the graph to a ScriptableObject
         /// </summary>
         public void Save()
         {
             CreateDefaultFolders();
 
             GetElementsFromGraphView();
-
+            
+            // Create the ScriptableObjects
             BFGraphSaveDataSO graphData = CreateAsset<BFGraphSaveDataSO>("Assets/Editor/BulletForge/Graphs", $"{graphFileName}Graph");
-
             graphData.Initialize(graphFileName);
 
             BFPatternContainerSO patternContainer = CreateAsset<BFPatternContainerSO>(containerFolderPath, graphFileName);
-
             patternContainer.Initialize(graphFileName);
 
             SaveGroups(graphData, patternContainer);
@@ -68,10 +74,10 @@ namespace BulletForge.Utilities
         }
         
         /// <summary>
-        /// 
+        /// Manages how the groups are saved to a ScriptableObject
         /// </summary>
-        /// <param name="graphData"></param>
-        /// <param name="patternContainer"></param>
+        /// <param name="graphData">The scriptable object used to save the graph</param>
+        /// <param name="patternContainer">The main scriptable object that contains all the nodes and groups</param>
         private void SaveGroups(BFGraphSaveDataSO graphData, BFPatternContainerSO patternContainer)
         {
             List<string> groupNames = new List<string>();
@@ -88,19 +94,21 @@ namespace BulletForge.Utilities
         }
         
         /// <summary>
-        /// 
+        /// Saves the groups to a ScriptableObject
         /// </summary>
-        /// <param name="group"></param>
-        /// <param name="graphData"></param>
+        /// <param name="group">The group being saved</param>
+        /// <param name="graphData">The scriptable object being saved to</param>
         private void SaveGroupToGraph(BFGroup group, BFGraphSaveDataSO graphData)
         {
+            // Create a new group save data
             BFGroupSaveData groupData = new BFGroupSaveData()
             {
                 ID = group.ID,
                 Name = group.title,
                 Position = group.GetPosition().position
             };
-
+            
+            // Add the group save data to the graph data's list of groups
             graphData.Groups.Add(groupData);
         }
         
@@ -134,8 +142,8 @@ namespace BulletForge.Utilities
         /// <param name="patternContainer"></param>
         private void SaveNodes(BFGraphSaveDataSO graphData, BFPatternContainerSO patternContainer)
         {
-            SerializableDictionary<string, List<string>> groupedNodeNames = new SerializableDictionary<string, List<string>>();
-            List<string> ungroupedNodeNames = new List<string>();
+            SerializableDictionary<string, List<string>> groupedNodeIDs = new SerializableDictionary<string, List<string>>();
+            List<string> ungroupedNodeIDs = new List<string>();
 
             foreach (BFNode node in nodes)
             {
@@ -144,18 +152,18 @@ namespace BulletForge.Utilities
 
                 if (node.Group != null)
                 {
-                    groupedNodeNames.AddItem(node.Group.title, node.NodeType.ToString());
+                    groupedNodeIDs.AddItem(node.Group.title, node.ID);
 
                     continue;
                 }
 
-                ungroupedNodeNames.Add(node.PatternType.ToString());
+                ungroupedNodeIDs.Add(node.ID);
             }
 
             UpdateNodeConnections();
 
-            UpdateOldGroupedNodes(groupedNodeNames, graphData);
-            UpdateOldUngroupedNodes(ungroupedNodeNames, graphData);
+            UpdateOldGroupedNodes(groupedNodeIDs, graphData);
+            UpdateOldUngroupedNodes(ungroupedNodeIDs, graphData);
         }
         
         /// <summary>
@@ -165,12 +173,12 @@ namespace BulletForge.Utilities
         /// <param name="graphData"></param>
         private void SaveNodeToGraph(BFNode node, BFGraphSaveDataSO graphData)
         {
-            List<BFNodeSaveData> nodes = BFIOUtility.CloneNodes(node.Data);
+            List<BFConnectionSaveData> nodeConnections = BFIOUtility.CloneNodes(node.Connections);
 
             BFNodeSaveData nodeData = new BFNodeSaveData()
             {
                 ID = node.ID,
-                Connections = node.Connections,
+                Connections = nodeConnections,
                 GroupID = node.Group?.ID,
                 NodeType = node.NodeType,
                 Position = node.GetPosition().position
@@ -202,10 +210,9 @@ namespace BulletForge.Utilities
             }
 
             pattern.Initialize(
-                node.NodeType.ToString(),
-                node.Text,
-                ConvertNodesToPattern(node.Pattern),
-                node.PatternType,
+                node.ID,
+                ConvertNodesToConnection(node.Connections),
+                node.NodeType,
                 node.IsStartingNode()
             );
 
@@ -215,15 +222,52 @@ namespace BulletForge.Utilities
         }
         
         /// <summary>
+        /// Saves the asset to the project
+        /// </summary>
+        public void SaveAsset(UnityEngine.Object asset)
+        {
+            EditorUtility.SetDirty(asset);
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        
+        /// <summary>
         /// 
         /// </summary>
-        /// <param name="currentGroupNames"></param>
+        /// <param name="nodes"></param>
+        /// <returns></returns>
+        private List<BFConnectionData> ConvertNodesToConnection(List<BFConnectionSaveData> nodes)
+        {
+            List<BFConnectionData> pattern = new List<BFConnectionData>();
+
+            foreach (BFConnectionSaveData node in nodes)
+            {
+                BFConnectionData Data = new BFConnectionData()
+                {
+                     NodeID = node.NodeID
+                };
+
+                pattern.Add(Data);
+            }
+
+            return pattern;
+        }
+        
+        #endregion
+
+        #region Update Methods
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentGroupIDs"></param>
         /// <param name="graphData"></param>
-        private void UpdateOldGroups(List<string> currentGroupNames, BFGraphSaveDataSO graphData)
+        private void UpdateOldGroups(List<string> currentGroupIDs, BFGraphSaveDataSO graphData)
         {
             if (graphData.OldGroupIDs != null && graphData.OldGroupIDs.Count != 0)
             {
-                List<string> groupsToRemove = graphData.OldGroupIDs.Except(currentGroupNames).ToList();
+                List<string> groupsToRemove = graphData.OldGroupIDs.Except(currentGroupIDs).ToList();
 
                 foreach (string groupToRemove in groupsToRemove)
                 {
@@ -231,31 +275,7 @@ namespace BulletForge.Utilities
                 }
             }
 
-            graphData.OldGroupNames = new List<string>(currentGroupNames);
-        }
-        
-        
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="nodes"></param>
-        /// <returns></returns>
-        private List<BFPatternData> ConvertNodesToPattern(List<BFPatternSaveData> nodes)
-        {
-            List<BFPatternData> pattern = new List<BFPatternData>();
-
-            foreach (BFPatternSaveData node in nodes)
-            {
-                BFPatternData Data = new BFPatternData()
-                {
-                    Text = node.Text
-                };
-
-                pattern.Add(Data);
-            }
-
-            return pattern;
+            graphData.OldGroupIDs = new List<string>(currentGroupIDs);
         }
         
         /// <summary>
@@ -267,16 +287,16 @@ namespace BulletForge.Utilities
             {
                 BFNodeSO pattern = createdNodes[node.ID];
 
-                for (int Index = 0; Index < node.Pattern.Count; ++Index)
+                for (int Index = 0; Index < node.Connections.Count; ++Index)
                 {
-                    BFNodeSaveData nodePattern = node.Pattern[Index];
+                    BFConnectionSaveData nodePattern = node.Connections[Index];
 
                     if (string.IsNullOrEmpty(nodePattern.NodeID))
                     {
                         continue;
                     }
 
-                    pattern.Pattern[Index].NextPattern = createdNodes[nodePattern.NodeID];
+                    pattern.Connections[Index].NextNode = createdNodes[nodePattern.NodeID];
 
                     SaveAsset(pattern);
                 }
@@ -331,6 +351,10 @@ namespace BulletForge.Utilities
             graphData.OldUngroupedNodeIDs = new List<string>(currentUngroupedNodeNames);
         }
         
+        #endregion
+        
+        #region Creation Methods
+
         /// <summary>
         /// Creates the file structure for the pattern
         /// </summary>
@@ -357,48 +381,46 @@ namespace BulletForge.Utilities
         /// <param name="newFolderName">The name of the new folder</param>
         public void CreateFolder(string parentFolderPath, string newFolderName)
         {
+            // If the folder already exists, don't create it
             if (AssetDatabase.IsValidFolder($"{parentFolderPath}/{newFolderName}"))
             {
                 return;
             }
-
+            
+            // Create the folder
             AssetDatabase.CreateFolder(parentFolderPath, newFolderName);
         }
         
         /// <summary>
-        /// 
+        /// Creates an Asset of the specified type
         /// </summary>
-        /// <param name="asset"></param>
-        public void SaveAsset(UnityEngine.Object asset)
+        /// <param name="path">The file path of where to save the graph</param>
+        /// <param name="assetName">The name of the file once saved</param>
+        /// <typeparam name="T">The type of the asset to create</typeparam>
+        public T CreateAsset<T>(string path, string assetName) where T : ScriptableObject
         {
-            EditorUtility.SetDirty(asset);
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="path"></param>
-        /// <param name="assetName"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public  T CreateAsset<T>(string path, string assetName) where T : ScriptableObject
-        {
+            // Create the full path to the asset
             string fullPath = $"{path}/{assetName}.asset";
-
+            
+            // Load the asset from the path
             T asset = BFIOUtility.LoadAsset<T>(path, assetName);
-
+            
+            // If the asset doesn't exists, create it
             if (asset == null)
             {
+                // Creates a new instance of the specified type
                 asset = ScriptableObject.CreateInstance<T>();
-
+                
+                // Creates a new native Unity asset
                 AssetDatabase.CreateAsset(asset, fullPath);
             }
 
             return asset;
         }
+        
+        #endregion
+
+        #region Removal Methods
         
         /// <summary>
         /// 
@@ -419,6 +441,10 @@ namespace BulletForge.Utilities
             FileUtil.DeleteFileOrDirectory($"{path}.meta");
             FileUtil.DeleteFileOrDirectory($"{path}/");
         }
+        
+        #endregion
+        
+        #region Fetch Methods
         
         /// <summary>
         /// Initializes the lists of nodes and groups
@@ -443,5 +469,6 @@ namespace BulletForge.Utilities
                 }
             });
         }
+        #endregion
     }
 }

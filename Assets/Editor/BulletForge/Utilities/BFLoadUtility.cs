@@ -88,12 +88,12 @@ namespace BulletForge.Utilities
         {
             foreach (BFNodeSaveData nodeData in nodes)
             {
-                List<BFNodeSaveData> nodeList = BFIOUtility.CloneNodes(nodes);
+                List<BFConnectionSaveData> connectionsList = BFIOUtility.CloneNodes(nodeData.Connections);
 
                 BFNode node = graphViewManipulators.CreateNode(nodeData.NodeType, nodeData.Position);
 
                 node.ID = nodeData.ID;
-                node.Data = nodeList;
+                node.Connections = connectionsList;
 
                 node.Draw();
 

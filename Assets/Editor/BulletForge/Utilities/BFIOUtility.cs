@@ -17,7 +17,7 @@ namespace BulletForge.Utilities
         
         public static void Initialize(BFGraphView bfGraphView, string graphName)
         {
-            saveUtility = new BFSaveUtility(bfGraphView, graphName, $"Assets/Runtime/BulletForge/Patterns/{graphName}");
+            saveUtility = new BFSaveUtility(bfGraphView, graphName);
             loadUtility = new BFLoadUtility(bfGraphView, graphName);
         }
         
@@ -38,16 +38,18 @@ namespace BulletForge.Utilities
         }
         
         /// <summary>
-        /// 
+        /// Loads an Asset of the specified type
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="assetName"></param>
-        /// <typeparam name="T"></typeparam>
+        /// <param name="path">The file path of where to save the graph</param>
+        /// <param name="assetName">The name of the file once saved</param>
+        /// <typeparam name="T">The type of asset being loaded</typeparam>
         /// <returns></returns>
         public static T LoadAsset<T>(string path, string assetName) where T : ScriptableObject
         {
+            // Create the full path to the asset
             string fullPath = $"{path}/{assetName}.asset";
-
+            
+            // Load the asset at the specified path
             return AssetDatabase.LoadAssetAtPath<T>(fullPath);
         }
         
@@ -56,18 +58,18 @@ namespace BulletForge.Utilities
         /// </summary>
         /// <param name="nodes"></param>
         /// <returns></returns>
-        public static List<BFNodeSaveData> CloneNodes(List<BFNodeSaveData> nodes)
+        public static List<BFConnectionSaveData> CloneNodes(List<BFConnectionSaveData> nodes)
         {
-            List<BFNodeSaveData> nodeList = new List<BFNodeSaveData>();
+            List<BFConnectionSaveData> nodeList = new List<BFConnectionSaveData>();
 
-            foreach (BFNodeSaveData node in nodeList)
+            foreach (BFConnectionSaveData node in nodeList)
             {
-                BFNodeSaveData patternData = new BFNodeSaveData()
+                BFConnectionSaveData nodeData = new BFConnectionSaveData()
                 {
-                    ID = node.ID
+                    NodeID = node.NodeID
                 };
 
-                nodes.Add(patternData);
+                nodeList.Add(nodeData);
             }
 
             return nodeList;
