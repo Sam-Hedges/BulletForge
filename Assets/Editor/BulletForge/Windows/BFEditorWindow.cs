@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -11,8 +12,9 @@ namespace BulletForge.Windows
     /// </summary>
     public class BFEditorWindow : EditorWindow
     {
-        
+        private static BFGraphView graphView;
         private static TextField fileNameTextField;
+        private static Button saveButton;
         
         [MenuItem("BulletForge/Pattern Graph")]
         public static void Open()
@@ -39,7 +41,7 @@ namespace BulletForge.Windows
         private void AddGraphView()
         {
             // Create a new GraphView
-            BFGraphView graphView = new BFGraphView(this);
+            graphView = new BFGraphView(this);
             graphView.StretchToParentSize(); // Make the GraphView fill the entire window
             rootVisualElement.Add(graphView);
         }
@@ -60,14 +62,64 @@ namespace BulletForge.Windows
         {
             Toolbar toolbar = new Toolbar();
             
-            TextField fileNameTextField = BFElementUtility.CreateTextField("BulletPatternFileName", "File Name:");
+            fileNameTextField = BFElementUtility.CreateTextField("BulletPatternFileName", "File Name:", callback =>
+            {
+                fileNameTextField.value = callback.newValue.RemoveWhitespaces().RemoveSpecialCharacters();
+            });
             
-            Button saveButton = BFElementUtility.CreateButton("Save");
+            saveButton = BFElementUtility.CreateButton("Save", () => Save());
+
+            Button loadButton = BFElementUtility.CreateButton("Load", () => Load());
+            Button clearButton = BFElementUtility.CreateButton("Clear", () => Clear());
+            Button resetButton = BFElementUtility.CreateButton("Reset", () => ResetGraph());
             
             toolbar.Add(fileNameTextField);
             toolbar.Add(saveButton);
+            toolbar.Add(loadButton);
+            toolbar.Add(clearButton);
+            toolbar.Add(resetButton);
             
             rootVisualElement.Add(toolbar);
+        }
+        
+        private void Save()
+        {
+            if (string.IsNullOrEmpty(fileNameTextField.value))
+            {
+                EditorUtility.DisplayDialog("Invalid file name.", "Please ensure the file name you've typed in is valid.", "Roger!");
+
+                return;
+            }
+
+            BFIOUtility.Initialize(graphView, fileNameTextField.value);
+            BFIOUtility.Save();
+        }
+
+        private void Load()
+        {
+            string filePath = EditorUtility.OpenFilePanel("Dialogue Graphs", "Assets/Editor/DialogueSystem/Graphs", "asset");
+
+            if (string.IsNullOrEmpty(filePath))
+            {
+                return;
+            }
+
+            Clear();
+
+            BFIOUtility.Initialize(graphView, Path.GetFileNameWithoutExtension(filePath));
+            BFIOUtility.Load();
+        }
+
+        private void Clear()
+        {
+            //graphView.ClearGraph();
+        }
+
+        private void ResetGraph()
+        {
+            Clear();
+
+            UpdateFileName("BulletPatternFileName");
         }
         
         /// <summary>

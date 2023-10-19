@@ -358,7 +358,7 @@ namespace BulletForge.Utilities
         /// <summary>
         /// Creates the file structure for the pattern
         /// </summary>
-        private void CreateDefaultFolders()
+        private void CreateDefaultFolders() 
         {
             CreateFolder("Assets", "Editor");
             CreateFolder("Assets/Editor", "BulletForge");

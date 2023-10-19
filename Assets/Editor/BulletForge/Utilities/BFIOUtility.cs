@@ -24,7 +24,7 @@ namespace BulletForge.Utilities
         /// <summary>
         /// 
         /// </summary>
-        private static void Save()
+        public static void Save()
         {
             saveUtility.Save();
         }
@@ -32,7 +32,7 @@ namespace BulletForge.Utilities
         /// <summary>
         /// 
         /// </summary>
-        private static void Load()
+        public static void Load()
         {
             loadUtility.Load();
         }
